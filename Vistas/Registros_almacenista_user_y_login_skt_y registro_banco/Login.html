@@ -12,12 +12,99 @@
         body{
             background-color: #FFF;
         }
+        .navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
+
+
+.logo-navbar {
+    float: left;
+    width: 150px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #343434;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #220901;
+    cursor: pointer;
+}
+
+.dropdown {
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-button{
+    background-color: #220901;
+}
+
+.dropdown-button {
+    background-color: #343434;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+}
+
+.dropdown-content a {
+    background-color: #333;
+    width: 220px;
+}
+
+.dropdown-icon {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-name {
+    float: right;
+    padding: 10px;
+    overflow: hidden;
+    width: 150px;
+    height: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(78, 78, 78);  
+    cursor: pointer;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
         .panel-style{
             padding-top: 60px;
         }
+
         .panel-title{
           text-align: center;
         }
+
         .btn-boton-crear,
         .btn-boton-crear:hover,
         .btn-boton-crear:active{
@@ -55,21 +142,60 @@
           padding-right: 10px;
             height: 20px;
         }
+
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #343434;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #220901;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
-  <div class="Inicio">
-    <div class="Carrito" class="container" class="col-sm-6">
-      <Carrito>
-  <a  href="#"><img class="Carrito" src="carrito.png"></a>
-  </Carrito>
-  <a  href="#" style="color:black">Iniciar sesion</a>
-</div>
-    </div>
-    <div class="imagen" class="container" class="col-sm-6">
-    <imagen>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img class="imagen" src="logo.png">
-  </imagen>
+  <div class="navbar">
+    <nav>
+            <img src="ref/icons/logo.png" alt="Logo" class="logo-navbar">
+
+        <ul>
+            <li>
+                <div class="dropdown">
+                    <button class="dropdown-button">
+                        <a href="">
+                            <img src="ref/icons/baseline_account_circle_white_18dp.png" class="dropdown-icon">
+                            <h3 class="dropdown-name">Ricardo Enrique </h3>
+                        </a>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Cuenta</a>
+                        <a href="#">Cerrar Sesion</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a>
+                    <img src="ref/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                </a>
+            </li>
+        </ul>
+    </nav>
   </div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
