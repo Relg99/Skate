@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
-    <title>Registro</title>
-    <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
+  <title>Canjear código</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="..//barnav/barnav-banco.css">
+    <link href="../Navbar/ref/Lato-font/Lato.css" rel="stylesheet">
 
   <!-- Bootstrap 3 -->
-    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
     <style>
         body{
             background-color: #FFF;
@@ -24,7 +24,7 @@
         .btn-boton-crear,
         .btn-boton-crear:hover,
         .btn-boton-crear:active{
-          background-color:#494949;
+          background-color:#3883C2;
           color: white;
           border-radius: 10%
         }
@@ -32,25 +32,31 @@
           text-align: right;
         }
         .panel-heading{
-            background:  #494949;
+            background:  #3883C2;
             color: white;
         }
         .panel-body{
           text-align: left;
-          border: #494949 3px solid ;
+          border: #3883C2 3px solid ;
         }
-
+        .imagen{
+          text-align: left;
+          height: 100px;
+        }
+        .Creacion{
+          text-align: right;
+          font-size: 15px;
+          padding-top:  10px;
+        }
         .form-group{
           color: black;
         }
-
     </style>
 </head>
 <body>
 
-<div class="barnav"><nav>
-    <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-    </a>
+<div class="barnav-banco"><nav>
+    <img src="../Assets/img/logoBanco.png" alt="Logo" class="logo-barnav-banco">
     <ul>
         <li>
             <div class="drop-not-up">
@@ -66,60 +72,40 @@
                 </div>
             </div>
         </li>
-        <li class="opcion-carrito">
-            <a>
-                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-            </a>
-        </li>
+
     </ul>
 </nav>
-</div>
-
 </div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
                   <div class="panel-heading">
                         <h3 class="panel-title">
                             <strong>
-                                Registro
+                                Ingresar a CetiBank
                             </strong>
                         </h3>
                   </div>
                   <div class="panel-body">
                         <form action="#" method="post">
                             <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" name="nombre" id="nombre" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="apellido">Apellido</label>
-                                    <input type="text" name="apellido" id="apellido" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="correo">Correo</label>
-                                    <input type="email" name="correo" id="correo" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contraseña">Contraseña</label>
-                                    <input type="password" name="contraseña" id="contraseña" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="confirmar">Confirmar contraseña</label>
-                                    <input type="password" name="confirmar" id="confirmar" class="form-control" required="required">
+                                    <label for="CodigoT" center="true">Ingresar codigo</label>
+									<br>
+                                <input type="text" name="Codigo" id="Codigo" class="form-control" required="required" center="true">
                                 </div>
                                 <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
-                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Crear cuenta</button>
+                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Canjear</button>
                                 </div>
                                   </div>
                                   </div>
+            
                         </form>
                   </div>
             </div>
 
         </div>
-
+    </div>
     <script src="assets/jquery/jquery-3.3.1.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.js"></script>
 </body>
