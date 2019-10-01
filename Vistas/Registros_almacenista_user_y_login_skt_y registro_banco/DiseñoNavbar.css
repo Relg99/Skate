@@ -1,0 +1,19 @@
+.logo-navbar{
+    width: 150px;
+}
+
+li a {
+    display: block;
+    background-color: black;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.dropdown-toggle{
+    background-color: black;
+}
+
+.container-fluid{
+    background-color: black;
+}
