@@ -309,11 +309,19 @@ li a:hover {
 	height:auto;
 }
 
-.container,.container-footer {
+.container {
     position:relative;
     width: 1200px;
     margin-left:-600px;
     left:50%;
+}
+
+.container-footer{
+	position:relative;
+    width: 1200px;
+    margin-left:-600px;
+	left:50%;
+	text-align: center;
 }
 
 /*----------------------------*/
@@ -616,20 +624,19 @@ li a:hover {
 
 }
 
-#row-1f,#row-2f,#row-3f,#row-4f{
+#row-1f,#row-2f,#row-3f{
 	float:left;
-	width:calc(100% / 4);
+	width:calc 100%;
 	height:auto;
 }
 
 .text-row-1f,.text-row-2f,.text-row-3f,.text-row-4f{
 	float:left;
-	text-align:left;
+	text-align:center;
 	height:140%;
 	line-height:140%;
 	margin-left:20px;
 	width:80%;
-	text-align:left;
 	font-family: Helvetica, sans-serif;
     font-size: 14px;
 	font-weight:400;
@@ -722,6 +729,7 @@ li a:hover {
 	width:100%;
 	height:70px;
 	background-color:#2E2D30;
+	text-align: center;
 }
 
 .copyright{
@@ -731,11 +739,12 @@ li a:hover {
 	margin-left:-600px;
 	height:100%;
 	top:0;
+	text-align: center;
 }
 
 .copy-text{
-	float:left;
-	text-align:left;
+	float:center;
+	text-align:center;
 	font-family: Helvetica, sans-serif;
     font-size: 15px;
 	height:70px;
