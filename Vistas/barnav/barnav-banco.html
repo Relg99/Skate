@@ -1,35 +1,83 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="barnav-banco.css">
-    <link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../Assets/img/logoBanco.png">
+    <title>Registro Banco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index-banco.css" rel="stylesheet">
 
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
+
+    <style>
+        body{
+            background-color: #FFF;
+        }
+
+        .panel-style{
+            padding-top: 60px;
+        }
+        .panel-title{
+            text-align: center;
+        }
+        .btn-boton-crear,
+        .btn-boton-crear:hover,
+        .btn-boton-crear:active{
+            background-color:#3883C2;
+            color: white;
+            border-radius: 10%
+        }
+        .boton{
+            text-align: right;
+        }
+        .panel-heading{
+            background:  #3883C2;
+            color: white;
+        }
+        .panel-body{
+            text-align: left;
+            border: #3883C2 3px solid ;
+        }
+
+        .form-group{
+            color: black;
+        }
+    </style>
 </head>
-
 <body>
-<div class="barnav-banco"><nav>
-    <img src="../Assets/img/logoBanco.png" alt="Logo" class="logo-barnav-banco">
-    <ul>
-        <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
-                    <a href="">
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-                    </a>
-                </button>
-                <div class="drop-not-up-content">
-                    <a href="#">Cuenta</a>
-                    <a href="#">Cerrar Sesion</a>
-                </div>
-            </div>
-        </li>
+<header id="header">
+    <div class="container">
 
-    </ul>
-</nav>
+        <div id="logo" class="pull-left">
+            <h1><a href="#" class="scrollto">Ceti<span>pay</span></a></h1>
+
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="">I</a></li>
+                <li><a href="index-banco.html">Inicio</a></li>
+                <li><a href="">Depositar</a></li>
+                <li class="menu-has-children">
+                    <img src="" class="dropdown-icon">
+                    <a href="">Pablo León</a>
+                    <ul>
+                        <li><a href="">Cuenta</a></li>
+                        <li><a href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+<div class="container">
+
+
 </div>
-
+</div>
+<script src="../Assets/js/jquery-3.3.1.min.js"></script>
+<script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
 </body>
-
 </html>
