@@ -1,0 +1,126 @@
+<!-- Developer name: Jairon Landa (jaironlanda.com) -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="../Navbar/navbar.css">
+    <link href="ref/Lato-font/Lato.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/bootstrap/css/bootstrap.css" />
+    <style>
+        body{
+            background-color: #FFF;
+        }
+        .panel-style{
+            padding-top: 60px;
+        }
+        .panel-title{
+          text-align: center;
+        }
+        .btn-boton-crear,
+        .btn-boton-crear:hover,
+        .btn-boton-crear:active{
+          background-color:#494949;
+          color: white;
+          border-radius: 10%
+        }
+        .boton{
+          text-align: right;
+        }
+        .panel-heading{
+            background:  #494949;
+            color: white;
+        }
+        .panel-body{
+          text-align: left;
+          border: #494949 3px solid ;
+        }
+        .Creacion{
+          text-align: right;
+          font-size: 15px;
+          padding-top:  10px;
+        }
+        .Inicio{
+          text-align: right;
+          font-size: 15px;
+          padding-top:  10px;
+          padding-right: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <nav>
+                <img src="../Navbar/ref/icons/logo.png" alt="Logo" class="logo-navbar">
+
+            <ul>
+                <li>
+                    <div class="dropdown">
+                        <button class="dropdown-button">
+                            <a href="">
+                                <img src="../Navbar/ref/icons/baseline_account_circle_white_18dp.png" class="dropdown-icon">
+                                <h3 class="dropdown-name">Christian</h3>
+                            </a>
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="#">Cuenta</a>
+                            <a href="#">Cerrar Sesion</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a>
+                        <img src="../Navbar/ref/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+  <div class="Inicio">
+    </div>
+  </div>
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2 panel-style">
+                  <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>
+                                Inicio
+                            </strong>
+                        </h3>
+                  </div>
+                  <div class="panel-body">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                    <label for="nombre">Usuario</label>
+                                <input type="text" name="nombre" id="nombre" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="contraseña">Contraseña</label>
+                                    <input type="password" name="contraseña" id="contraseña" class="form-control" required="required">
+                                </div>
+                                <div class="form-group">
+                                  <div class="boton-crear">
+                                    <div class="boton">
+                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Ingresar</button>
+                                </div>
+                                  </div>
+                                  </div>
+                                  <div class="Creacion">
+                                    <a  href="#" style="color:black">Crear cuenta</a>
+                                </div>
+                        </form>
+                  </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="assets/jquery/jquery-3.3.1.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>
