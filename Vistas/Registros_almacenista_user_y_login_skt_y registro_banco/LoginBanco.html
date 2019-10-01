@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RegistroCetiBank</title>
+    <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/bootstrap/css/bootstrap.css" />
@@ -14,7 +14,7 @@
         }
         .navbar {
     overflow: hidden;
-    background-color:#3883C2;
+    background-color: #3883C2;
   }
 
 
@@ -59,7 +59,7 @@ li a:hover {
 }
 
 .dropdown-button {
-    background-color:#3883C2;
+    background-color: #3883C2;
     border: none;
     padding: 0;
     margin: 0;
@@ -93,7 +93,7 @@ li a:hover {
 }
 
 .dropdown-content a:hover {
-    background-color: #3883C2; 
+    background-color: #3883C2;  
     cursor: pointer;}
 
 .dropdown:hover .dropdown-content {
@@ -102,9 +102,11 @@ li a:hover {
         .panel-style{
             padding-top: 60px;
         }
+
         .panel-title{
           text-align: center;
         }
+
         .btn-boton-crear,
         .btn-boton-crear:hover,
         .btn-boton-crear:active{
@@ -116,7 +118,7 @@ li a:hover {
           text-align: right;
         }
         .panel-heading{
-            background:  #3883C2;
+            background:  #3883C2
             color: white;
         }
         .panel-body{
@@ -124,79 +126,103 @@ li a:hover {
           border: #3883C2 3px solid ;
         }
         .imagen{
-          text-align: center;
-          padding-top: 10px;
-          padding-right: 16px;
+          text-align: left;
           height: 100px;
         }
+        .Creacion{
+          text-align: right;
+          font-size: 15px;
+          padding-top:  10px;
+        }
+        .Inicio{
+          text-align: right;
+          font-size: 15px;
+          padding-top:  10px;
+          padding-right: 30px;
+        }
+        .Carrito{
+          padding-right: 10px;
+            height: 20px;
+        }
+
+        ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #3883C2;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #220901;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <nav>
-                <img src="logoBanco.png" alt="Logo" class="logo-navbar">
+  <div class="navbar">
+    <nav>
+            <img src="logoBanco.png" alt="Logo" class="logo-navbar">
 
-            <ul>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropdown-button">
-                            <a href="">
-                                <img src="ref/icons/baseline_account_circle_white_18dp.png" class="dropdown-icon">
-                                <h3 class="dropdown-name">Ricardo Enrique </h3>
-                            </a>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Cuenta</a>
-                            <a href="#">Cerrar Sesion</a>
-                        </div>
+        <ul>
+            <li>
+                <div class="dropdown">
+                    <button class="dropdown-button">
+                        <a href="">
+                            <img src="ref/icons/baseline_account_circle_white_18dp.png" class="dropdown-icon">
+                            <h3 class="dropdown-name">Ricardo Enrique </h3>
+                        </a>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">Cuenta</a>
+                        <a href="#">Cerrar Sesion</a>
                     </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="ref/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+                </div>
+            </li>           
+        </ul>
+    </nav>
+  </div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
                   <div class="panel-heading">
                         <h3 class="panel-title">
                             <strong>
-                                Registro CetiBank
+                                <h1>Inicio</h1>
                             </strong>
                         </h3>
                   </div>
                   <div class="panel-body">
                         <form action="#" method="post">
                             <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" name="nombre" id="nombre" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="apellido">Apellido</label>
-                                    <input type="text" name="apellido" id="apellido" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="correo">Correo</label>
-                                    <input type="email" name="correo" id="correo" class="form-control" required="required">
+                                    <label for="nombre">Usuario</label>
+                                <input type="text" name="nombre" id="nombre" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="contraseña">Contraseña</label>
                                     <input type="password" name="contraseña" id="contraseña" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="confirmar">Confirmar contraseña</label>
-                                    <input type="password" name="confirmar" id="confirmar" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
-                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Registrar</button>
+                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Ingresar</button>
                                 </div>
                                   </div>
                                   </div>
+                                  <div class="Creacion">
+                                    <a  href="#" style="color:black">Crear cuenta</a>
+                                </div>
                         </form>
                   </div>
             </div>
