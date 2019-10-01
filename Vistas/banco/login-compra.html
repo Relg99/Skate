@@ -5,8 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Ingresar a CetiBank</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
 
-    <link href="index-banco.css" rel="stylesheet">
 
   <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
@@ -41,10 +41,7 @@
           text-align: left;
           border: #3883C2 3px solid ;
         }
-        .imagen{
-          text-align: left;
-          height: 100px;
-        }
+
         .Creacion{
           text-align: right;
           font-size: 15px;
@@ -57,32 +54,34 @@
     </style>
 </head>
 <body>
-<header id="header">
-    <div class="container">
 
-        <div id="logo" class="pull-left">
-            <h1><a href="#body" class="scrollto">Ceti<span>pay</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-        </div>
+<div class="barnav"><nav>
+    <a href="../skaters/index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+    </a>
+    <ul>
+        <li>
+            <div class="drop-not-up">
+                <button class="drop-not-up-button">
+                    <a>
+                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
+                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
+                    </a>
+                </button>
+                <div class="drop-not-up-content">
+                    <a href="../skaters/cuenta.html">Cuenta</a>
+                    <a href="login.html">Cerrar Sesion</a>
+                </div>
+            </div>
+        </li>
+        <li class="opcion-carrito">
+            <a href="../skaters/carrito.html">
+                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+            </a>
+        </li>
+    </ul>
+</nav>
+</div>
 
-        <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li class="menu-active"><a href="">I</a></li>
-                <li><a href="index-banco.html">Inicio</a></li>
-                <li><a href="">Depositar</a></li>
-                <li class="menu-has-children">
-                    <img src="" class="dropdown-icon">
-                    <a href="">Pablo León</a>
-                    <ul>
-                        <li><a href="">Cuenta</a></li>
-                        <li><a href="#">Cerrar Sesión</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav><!-- #nav-menu-container -->
-    </div>
-</header><!-- #header -->
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
                   <div class="panel-heading">
