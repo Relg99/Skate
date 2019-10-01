@@ -13,63 +13,90 @@
             background-color: #FFF;
         }
         .navbar {
-          overflow: hidden;
-          background-color: #333;
-        }
+    overflow: hidden;
+    background-color: #333;
+  }
 
-        .dropdown {
-          overflow: hidden;
-        }
 
-        .dropdown:hover .dropdown-button{
-          background-color: #220901;
-        }
+.logo-navbar {
+    float: left;
+    width: 150px;
+}
 
-        .dropdown-button {
-          background-color: #343434;
-          border: none;
-          padding: 0;
-          margin: 0;
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #343434;
+    overflow: hidden;
+}
 
-        }
-        .logo-navbar {
-          float: left;
-          width: 150px;
-        }
-        .dropdown-icon {
-          display: inline-block;
-          padding: 0;
-          margin: 0;
-        }
+li {
+    float: right;
+}
 
-      .dropdown-name {
-          float: right;
-          padding: 10px;
-          overflow: hidden;
-          width: 150px;
-          height: 10px;
-          margin: 0;
-          font-size: 16px;
-        }
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
 
-        .dropdown-content {
-          display: none;
-          position: absolute; 
-        }
-        
-        .dropdown-content a {
-          background-color: #333;
-          width: 220px;
-        }
+li a:hover {
+    background-color: #220901;
+    cursor: pointer;
+}
 
-        .dropdown-content a:hover {
-          background-color: rgb(78, 78, 78);  
-          cursor: pointer;}
+.dropdown {
+    overflow: hidden;
+}
 
-        .dropdown:hover .dropdown-content {
-          display: block;
-        }
+.dropdown:hover .dropdown-button{
+    background-color: #220901;
+}
 
+.dropdown-button {
+    background-color: #343434;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+}
+
+.dropdown-content a {
+    background-color: #333;
+    width: 220px;
+}
+
+.dropdown-icon {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-name {
+    float: right;
+    padding: 10px;
+    overflow: hidden;
+    width: 150px;
+    height: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(78, 78, 78);  
+    cursor: pointer;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
         .panel-style{
             padding-top: 60px;
         }
@@ -77,7 +104,7 @@
         .panel-title{
           text-align: center;
         }
-        
+
         .btn-boton-crear,
         .btn-boton-crear:hover,
         .btn-boton-crear:active{
