@@ -2,103 +2,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>RegistroCetiBank</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap 3 -->
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/bootstrap/css/bootstrap.css" />
-    <style>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="logoBanco.png">
+  <title>Registro Banco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="navbarBanco.css">
+  <link href="../Navbar/ref/Lato-font/Lato.css" rel="stylesheet">
+  <!-- Bootstrap 3 -->
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/bootstrap/css/bootstrap.css" />
+  <style>
         body{
             background-color: #FFF;
         }
-        .navbar {
-    overflow: hidden;
-    background-color:#3883C2;
-  }
 
-
-.logo-navbar {
-    float: left;
-    width: 75px;
-    height: 60px;
-    margin: 10px;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    background-color: #3883C2;
-    overflow: hidden;
-}
-
-li {
-    float: right;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 15px 20px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: #220901;
-    cursor: pointer;
-}
-
-.dropdown {
-    overflow: hidden;
-}
-
-.dropdown:hover .dropdown-button{
-    background-color: #220901;
-}
-
-.dropdown-button {
-    background-color:#3883C2;
-    border: none;
-    padding: 0;
-    margin: 0;
-
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute; 
-}
-
-.dropdown-content a {
-    background-color: #3883C2;
-    width: 220px;
-}
-
-.dropdown-icon {
-    display: inline-block;
-    padding: 0;
-    margin: 0;
-}
-
-.dropdown-name {
-    float: right;
-    padding: 10px;
-    overflow: hidden;
-    width: 150px;
-    height: 10px;
-    margin: 0;
-    font-size: 16px;
-}
-
-.dropdown-content a:hover {
-    background-color: #3883C2; 
-    cursor: pointer;}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
         .panel-style{
             padding-top: 60px;
         }
@@ -129,36 +46,30 @@ li a:hover {
           padding-right: 16px;
           height: 100px;
         }
+        .logo-navbar{
+            height: 100px;
+            width: 125px;
+        }
+        .form-group{
+          color: black;
+        }
     </style>
 </head>
 <body>
-    <div class="navbar">
-        <nav>
-                <img src="logoBanco.png" alt="Logo" class="logo-navbar">
-
-            <ul>
-                <li>
-                    <div class="dropdown">
-                        <button class="dropdown-button">
-                            <a href="">
-                                <img src="ref/icons/baseline_account_circle_white_18dp.png" class="dropdown-icon">
-                                <h3 class="dropdown-name">Ricardo Enrique </h3>
-                            </a>
-                        </button>
-                        <div class="dropdown-content">
-                            <a href="#">Cuenta</a>
-                            <a href="#">Cerrar Sesion</a>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a>
-                        <img src="ref/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <img src="logoBanco.png" alt="Logo" class="logo-navbar">
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <img src="../Pagina principal skaters/ref/icons/baseline_account_circle_white_18dp.png" class="dropdown-icon"/>
+               Iniciar sesion</a>
+        </li>
+      </ul>
     </div>
+  </nav>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
                   <div class="panel-heading">
