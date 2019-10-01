@@ -3,17 +3,14 @@
 }
 
 li a {
+    background: #494949;
     display: block;
-    background-color: black;
     font-size: 20px;
     text-align: center;
     text-decoration: none;
 }
 
-.dropdown-toggle{
-    background-color: black;
-}
 
 .container-fluid{
-    background-color: black;
+    background-color: #494949;;
 }
