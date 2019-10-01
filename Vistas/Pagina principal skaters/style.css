@@ -75,7 +75,91 @@ body,html{
 	padding:0;margin:0;
 	background-color:#F4F4F4;
 }
+.navbar {
+    overflow: hidden;
+    background-color: #333;
+  }
 
+
+.logo-navbar {
+    float: left;
+    width: 150px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #343434;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #220901;
+    cursor: pointer;
+}
+
+.dropdown {
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-button{
+    background-color: #220901;
+}
+
+.dropdown-button {
+    background-color: #343434;
+    border: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute; 
+}
+
+.dropdown-content a {
+    background-color: #333;
+    width: 220px;
+}
+
+.dropdown-icon {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-name {
+    float: right;
+    padding: 10px;
+    overflow: hidden;
+    width: 150px;
+    height: 10px;
+    margin: 0;
+    font-size: 16px;
+}
+
+.dropdown-content a:hover {
+    background-color: rgb(78, 78, 78);  
+    cursor: pointer;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 .cache{
 	width:100%;
 	height:100%;
@@ -719,7 +803,7 @@ body,html{
 }
 }
 
-/* Small viewports — Old monitors, netbooks, tablets (landscape), etc. */
+/* Small viewports ï¿½ Old monitors, netbooks, tablets (landscape), etc. */
  
 @media only screen and (max-width: 965px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -757,7 +841,7 @@ body,html{
 }
 }
 
-/* Smaller viewports — more tablets, old monitors */
+/* Smaller viewports ï¿½ more tablets, old monitors */
  
 @media only screen and (max-width: 860px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
@@ -769,7 +853,7 @@ body,html{
 }
 }
 
-/* Even smaller viewports — more tablets, etc. */
+/* Even smaller viewports ï¿½ more tablets, etc. */
  
 @media only screen and (max-width: 740px) {
 #main-header,.navbar,.container,.container-footer,.thank,.oldnew,.copyright {
