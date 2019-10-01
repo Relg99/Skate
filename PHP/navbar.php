@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Navbar</title>
+    <title>Datos de la cuenta.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="navbar.css">
     <link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
