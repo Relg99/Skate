@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
-    <title>Registro</title>
+    <title>Skaters - Registro</title>
     <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -47,14 +47,13 @@
     </style>
 </head>
 <body>
-
 <div class="barnav"><nav>
-    <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+    <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" title="Home" class="logo-barnav">
     </a>
     <ul>
         <li>
             <div class="drop-not-up">
-                <button class="drop-not-up-button">
+                <button class="drop-not-up-button" title="Inicia sesión">
                     <a href="login.html">
                         <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
                         <h3 class="drop-not-up-name">Iniciar sesion</h3>
@@ -63,8 +62,8 @@
             </div>
         </li>
         <li class="opcion-carrito">
-            <a href="login.html">
-                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+            <a href="articulos.html">
+                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" title = "Carrito"class="shopping-icon">
             </a>
         </li>
     </ul>
@@ -82,7 +81,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form action="#" method="post">
+                        <form action="http://localhost/sketis/Skate/PHP/A%C3%B1adirUsuario/anadirUsuario.php" method="POST">
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required="required">
