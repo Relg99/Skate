@@ -30,6 +30,14 @@
         .boton{
           text-align: right;
         }
+        .botonCancelar{
+          text-align: left;
+          background-color:#494949;
+          color: white;
+          border-radius: 10%;
+          margin-right: 20px; 
+          
+        }
         .panel-heading{
             background:  #494949;
             color: white;
@@ -57,7 +65,7 @@
 <body>
 
 <div class="barnav"><nav>
-    <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+    <a href="articulos.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
     </a>
     <ul>
         <li>
@@ -69,9 +77,9 @@
                     </a>
                 </button>
                 <div class="drop-not-up-content">
-                    <a href="#">Cuenta</a>
-                    <a href="#">Articulos</a>
-                    <a href="#">Cerrar Sesion</a>
+                    <a href="cuentaAlmacenista.html">Cuenta</a>
+                    <a href="articulos.html">Articulos</a>
+                    <a href="login.html">Cerrar Sesion</a>
                 </div>
             </div>
         </li>
@@ -141,8 +149,9 @@
                                 <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
+                                    <button href="articulos.html" class="botonCancelar">Cancelar</button>
                                     <button type="submit" class="boton-crear btn-sm btn-boton-crear">Agregar</button>
-                                </div>
+                                </div>                                                                 
                                   </div>
                                   </div>
                         </form>
