@@ -13,31 +13,33 @@
 
 <body>
 
-<div class="barnav"><nav>
+<div class="barnav">
+  <nav>
     <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
     </a>
     <ul>
-        <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
-                    <a href="">
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-                    </a>
-                </button>
-                <div class="drop-not-up-content">
-                    <a href="#">Cuenta</a>
-                    <a href="#">Cerrar Sesion</a>
-                </div>
-            </div>
-        </li>
-        <li class="opcion-carrito">
+      <li>
+        <div class="drop-not-up">
+          <button class="drop-not-up-button">
             <a>
-                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+              <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
+              <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
+
             </a>
-        </li>
+          </button>
+          <div id="menu" class="drop-not-up-content">
+            <a href="cuenta.html">Cuenta</a>
+            <a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
+          </div>
+        </div>
+      </li>
+      <li class="opcion-carrito">
+        <a href="carrito.html">
+          <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+        </a>
+      </li>
     </ul>
-</nav>
+  </nav>
 </div>
 
 <div class="header">
@@ -65,6 +67,8 @@
 -->
 </div>
 <script type="text/javascript">
+
+
     var objeto;
 const xhr = new XMLHttpRequest();
 xhr.onload = function () {
@@ -87,8 +91,6 @@ xhr.onload = function () {
 `;
         }
 };
-
-
     var fd = new FormData();
     fd.append("tipo", "3");
     xhr.open("POST","http://localhost/sketis/articulos.php",true);
@@ -96,6 +98,39 @@ xhr.onload = function () {
 
 
 
+
+    var respuesta;
+    const xhr2 = new XMLHttpRequest();
+    xhr2.onload = function () {
+        respuesta=JSON.parse(this.responseText);
+        if(respuesta.success===true){
+            document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
+        }else{
+            document.getElementById("menu").innerHTML = ``;
+
+        }
+    };
+    xhr2.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+    xhr2.withCredentials = true;
+    xhr2.send();
+    function login(){
+        window.location.href = 'login.html';
+
+    }
+    function cerrar_sesion(){
+        var respuesta;
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            respuesta=JSON.parse(this.responseText);
+            if(respuesta.success===true){
+                window.location.href = 'login.html';
+            }
+        };
+
+        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
+        xhr.withCredentials = true;
+        xhr.send();
+    }
 </script>
 </body>
 

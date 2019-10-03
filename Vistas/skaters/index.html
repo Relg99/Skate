@@ -24,7 +24,8 @@
 
 <!-- Cabeza, botones -->
 
-<div class="barnav"><nav>
+<div class="barnav">
+	<nav>
 	<a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
 	</a>
 	<ul>
@@ -33,12 +34,13 @@
 				<button class="drop-not-up-button">
 					<a>
 						<img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-						<h3 class="drop-not-up-name">Ricardo Enrique </h3>
-					</a>
+            <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
+
+          </a>
 				</button>
-				<div class="drop-not-up-content">
+				<div id="menu" class="drop-not-up-content">
 					<a href="cuenta.html">Cuenta</a>
-					<a href="login.html">Cerrar Sesion</a>
+					<a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
 				</div>
 			</div>
 		</li>
@@ -157,6 +159,40 @@
 <script type="text/javascript" src="../Assets/js/main.min.js"></script>
 
 <script>
+
+    var respuesta;
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        respuesta=JSON.parse(this.responseText);
+        if(respuesta.success===true){
+            document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
+        }else{
+            document.getElementById("menu").innerHTML = ``;
+
+        }
+    };
+    xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+    xhr.withCredentials = true;
+    xhr.send();
+
+    function login(){
+        window.location.href = 'login.html';
+
+    }
+    function cerrar_sesion(){
+        var respuesta;
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            respuesta=JSON.parse(this.responseText);
+            if(respuesta.success===true){
+                window.location.href = 'login.html';
+            }
+        };
+
+        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
+        xhr.withCredentials = true;
+        xhr.send();
+    }
 /* Imagenes de precarga */
 function preloader() {
 	if (document.images) {

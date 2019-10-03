@@ -8,11 +8,11 @@
 
 		.contenerdor{
 			width:100%;
-			
+
 		}
 
 		.row_fake{
-			margin-top:50px; 
+			margin-top:50px;
 			margin-right: 25%;
 			margin-left: 25%;
 		}
@@ -39,7 +39,7 @@
     		border-radius: 4px;
 		}
 
-		
+
 
 		.margen-boton-de-compra{
 			margin-top: 20px;
@@ -56,42 +56,45 @@
 
 
 		}
-		
+
 		</style>
 		<head>
 			<title>Carrito</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 				<link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
-			
+
 			</head>
-			
+
 			<body>
-				<div class="barnav"><nav>
-							<img href="index.html" src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-						<ul>
-							<li>
-								<div class="drop-not-up">
-									<button class="drop-not-up-button">
-										<a href="">
-											<img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-											<h3 class="drop-not-up-name">Ricardo Enrique </h3>
-										</a>
-									</button>
-									<div class="drop-not-up-content">
-										<a href="cuenta.html">Cuenta</a>
-										<a href="login.html">Cerrar Sesion</a>
-									</div>
-								</div>
-							</li>
-							<li class="opcion-carrito">
-								<a href="carrito.html">
-									<img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-								</a>
-							</li>
-						</ul>
-					</nav>
-				</div>
-			
+      <div class="barnav">
+        <nav>
+          <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+          </a>
+          <ul>
+            <li>
+              <div class="drop-not-up">
+                <button class="drop-not-up-button">
+                  <a>
+                    <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
+                    <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
+
+                  </a>
+                </button>
+                <div id="menu" class="drop-not-up-content">
+                  <a href="cuenta.html">Cuenta</a>
+                  <a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
+                </div>
+              </div>
+            </li>
+            <li class="opcion-carrito">
+              <a href="carrito.html">
+                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
 	<div class="row_fake">
 		<div class="contenerdor">
 			<div class="panel panel-info">
@@ -103,7 +106,7 @@
 							</div>
 							<div class="col-xs-6">
 								<button type="button" class="mi-boton-comprar">
-									<span class="glyphicon glyphicon-share-alt"></span> 
+									<span class="glyphicon glyphicon-share-alt"></span>
 									<a href="index.html" style="color:rgb(255, 255, 255)">Continue Comprando</a>
 								</button>
 							</div>
@@ -173,7 +176,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 					<div class="margen-boton-de-compra">
 
 							<button type="button" class="mi-boton-comprar">
@@ -181,10 +184,30 @@
 									<a href="../banco/login-compra.html" style="color: white"> Comprar</a>
 								</button>
 					</div>
-				
+
 			</div>
 		</div>
 	</div>
 </div>
+      <script>
+          var respuesta;
+          const xhr2 = new XMLHttpRequest();
+          xhr2.onload = function () {
+              respuesta=JSON.parse(this.responseText);
+              if(respuesta.success===true){
+                  document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
+              }else{
+                  document.getElementById("menu").innerHTML = ``;
+
+              }
+          };
+          xhr2.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+          xhr2.withCredentials = true;
+          xhr2.send();
+          function login(){
+              window.location.href = 'login.html';
+
+          }
+      </script>
 </body>
 </html>
