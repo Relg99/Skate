@@ -47,69 +47,53 @@
     <span class="item-nav" ><a href="tablas.html">Tablas</a></span> / <span class="item-nav" id="nav-tablas"><a href="trucks.html">Trucks</a></span> / <span class="item-nav" ><a href="llantas.html">Llantas</a></span>
 </div>
 
-<div class="articulos">
+<div class="articulos" id="insertar-articulos">
+
+    <!--
+        <div class="articulo">
+            <img class="articulo-img" src="../Assets/test.jpg" alt="Bonita patineta">
+            <div class="articulo-texto">
+                SEAL 8.25 COMPLETE SINGLE COLQUICK VIEW
+            </div>
+            <span >$700</span>
+            <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
+            </div>
+        </div>
 
 
-    <div class="articulo">
-        <img class="articulo-img" src="../Assets/truck.jpg" alt="Bonita patineta">
-        <div class="articulo-texto">
-            Trucks Independent Stage 11 Hollow
-        </div>
-        <span >$950</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="articulo">
-        <img class="articulo-img" src="../Assets/truck.jpg" alt="Bonita patineta">
-        <div class="articulo-texto">
-            Trucks Independent Stage 11 Hollow
-        </div>
-        <span >$950</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="articulo">
-        <img class="articulo-img" src="../Assets/truck.jpg" alt="Bonita patineta">
-        <div class="articulo-texto">
-            Trucks Independent Stage 11 Hollow
-        </div>
-        <span >$950</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="articulo">
-        <img class="articulo-img" src="../Assets/truck.jpg" alt="Bonita patineta">
-        <div class="articulo-texto">
-            Trucks Independent Stage 11 Hollow
-        </div>
-        <span >$950</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="articulo">
-        <img class="articulo-img" src="../Assets/truck.jpg" alt="Bonita patineta">
-        <div class="articulo-texto">
-            Trucks Independent Stage 11 Hollow
-        </div>
-        <span >$950</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-        </div>
-    </div>
-    <div class="articulo">
-        <img class="articulo-img" src="../Assets/truck.jpg" alt="Bonita patineta">
-        <div class="articulo-texto">
-            Trucks Independent Stage 11 Hollow
-        </div>
-        <span >$950</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-        </div>
-    </div>
-
-
-
-
+    -->
 </div>
-</body>
+<script type="text/javascript">
+    var objeto;
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        //alert(this.responseText);
+        console.log(this.responseText);
+        objeto=JSON.parse(this.responseText);
 
-</html>
+        for(let i=0;i<objeto.length;i++){
+
+            document.getElementById("insertar-articulos").innerHTML += `
+<div class="articulo">
+        <img class="articulo-img" src="../Assets/bd/${objeto[i].Foto}" alt="sta chida te lo juro">
+        <div class="articulo-texto">
+            ${objeto[i].Nombre}
+ </div>
+        <span >$${objeto[i].Precio}</span>
+        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
+        </div>
+    </div>
+`;
+        }
+    };
+
+    var fd = new FormData();
+    fd.append("tipo", "2");
+    xhr.open("POST","http://localhost/sketis/articulos.php",true);
+    xhr.send(fd);
+
+
+
+</script>
+</body>
 
