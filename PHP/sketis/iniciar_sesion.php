@@ -17,6 +17,7 @@ include 'conexion.php';
 							$_SESSION['Correo']= $mail;
 							$_SESSION['Cuenta']= $Fila['Tipo_FK'];
               $_SESSION['Nombre']=$Fila['Nombre'];
+							$_SESSION['Apellido']=$Fila['Apellido'];
 							echo'{"success":true}';
 						}else{
 							echo'{"success":false}';
