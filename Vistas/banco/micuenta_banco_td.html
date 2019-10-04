@@ -1,0 +1,157 @@
+<!-- Developer name: Juanpa16100279 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../Assets/img/logoBanco.png">
+  <title>Mi Cuenta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index-banco.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
+
+    <style>
+        body{
+            background-color: #FFF;
+        }
+
+        .panel-style{
+            padding-top: 60px;
+        }
+        .panel-title{
+          text-align: center;
+        }
+        .btn-boton-crear,
+        .btn-boton-crear:hover,
+        .btn-boton-crear:active{
+          background-color:#3883C2;
+          color: white;
+          border-radius: 10%
+        }
+        .boton{
+          text-align: right;
+        }
+        .panel-heading{
+            background:  #3883C2;
+            color: white;
+        }
+        .panel-body{
+          text-align: left;
+          border: #3883C2 3px solid ;
+        }
+        .imagen{
+          text-align: center;
+          padding-top: 10px;
+          padding-right: 16px;
+          height: 100px;
+        }
+        .logo-navbar{
+            height: 100px;
+            width: 125px;
+        }
+        .form-group{
+          color: black;
+        }
+    </style>
+</head>
+<body>
+<header id="header">
+    <div class="container">
+
+        <div id="logo" class="pull-left">
+            <h1><a href="index-banco.html" class="scrollto">Ceti<span>pay</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+        </div>
+
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+                <li class="menu-active"><a href="">I</a></li>
+                <li><a href="index-banco.html">Inicio</a></li>
+                <li><a href="canjear_codigo.html">Depositar</a></li>
+                <li class="menu-has-children">
+                    <img src="" class="dropdown-icon">
+                    <a href="">Juanpas</a>
+                    <ul>
+                        <li><a href="micuenta-banco.html">Cuenta</a></li>
+                        <li><a href="login.html">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
+    </div>
+</header><!-- #header -->
+    <div class="container">
+        <div class="col-md-8 col-md-offset-2 panel-style">
+                  <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>
+                                Mi Cuenta
+                            </strong>
+                        </h3>
+                  </div>
+                  <div class="panel-body">
+                        <form action="#" method="get">
+                            <div class="info-container">
+
+                            </div>
+                        </form>
+                  </div>
+            </div>
+
+        </div>
+    <script type="text/javascript">
+        var objeto;
+        const xhr=new XMLHttpRequest();
+        xhr.onload=function()
+        {
+            console.log(this.responseText);
+            objeto=JSON.parse(this.responseText);
+    
+            for(let i=0; i<objeto.length;i++)
+            {
+                document.getElementById("info-container").innerHTML +=
+                `
+                    <div class="form-group">
+                         <label for="saldo">Saldo:</label>
+                         <label> ${objeto[i].Saldo} </label>
+                             </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <label> ${objeto[i].Nombre} </label>
+                            </div>    
+
+                    <div class="form-group">
+                        <label for="nombre">Apellido:</label>
+                        <label> ${objeto[i].Apellido} </label>
+                            </div> 
+                        
+                    <div class="form-group">
+                        <label for="nombre">Correo:</label>
+                        <label> ${objeto[i].Correo} </label>
+                            </div> 
+ 
+             <div class="boton-crear">
+                <div class="boton">
+                    <button  class="boton-crear btn-sm btn-boton-crear">
+                        <a href="index-banco.html" style="color:rgb(255, 255, 255)">Volver al inicio</a> 
+                    </button>
+                    <button  class="boton-crear btn-sm btn-boton-crear">
+                        <a href="login.html"style="color:rgb(255, 255, 255)">Cerrar sesión</a> 
+                    </button>
+                </div>
+            </div>
+        </BR>
+        `;
+        }
+        };
+        xhr.open("GET", "http://localhost/PHP/mi_cuenta_banco.php",true);
+        xhr.send();
+    </script>
+<script src="../Assets/js/jquery-3.3.1.min.js"></script>
+<script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+</body>
+</html>

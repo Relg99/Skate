@@ -110,11 +110,17 @@
 									<a href="index.html" style="color:rgb(255, 255, 255)">Continue Comprando</a>
 								</button>
 							</div>
+							<div class="col-xs-7">
+								<button type="button" onclick="vaciar()">
+									<span class="glyphicon glyphicon-share-alt"></span>
+									<a style="color:rgb(255, 255, 255)"></a>Vaciar carrito</a>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="panel-body">
-					<div class="row">
+				<div class="panel-body" id="articulos">
+				<!--div class="row">
 						<div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
 						</div>
 						<div class="col-xs-4">
@@ -164,17 +170,10 @@
 								</button>
 							</div>
 						</div>
-					</div>
+					</div>-->
 				</div>
-				<div class="panel-footer">
-					<div class="row text-center">
-						<div class="col-xs-9">
-							<h4 class="text-right">Total <strong>$50.00</strong></h4>
-						</div>
-						<div class="col-xs-3">
-							</button>
-						</div>
-					</div>
+				<div class="panel-footer" id="total-dinero">
+
 				</div>
 
 					<div class="margen-boton-de-compra">
@@ -189,25 +188,134 @@
 		</div>
 	</div>
 </div>
-      <script>
-          var respuesta;
-          const xhr2 = new XMLHttpRequest();
-          xhr2.onload = function () {
-              respuesta=JSON.parse(this.responseText);
-              if(respuesta.success===true){
-                  document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
-              }else{
-                  document.getElementById("menu").innerHTML = ``;
+<script type="text/javascript">
+  carrito();
+  var objeto;
+  function carrito() {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+              objeto = JSON.parse(this.responseText);
+              alcarro();
+              for (let i = 0; i < objeto.length; i++) {
 
+                  document.getElementById("articulos").innerHTML += `
+			<hr>
+					<div class="row">
+						<div class="col-xs-2"><img class="img-responsive" src="../Assets/bd/${objeto[i].Foto}">
+						</div>
+						<div class="col-xs-4">
+							<h4 class="product-name"><strong>${objeto[i].Nombre}</strong></h4><h4><small>${objeto[i].Modelo}</small></h4>
+						</div>
+						<div class="col-xs-6">
+							<div class="col-xs-6 text-right">
+								<h6><strong>${objeto[i].Precio}<span class="text-muted">x</span></strong></h6>
+							</div>
+							<div class="col-xs-4">
+								<input type="number" class="form-control input-sm" value="${objeto[i].Cantidad}">
+							</div>
+							<div class="col-xs-2">
+								<button onclick="eliminar(${objeto[i].ID},${objeto[i].Precio})" type="button" class="btn btn-link btn-xs">
+									<span class="glyphicon glyphicon-trash"> </span>
+								</button>
+							</div>
+						</div>
+					</div>
+			`;
               }
-          };
-          xhr2.open("POST","http://localhost/sketis/verificar_sesion.php",true);
-          xhr2.withCredentials = true;
-          xhr2.send();
-          function login(){
-              window.location.href = 'login.html';
+              document.getElementById("total-dinero").innerHTML += `
+		<div class="row text-center">
+						<div class="col-xs-9">
+							<h4 class="text-right">Total <strong>${objeto[0].Total}</strong></h4>
+						</div>
+						<div class="col-xs-3">
+							</button>
+						</div>
+					</div>
+		`;
 
-          }
-      </script>
+
+      };
+      var fd = new FormData();
+      fd.append("tipo", "2");
+      xhr.open("POST","/Skate/PHP/sketis/articuloscarro.php",true);
+      xhr.send(fd);
+  }
+
+
+
+    var respuesta;
+    const xhr2 = new XMLHttpRequest();
+    xhr2.onload = function () {
+        respuesta=JSON.parse(this.responseText);
+        if(respuesta.success===true){
+            document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
+        }else{
+            document.getElementById("menu").innerHTML = ``;
+
+        }
+    };
+    xhr2.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
+    xhr2.withCredentials = true;
+    xhr2.send();
+    function login(){
+        window.location.href = 'login.html';
+    }
+	function cerrar_sesion(){
+        var respuesta;
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            respuesta=JSON.parse(this.responseText);
+            if(respuesta.success===true){
+                window.location.href = 'login.html';
+            }
+        };
+
+        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
+        xhr.withCredentials = true;
+        xhr.send();
+    }
+  function alcarro() {
+      const xhc = new XMLHttpRequest();
+      var respuesta;
+      xhc.onload = function () {
+          respuesta=JSON.parse(this.responseText);
+      };
+
+      xhc.open("POST","/Skate/PHP/sketis/carro.php",true);
+      xhc.send();
+  }
+	function vaciar() {
+      const xhp = new XMLHttpRequest();
+      var respuesta;
+      xhp.onload = function () {
+            respuesta=JSON.parse(this.responseText);
+          document.getElementById("articulos").innerHTML =``;
+          document.getElementById("total-dinero").innerHTML = ``;
+
+      carrito();
+
+        };
+
+      var fp = new FormData();
+      fp.append("reset", "reset");
+      xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
+      xhp.send(fp);
+    }
+    function eliminar(ID,Precio) {
+        const xhp = new XMLHttpRequest();
+        var respuesta;
+        xhp.onload = function () {
+            document.getElementById("articulos").innerHTML =``;
+            document.getElementById("total-dinero").innerHTML = ``;
+            carrito();
+            respuesta=JSON.parse(this.responseText);
+        };
+        var fd = new FormData();
+        fd.append("delete", ID);
+        fd.append("Precio", Precio);
+        xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
+        xhp.send(fd);
+    }
+</script>
 </body>
 </html>

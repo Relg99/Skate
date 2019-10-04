@@ -51,6 +51,59 @@
         .form-group{
           color: black;
         }
+
+        /* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
     </style>
 </head>
 <body>
@@ -105,7 +158,10 @@
                                   <div class="boton-crear">
                                     <div class="boton">
                                     <button type="submit" class="boton-crear btn-sm btn-boton-crear">
-                                        <a href="../skaters/index.html" style="color: white">Ingresar</a>
+                                        <a onclick="tienesaldo()" style="color: white">Ingresar</a>
+                                        <div class="popup">
+                                        <span class="popuptext" id="popSeguro">Ha ocurrido un error al realizar la compra:(</span>
+                                        </div>
                                     </button>
                                 </div>
                                   </div>
@@ -121,5 +177,36 @@
     </div>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+    function tienesaldo(){//ayuda*******************************Lo hizo nito *************************************************
+        verificaSaldo = new XMLHttpRequest();
+        
+        verificaSaldo.onload=function(){            
+                var puede = this.responseText;
+                if(puede=="1"){
+                    const realizaLaCompra = new XMLHttpRequest();
+                    realizaLaCompra.onload=function(){
+                        realizaLaCompra.open("POST","http://localhost/sketis/DescontarArticulos.php",true);
+                        
+                        if(sucesfully=="1"){
+                          //aqui iría lo tuyo PABLO JAIR ->*****************************************
+                        var sucesfully = this.responseText;
+                          window.location.href='../index.html';
+                        }else{
+                          var popup = document.getElementById("popSeguro");
+						              popup.classList.toggle("show");
+						              confirm=true;
+                        }
+                    };                    
+                }else{
+                    var popup = document.getElementById("popSeguro");
+						        popup.classList.toggle("show");
+						        confirm=true;
+                }        
+        };
+        verificaSaldo.open("POST","http://localhost/sketis/ConsultaDeSaldo.php",true);
+    }
+</script>
 </body>
 </html>
