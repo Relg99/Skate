@@ -109,6 +109,7 @@
             fd.append("correo", document.getElementById("nombre").value);
             fd.append("contrasena", document.getElementById("contraseña").value);
 
+
             xhr.open("POST", "/Skate/PHP/sketis/iniciar_sesion.php", true);
             xhr.withCredentials = true;
             xhr.send(fd);
