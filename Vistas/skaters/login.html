@@ -84,7 +84,7 @@ var respuesta;
             }
 };
 
-xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+xhr.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
 xhr.withCredentials = true;
 xhr.send();
 
@@ -107,7 +107,7 @@ xhr.send();
         fd.append("correo", document.getElementById("nombre").value);
         fd.append("contrasena", document.getElementById("contraseña").value);
 
-        xhr.open("POST","http://localhost/sketis/iniciar_sesion.php",true);
+        xhr.open("POST","/Skate/PHP/sketis/iniciar_sesion.php",true);
         xhr.withCredentials = true;
         xhr.send(fd);
 
