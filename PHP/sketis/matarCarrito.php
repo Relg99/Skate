@@ -20,7 +20,7 @@ if($nfilas!=0){//si se cuenta con un producto dentro del carrito
         echo "F, valio gorro: " . $conexion->error;
     }
 }else{
-        echo "No existe el carro: ";
+        echo "No existe el carro crack";
 }
 mysqli_close($conexion);
 ?>

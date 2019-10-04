@@ -1,7 +1,7 @@
 <?PHP
 include 'conexionBanco.php';
 
-$ID_pago=1;//Id de la compra
+$ID_pago=1;//Id del pago
 $Costo=1;//Costo a restar
 $consulta = mysqli_query($conexion,'SELECT
                                     Saldo
@@ -10,8 +10,8 @@ $consulta = mysqli_query($conexion,'SELECT
                                     WHERE PK_pago='.$ID_pago)
 or die("Falló la consulta");
 
-$aux=$consulta->fetch_assoc();//guardo la consulta
-$result=intval($aux['Saldo']);//cambio la columna cantidad a int
+$aux=$consulta->fetch_assoc();
+$result=intval($aux['Saldo']);
 if($result!=0){//si se cuenta con dinero
     $result-=$Costo; //resta el saldo
     $update= "UPDATE cuenta SET Saldo=$result WHERE PK_pago=$ID_pago";// Se guarda el cambio
