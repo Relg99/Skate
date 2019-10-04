@@ -83,7 +83,7 @@
             ${objeto[i].Nombre}
  </div>
         <span >$${objeto[i].Precio}</span>
-        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
+        <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon" onclick="alcarro(${objeto[i].ID}, ${objeto[i].Precio})">        <span class="tooltipcarrito">Agregar al carrito</span>
         </div>
     </div>
 `;
@@ -93,7 +93,7 @@
 
     var fd = new FormData();
     fd.append("tipo", "2");
-    xhr.open("POST","http://localhost/sketis/articulos.php",true);
+    xhr.open("POST","/Skate/PHP/sketis/articulos.php",true);
     xhr.send(fd);
 
 
@@ -110,7 +110,7 @@
 
         }
     };
-    xhr2.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+    xhr2.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
     xhr2.withCredentials = true;
     xhr2.send();
 
@@ -128,9 +128,19 @@
             }
         };
 
-        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
+        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
         xhr.withCredentials = true;
         xhr.send();
+    }
+    function alcarro(ID, Precio) {
+      const xhc = new XMLHttpRequest();
+      var respuesta;
+      window.alert("Producto agregado al carrito");
+      var fd = new FormData();
+      fd.append("Add", ID);
+      fd.append("Precio", Precio);
+      xhc.open("POST","/Skate/PHP/sketis/carro.php",true);
+      xhc.send(fd);
     }
 </script>
 </body>

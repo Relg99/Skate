@@ -2,9 +2,7 @@
 <?PHP
 
 include 'conexion.php';
-$tipo=3;
-if(isset($_POST['tipo']))
-$tipo=$_POST['tipo'];
+if(isset($_SESSION["articulo"])){
 $consulta = mysqli_query($conexion,'SELECT
                                     producto.Producto_ID,
                                     producto.Nombre,
@@ -12,20 +10,27 @@ $consulta = mysqli_query($conexion,'SELECT
                                     producto.Modelo,
                                     producto.Precio
                                     FROM
-                                    producto
-                                    WHERE Cantidad>0 && Articulo_FK='.$tipo)
+                                    producto')
 or die("Fallo la consulta");
-
+$actual=-1;
 $nfilas=mysqli_num_rows($consulta);
 $Fila=mysqli_fetch_array($consulta);
     if($nfilas > 0){
     print '[';
     for ($i=0;$i<$nfilas;$i++){
+        if(isset($_SESSION["articulo"][$i])){
+        $actual = $_SESSION["articulo"][$i];
+        }
+        else
+        $actual=-1;
+        if($i==$actual){
         print '{';
         print '"ID":"'.$Fila["Producto_ID"].'",';
         print '"Nombre":"'.$Fila["Nombre"].'",';
         print '"Foto":"'.$Fila["Foto"].'",';
         print '"Modelo":"'.$Fila["Modelo"].'",';
+        print '"Cantidad":"'.$_SESSION["cantidad"][$i].'",';
+        print '"Total":"'.$_SESSION["total"].'",';
         print '"Precio":"'.$Fila["Precio"].'"';
         if($i==$nfilas-1){
         print "}";
@@ -33,10 +38,12 @@ $Fila=mysqli_fetch_array($consulta);
         print "},";
         }
         $Fila=mysqli_fetch_array($consulta);
+    }
 }
 print "]";
 }
 mysqli_close($conexion);
+}
 ?>
 
 

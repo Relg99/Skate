@@ -1,14 +1,13 @@
-<!-- Developer name: Jairon Landa (jaironlanda.com) -->
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Almacenistas</title>
-  <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Almacenistas</title>
+    <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
-  <!-- Bootstrap 3 -->
+    <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
     <style>
         body{
@@ -18,17 +17,17 @@
             padding-top: 60px;
         }
         .panel-title{
-          text-align: center;
+            text-align: center;
         }
         .btn-boton-crear,
         .btn-boton-crear:hover,
         .btn-boton-crear:active{
-          background-color:#fff;
-          color: white;
-          border-radius: 10%
+            background-color:#fff;
+            color: white;
+            border-radius: 10%
         }
         .boton{
-          text-align: right;
+            text-align: right;
             height: 100px;
         }
         .panel-heading{
@@ -37,23 +36,23 @@
             width:100%;
         }
         .btn-group{
-          text-align: right;
-          font-size: 15px;
-          padding-top: 10px;
-          padding-left: 80%;
-    }
-    .form-group{
-      color: black;
-    }
-    .head{
-      text-align: center;
-      background:#494949;
-      color:white;
-    }
-    .mas-icon{
-      width: 20px;
-      height: 20px;
-    }
+            text-align: right;
+            font-size: 15px;
+            padding-top: 10px;
+            padding-left: 80%;
+        }
+        .form-group{
+            color: black;
+        }
+        .head{
+            text-align: center;
+            background:#494949;
+            color:white;
+        }
+        .mas-icon{
+            width: 20px;
+            height: 20px;
+        }
 
     </style>
 </head>
@@ -82,60 +81,60 @@
 </nav>
 </div>
 <div class="head">
-<h3>
-    <strong>
-      Almacenistas
-    </strong>
-</h3>
+    <h3>
+        <strong>
+            Almacenistas
+        </strong>
+    </h3>
 </div>
-    <div class="container">
-        <div class="col-md-8 col-md-offset-2 panel-style">
-          <div class="panel-body">
-                <form action="#" method="post">
-                    
-                        <div  class="form-group">       
-                          <div class="boton-crear">              
-                            <div  class="boton">
-                                  </div>
-                              <a href="registro-almacenista.html">
-                                  
-                            <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
-                          </a>&nbsp;&nbsp;
-<!--Aqui llega el script-->
-                          <div id="insertar-almacenistas"></div>
-<!--Aqui se acabaxd-->                          
+<div class="container">
+    <div class="col-md-8 col-md-offset-2 panel-style">
+        <div class="panel-body">
+            <form action="#" method="post">
+
+                <div  class="form-group">
+                    <div class="boton-crear">
+                        <div  class="boton">
                         </div>
-                          </div>
-                                  </div>
+                        <a href="registro-almacenista.html">
 
-                          </div>
-                </form>
-          </div>
-            </div>
+                            <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
+                        </a>&nbsp;&nbsp;
+                        <!--Aqui llega el script-->
+                        <div id="insertar-almacenistas"></div>
+                        <!--Aqui se acabaxd-->
+                    </div>
+                </div>
+
+
+
+    </form>
         </div>
+    </div>
+            </div>
 
-  <script type="text/javascript">
+<script type="text/javascript">
     var objeto;
     const xhr=new XMLHttpRequest();
     xhr.onload=function()
     {
-      console.log(this.responseText);
-      objeto=JSON.parse(this.responseText);
+        console.log(this.responseText);
+        objeto=JSON.parse(this.responseText);
 
-      for(let i=0; i<objeto.length;i++)
-      {
-        document.getElementById("insertar-almacenistas").innerHTML += 
-        `
-        <a href="#">     
+        for(let i=0; i<objeto.length;i++)
+        {
+            document.getElementById("insertar-almacenistas").innerHTML +=
+                `
+        <a href="#">
         <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
-        </a> 
-                ${objeto[i].Nombre} ${objeto[i].Apellido} 
+        </a>
+                ${objeto[i].Nombre} ${objeto[i].Apellido}
          </BR>
         `;
-      }
+        }
     };
     xhr.open("GET", "http://localhost/sketis/view_almacenistas.php",true);
     xhr.send();
-  </script>
-  </body>
+</script>
+</body>
 </html>

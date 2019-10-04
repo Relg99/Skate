@@ -2,11 +2,8 @@
 <?PHP
 
 include 'conexion.php';
-$tipo=3;
-if(isset($_POST['tipo']))
-$tipo=$_POST['tipo'];
+
 $consulta = mysqli_query($conexion,'SELECT
-                                    producto.Producto_ID,
                                     producto.Nombre,
                                     producto.Foto,
                                     producto.Modelo,
@@ -22,7 +19,6 @@ $Fila=mysqli_fetch_array($consulta);
     print '[';
     for ($i=0;$i<$nfilas;$i++){
         print '{';
-        print '"ID":"'.$Fila["Producto_ID"].'",';
         print '"Nombre":"'.$Fila["Nombre"].'",';
         print '"Foto":"'.$Fila["Foto"].'",';
         print '"Modelo":"'.$Fila["Modelo"].'",';
@@ -38,6 +34,8 @@ print "]";
 }
 mysqli_close($conexion);
 ?>
+
+
 
 
 
