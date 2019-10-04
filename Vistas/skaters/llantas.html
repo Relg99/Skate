@@ -133,7 +133,7 @@
       var respuesta;
       xhc.onload = function () {
             respuesta=JSON.parse(this.responseText);
-            window.alert(respuesta.Total);
+            window.alert("Producto agregado al carrito");
         };
       var fd = new FormData();
       fd.append("Add", ID);

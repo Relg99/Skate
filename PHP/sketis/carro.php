@@ -43,7 +43,7 @@ if (isset($_POST["delete"]) )
     $_SESSION["precio"][$i] = 0;
     unset($_SESSION["articulo"][$i]);
   }
-  }
-  $out = $_SESSION["total"];
-  print '{"Total":"'.$out.'"}';
+}
+$total = $_SESSION["total"];
+  print '{"Total":"'.$total.'"}';
 ?>
