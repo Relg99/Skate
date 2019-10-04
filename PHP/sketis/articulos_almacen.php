@@ -3,34 +3,31 @@
 
 include 'conexion.php';
 
-$consulta = mysqli_query($conexion,'SELECT
-                                    producto.Nombre,
-                                    producto.Foto,
-                                    producto.Modelo,
-                                    producto.Precio
-                                    FROM
-                                    producto
-                                    WHERE Cantidad>0 && Articulo_FK='.$tipo)
+//Lista articulos almacen
+
+$consulta = mysqli_query($conexion,'select articulo.Nombre as tipo, producto.Nombre as nombre, 
+producto.Modelo as modelo, producto.Descripcion as descripcion FROM articulo INNER JOIN producto 
+ON producto.Articulo_FK = articulo.Articulo_ID;')
 or die("Fallo la consulta");
 
 $nfilas=mysqli_num_rows($consulta);
 $Fila=mysqli_fetch_array($consulta);
     if($nfilas > 0){
-    print '[';
+    echo '[';
     for ($i=0;$i<$nfilas;$i++){
-        print '{';
-        print '"Nombre":"'.$Fila["Nombre"].'",';
-        print '"Foto":"'.$Fila["Foto"].'",';
-        print '"Modelo":"'.$Fila["Modelo"].'",';
-        print '"Precio":"'.$Fila["Precio"].'"';
+        echo '{';
+        echo '"tipo":"'.$Fila["tipo"].'",';
+        echo '"nombre":"'.$Fila["nombre"].'",';
+        echo '"modelo":"'.$Fila["modelo"].'",';
+        echo '"descripcion":"'.$Fila["descripcion"].'"';
         if($i==$nfilas-1){
-        print "}";
+        echo "}";
         }else{
-        print "},";
+        echo "},";
         }
         $Fila=mysqli_fetch_array($consulta);
 }
-print "]";
+echo "]";
 }
 mysqli_close($conexion);
 ?>
