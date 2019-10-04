@@ -96,46 +96,12 @@
                         <form action="#" method="get">
                             <div class="info-container">
 
-                                <div class="form-group">
-                                            <label for="saldo">Saldo:</label>
-        
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="nombre">Nombre:</label>
-
-                                </div>    
-
-                                <div class="form-group">
-                                    <label for="nombre">Apellido:</label>
-
-                                </div> 
-                                    
-                                
-                                <div class="form-group">
-                                    <label for="nombre">Correo:</label>
-
-                                </div> 
- 
-                                    <div class="boton-crear">
-                                        <div class="boton">
-                                            <button  class="boton-crear btn-sm btn-boton-crear">
-                                              <a href="index-banco.html" style="color:rgb(255, 255, 255)">Volver al inicio</a> 
-                                            </button>
-                                            <button  class="boton-crear btn-sm btn-boton-crear">
-                                                    <a href="login.html"style="color:rgb(255, 255, 255)">Cerrar sesión</a> 
-                                             </button>
-                                         </div>
-                                      </div>
-
-                                </div>
                             </div>
                         </form>
                   </div>
             </div>
 
         </div>
-    </div>
     <script type="text/javascript">
         var objeto;
         const xhr=new XMLHttpRequest();
@@ -146,19 +112,43 @@
     
             for(let i=0; i<objeto.length;i++)
             {
-                document.getElementById("").innerHTML +=
-                    `
-            <a href="#">
-            </a>
-                    ${objeto[i].Saldo}
-                    ${objeto[i].Nombre} 
-                    ${objeto[i].Apellido}
-                    ${objeto[i].Correo}
-             </BR>
-            `;
-            }
+                document.getElementById("info-container").innerHTML +=
+                `
+                    <div class="form-group">
+                         <label for="saldo">Saldo:</label>
+                         <label> ${objeto[i].Saldo} </label>
+                             </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <label> ${objeto[i].Nombre} </label>
+                            </div>    
+
+                    <div class="form-group">
+                        <label for="nombre">Apellido:</label>
+                        <label> ${objeto[i].Apellido} </label>
+                            </div> 
+                        
+                    <div class="form-group">
+                        <label for="nombre">Correo:</label>
+                        <label> ${objeto[i].Correo} </label>
+                            </div> 
+ 
+             <div class="boton-crear">
+                <div class="boton">
+                    <button  class="boton-crear btn-sm btn-boton-crear">
+                        <a href="index-banco.html" style="color:rgb(255, 255, 255)">Volver al inicio</a> 
+                    </button>
+                    <button  class="boton-crear btn-sm btn-boton-crear">
+                        <a href="login.html"style="color:rgb(255, 255, 255)">Cerrar sesión</a> 
+                    </button>
+                </div>
+            </div>
+        </BR>
+        `;
+        }
         };
-        xhr.open("GET", "http://localhost/sketis/mi_cuenta_banco.php",true);
+        xhr.open("GET", "http://localhost/PHP/mi_cuenta_banco.php",true);
         xhr.send();
     </script>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>

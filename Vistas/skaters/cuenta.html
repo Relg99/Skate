@@ -62,8 +62,8 @@
             </p>
         </div>
         <div class="buttons">
-            <button class="button"><a href="almacenistas.html" style="color:rgb(255, 255, 255)">Volver al inicio</a></button>
-            <button class="button"><a href="login.html" style="color:rgb(255, 255, 255)">Cerrar Sesion </a> </button>
+            <button class="button"><a href="index.html" style="color:rgb(255, 255, 255)">Volver al inicio</a></button>
+            <button class="button"><a onClick="cerrar_sesion()" style="color:rgb(255, 255, 255)">Cerrar Sesion </a> </button>
         </div>
     </div>
 </div>
@@ -82,33 +82,33 @@
 
         }
     };
-    xhr.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
+    xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
     xhr.withCredentials = true;
     xhr.send();
-
-    var respuesta;
-    const xhr1 = new XMLHttpRequest();
-    xhr1.onload = function () {
-        respuesta=JSON.parse(this.responseText);
-        if(respuesta.success===true){
-            document.getElementById("Apellido").innerHTML = `${respuesta.apellido}`;
-        }
-    };
-    xhr1.open("POST","http://localhost/sketis/apellido.php",true);
-    xhr1.withCredentials = true;
-    xhr1.send();
 
     var respuesta;
     const xhr2 = new XMLHttpRequest();
     xhr2.onload = function () {
         respuesta=JSON.parse(this.responseText);
         if(respuesta.success===true){
+            document.getElementById("Apellido").innerHTML = `${respuesta.apellido}`;
+        }
+    };
+    xhr2.open("POST","http://localhost/sketis/apellido.php",true);
+    xhr2.withCredentials = true;
+    xhr2.send();
+
+    var respuesta;
+    const xhr1 = new XMLHttpRequest();
+    xhr1.onload = function () {
+        respuesta=JSON.parse(this.responseText);
+        if(respuesta.success===true){
             document.getElementById("Correo").innerHTML = `${respuesta.correo}`;
         }
     };
-    xhr2.open("POST","http://localhost/sketis/correo.php",true);
-    xhr2.withCredentials = true;
-    xhr2.send();
+    xhr1.open("POST","http://localhost/sketis/correo.php",true);
+    xhr1.withCredentials = true;
+    xhr1.send();
 
 
 
@@ -126,7 +126,7 @@
             }
         };
 
-        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
+        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
         xhr.withCredentials = true;
         xhr.send();
     }

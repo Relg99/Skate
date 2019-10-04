@@ -65,7 +65,7 @@
       height: 20px;
     }
 
-    .articulo{
+    .articulo {
       background-color: #333;
     }
   </style>
@@ -107,60 +107,8 @@
     <div class="col-md-8 col-md-offset-2 panel-style">
       <div class="panel-body">
         <div id="insertar-articulos">
-          <script type="text/javascript">
-            var objeto;
-            const xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-              //alert(this.responseText);
-              console.log(this.responseText);
-              objeto = JSON.parse(this.responseText);
+          <!-- Insertar articulos -->
 
-              for (let i = 0; i < objeto.length; i++) {
-
-                document.getElementById("insertar-articulos").innerHTML += `
-                  <div class="articulo">
-                          <div>
-                            <h1>Hola</h1>
-                          </div>
-                      </div>
-                  `;
-              }
-            };
-
-            var respuesta;
-            const xhr2 = new XMLHttpRequest();
-            xhr2.onload = function () {
-              respuesta = JSON.parse(this.responseText);
-              if (respuesta.success === true) {
-                document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
-              } else {
-                document.getElementById("menu").innerHTML = ``;
-
-              }
-            };
-            xhr2.open("POST", "http://localhost/sketis/verificar_sesion.php", true);
-            xhr2.withCredentials = true;
-            xhr2.send();
-
-            function login() {
-              window.location.href = 'login.html';
-
-            }
-            function cerrar_sesion() {
-              var respuesta;
-              const xhr = new XMLHttpRequest();
-              xhr.onload = function () {
-                respuesta = JSON.parse(this.responseText);
-                if (respuesta.success === true) {
-                  window.location.href = 'login.html';
-                }
-              };
-
-              xhr.open("POST", "http://localhost/sketis/cerrar_sesion.php", true);
-              xhr.withCredentials = true;
-              xhr.send();
-            }
-          </script>
         </div>
       </div>
     </div>
@@ -168,5 +116,32 @@
   <script src="../Assets/js/jquery-3.3.1.min.js"></script>
   <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
 </body>
+
+
+<script type="text/javascript">
+  var objeto;
+  const xhr = new XMLHttpRequest();
+  xhr.onload = function () {
+    console.log(this.responseText);
+    objeto = JSON.parse(this.responseText);
+
+    for (let i = 0; i < objeto.length; i++) {
+      document.getElementById("insertar-articulos").innerHTML +=
+        `
+              <p>${objeto[i].tipo}</p>
+              <p>${objeto[i].nombre}</p>
+              <p>${objeto[i].modelo}</p>
+              <p>${objeto[i].descripcion}</p>
+
+      <a href="#">
+      <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
+      </a>
+       </BR>
+      `;
+    }
+  };
+  xhr.open("POST", "http://localhost/Skate/PHP/sketis/articulos_almacen.php", true);
+  xhr.send();
+</script>
 
 </html>
