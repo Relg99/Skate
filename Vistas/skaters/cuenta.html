@@ -68,6 +68,7 @@
     </div>
 </div>
 <script type="text/javascript">
+    var tipo =   document.getElementById("Nombre").innerHTML = `${respuesta.cuenta}`;
     var respuesta;
     const xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -82,7 +83,7 @@
 
         }
     };
-    xhr.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
+    xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
     xhr.withCredentials = true;
     xhr.send();
 
@@ -126,7 +127,7 @@
             }
         };
 
-        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
+        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
         xhr.withCredentials = true;
         xhr.send();
     }
