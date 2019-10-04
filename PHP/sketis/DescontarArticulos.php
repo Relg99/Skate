@@ -4,6 +4,7 @@ include 'conexion.php';
 
 $ID_articulo=1;//Id del articulo a restar
 $Cantidad=1;//Cantidad a restar
+$succesfully=false;
 $consulta = mysqli_query($conexion,'SELECT
                                     Cantidad
                                     FROM
@@ -18,10 +19,8 @@ if($result!=0){//si aun hay productos
     $result=$result-$Cantidad; //restale la cantidad de compra
     $update= "UPDATE producto SET Cantidad=$result WHERE Producto_ID=$ID_articulo";//Variable que guarda mi update
     if ($conexion->query($update) === TRUE) {//si el update se ha realizado correctamente
-        echo "Record updated successfully";
-    } else {
-        echo "Error updating record: " . $conexion->error;
-    }
+        $succesfully=true;
+    } 
 }
 mysqli_close($conexion);
 ?>
