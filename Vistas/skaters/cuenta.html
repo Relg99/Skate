@@ -79,7 +79,7 @@
 
         }
     };
-    xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+    xhr.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
     xhr.withCredentials = true;
     xhr.send();
 
@@ -97,7 +97,7 @@
             }
         };
 
-        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
+        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
         xhr.withCredentials = true;
         xhr.send();
     }
