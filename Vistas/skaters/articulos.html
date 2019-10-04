@@ -1,120 +1,172 @@
 <!-- Developer name: Jairon Landa (jaironlanda.com) -->
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Articulos</title>
   <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+  <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
   <!-- Bootstrap 3 -->
-    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
-    <style>
-        body{
-            background-color: #FFF;
-        }
-        .panel-style{
-            padding-top: 60px;
-        }
-        .panel-title{
-          text-align: center;
-        }
-        .btn-boton-crear,
-        .btn-boton-crear:hover,
-        .btn-boton-crear:active{
-          background-color:#fff;
-          color: white;
-          border-radius: 10%
-        }
-        .boton{
-          text-align: right;
-            height: 100px;
-        }
-        .panel-heading{
-            background:  #494949;
-            color: white;
-            width:100%;
-        }
-        .btn-group{
-          text-align: right;
-          font-size: 15px;
-          padding-top: 10px;
-          padding-left: 80%;
+  <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
+  <style>
+    body {
+      background-color: #FFF;
     }
-    .form-group{
+
+    .panel-style {
+      padding-top: 60px;
+    }
+
+    .panel-title {
+      text-align: center;
+    }
+
+    .btn-boton-crear,
+    .btn-boton-crear:hover,
+    .btn-boton-crear:active {
+      background-color: #fff;
+      color: white;
+      border-radius: 10%
+    }
+
+    .boton {
+      text-align: right;
+      height: 100px;
+    }
+
+    .panel-heading {
+      background: #494949;
+      color: white;
+      width: 100%;
+    }
+
+    .btn-group {
+      text-align: right;
+      font-size: 15px;
+      padding-top: 10px;
+      padding-left: 80%;
+    }
+
+    .form-group {
       color: black;
     }
-    .head{
+
+    .head {
       text-align: center;
-      background:#494949;
-      color:white;
+      background: #494949;
+      color: white;
     }
-    .mas-icon{
+
+    .mas-icon {
       width: 20px;
       height: 20px;
     }
 
-    </style>
+    .articulo{
+      background-color: #333;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="barnav"><nav>
-    <a href="articulos.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-    </a>
-    <ul>
+  <div class="barnav">
+    <nav>
+      <a href="articulos.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+      </a>
+      <ul>
         <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
-                    <a href="">
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-                    </a>
-                </button>
-                <div class="drop-not-up-content">
-                    <a href="cuentaAlmacenista.html">Cuenta</a>
-                    <a href="articulos.html">Articulos</a>
-                    <a href="login.html">Cerrar Sesion</a>
-                </div>
+          <div class="drop-not-up">
+            <button class="drop-not-up-button">
+              <a href="">
+                <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
+                <h3 class="drop-not-up-name">Ricardo Enrique </h3>
+              </a>
+            </button>
+            <div class="drop-not-up-content">
+              <a href="cuentaAlmacenista.html">Cuenta</a>
+              <a href="articulos.html">Articulos</a>
+              <a href="login.html">Cerrar Sesion</a>
             </div>
-        </li>
-    </ul>
-</nav>
-</div>
-<div class="head">
-<h3>
-    <strong>
-      Articulos
-    </strong>
-</h3>
-</div>
-    <div class="container">
-        <div class="col-md-8 col-md-offset-2 panel-style">
-          <div class="panel-body">
-                <form action="#" method="post">
-
-                        <div class="form-group">
-
-                          <div class="boton-crear">
-
-                            <div class="boton">
-                               tRUCK  articulo $50 Marca caca     MOdelo TS 742874328
-                              <a href="registo-articulos.html">
-
-                            <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
-                            </a>&nbsp;&nbsp;
-                              <a href="#">
-                            <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
-                            </a>
-                           </div>
-                          </div>
-                          </div>
-
-                </form>
           </div>
-            </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="head">
+    <h3>
+      <strong>
+        Articulos
+      </strong>
+    </h3>
+  </div>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2 panel-style">
+      <div class="panel-body">
+        <div id="insertar-articulos">
+          <script type="text/javascript">
+            var objeto;
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+              //alert(this.responseText);
+              console.log(this.responseText);
+              objeto = JSON.parse(this.responseText);
+
+              for (let i = 0; i < objeto.length; i++) {
+
+                document.getElementById("insertar-articulos").innerHTML += `
+                  <div class="articulo">
+                          <div>
+                            <h1>Hola</h1>
+                          </div>
+                      </div>
+                  `;
+              }
+            };
+
+            var respuesta;
+            const xhr2 = new XMLHttpRequest();
+            xhr2.onload = function () {
+              respuesta = JSON.parse(this.responseText);
+              if (respuesta.success === true) {
+                document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
+              } else {
+                document.getElementById("menu").innerHTML = ``;
+
+              }
+            };
+            xhr2.open("POST", "http://localhost/sketis/verificar_sesion.php", true);
+            xhr2.withCredentials = true;
+            xhr2.send();
+
+            function login() {
+              window.location.href = 'login.html';
+
+            }
+            function cerrar_sesion() {
+              var respuesta;
+              const xhr = new XMLHttpRequest();
+              xhr.onload = function () {
+                respuesta = JSON.parse(this.responseText);
+                if (respuesta.success === true) {
+                  window.location.href = 'login.html';
+                }
+              };
+
+              xhr.open("POST", "http://localhost/sketis/cerrar_sesion.php", true);
+              xhr.withCredentials = true;
+              xhr.send();
+            }
+          </script>
         </div>
-    <script src="../Assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+      </div>
+    </div>
+  </div>
+  <script src="../Assets/js/jquery-3.3.1.min.js"></script>
+  <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
 </body>
+
 </html>
