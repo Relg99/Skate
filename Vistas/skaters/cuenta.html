@@ -68,7 +68,6 @@
     </div>
 </div>
 <script type="text/javascript">
-    var tipo =   document.getElementById("Nombre").innerHTML = `${respuesta.cuenta}`;
     var respuesta;
     const xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -88,28 +87,28 @@
     xhr.send();
 
     var respuesta;
-    const xhr1 = new XMLHttpRequest();
-    xhr1.onload = function () {
+    const xhr2 = new XMLHttpRequest();
+    xhr2.onload = function () {
         respuesta=JSON.parse(this.responseText);
         if(respuesta.success===true){
             document.getElementById("Apellido").innerHTML = `${respuesta.apellido}`;
         }
     };
-    xhr1.open("POST","http://localhost/sketis/apellido.php",true);
-    xhr1.withCredentials = true;
-    xhr1.send();
+    xhr2.open("POST","http://localhost/sketis/apellido.php",true);
+    xhr2.withCredentials = true;
+    xhr2.send();
 
     var respuesta;
-    const xhr2 = new XMLHttpRequest();
-    xhr2.onload = function () {
+    const xhr1 = new XMLHttpRequest();
+    xhr1.onload = function () {
         respuesta=JSON.parse(this.responseText);
         if(respuesta.success===true){
             document.getElementById("Correo").innerHTML = `${respuesta.correo}`;
         }
     };
-    xhr2.open("POST","http://localhost/sketis/correo.php",true);
-    xhr2.withCredentials = true;
-    xhr2.send();
+    xhr1.open("POST","http://localhost/sketis/correo.php",true);
+    xhr1.withCredentials = true;
+    xhr1.send();
 
 
 
