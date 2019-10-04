@@ -4,123 +4,117 @@
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
 
-		<style>
+<style>
+    .contenerdor {
+        width: 100%;
+    }
+    
+    .row_fake {
+        margin-top: 50px;
+        margin-right: 25%;
+        margin-left: 25%;
+    }
+    
+    .mi-boton-comprar {
+        color: #fff;
+        background-color: #343434;
+        line-height: 1.5;
+        display: block;
+        width: 70%;
+        margin-right: 15%;
+        margin-left: 15%;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        cursor: pointer;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    
+    .margen-boton-de-compra {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .panel-heading-fake {
+        border-color: #cecece;
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        color: inherit;
+    }
+</style>
 
-		.contenerdor{
-			width:100%;
+<head>
+    <title>Carrito</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
 
-		}
+</head>
 
-		.row_fake{
-			margin-top:50px;
-			margin-right: 25%;
-			margin-left: 25%;
-		}
-
-		.mi-boton-comprar{
-			color: #fff;
-    		background-color:#343434;
-			line-height: 1.5;
-			display: block;
-			width: 70%;
-			margin-right: 15%;
-			margin-left: 15%;
-    		padding: 6px 12px;
-    		margin-bottom: 0;
-    		font-size: 14px;
-    		font-weight: 400;
-    		text-align: center;
-    		white-space: nowrap;
-    		touch-action: manipulation;
-    		cursor: pointer;
-    		user-select: none;
-    		background-image: none;
-    		border: 1px solid transparent;
-    		border-radius: 4px;
-		}
-
-
-
-		.margen-boton-de-compra{
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-
-		.panel-heading-fake{
-			border-color: #cecece;
-			padding: 10px 15px;
-			border-bottom: 1px solid transparent;
-			border-top-right-radius: 3px;
-			border-top-left-radius: 3px;
-			color: inherit;
-
-
-		}
-
-		</style>
-		<head>
-			<title>Carrito</title>
-				<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-				<link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
-
-			</head>
-
-			<body>
-      <div class="barnav">
+<body>
+    <div class="barnav">
         <nav>
-          <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-          </a>
-          <ul>
-            <li>
-              <div class="drop-not-up">
-                <button class="drop-not-up-button">
+            <a href="index.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+            </a>
+            <ul>
+                <li>
+                    <div class="drop-not-up">
+                        <button class="drop-not-up-button">
                   <a>
                     <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
                     <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
 
                   </a>
                 </button>
-                <div id="menu" class="drop-not-up-content">
-                  <a href="cuenta.html">Cuenta</a>
-                  <a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
-                </div>
-              </div>
-            </li>
-            <li class="opcion-carrito">
-              <a href="carrito.html">
-                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-              </a>
-            </li>
-          </ul>
+                        <div id="menu" class="drop-not-up-content">
+                            <a href="cuenta.html">Cuenta</a>
+                            <a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="opcion-carrito">
+                    <a href="carrito.html">
+                        <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                    </a>
+                </li>
+            </ul>
         </nav>
-      </div>
+    </div>
 
-	<div class="row_fake">
-		<div class="contenerdor">
-			<div class="panel panel-info">
-				<div class="panel-heading-fake">
-					<div class="panel-title">
-						<div class="row">
-							<div class="col-xs-6">
-								<h5><span class="glyphicon glyphicon-shopping-cart"></span> Carrito de Compras</h5>
-							</div>
-							<div class="col-xs-6">
-								<button type="button" class="mi-boton-comprar">
+    <div class="row_fake">
+        <div class="contenerdor">
+            <div class="panel panel-info">
+                <div class="panel-heading-fake">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5><span class="glyphicon glyphicon-shopping-cart"></span> Carrito de Compras</h5>
+                            </div>
+                            <div class="col-xs-6">
+                                <button type="button" class="mi-boton-comprar">
 									<span class="glyphicon glyphicon-share-alt"></span>
 									<a href="index.html" style="color:rgb(255, 255, 255)">Continue Comprando</a>
 								</button>
-							</div>
-							<div class="col-xs-7">
-								<button type="button" onclick="vaciar()">
+                            </div>
+                            <div class="col-xs-7">
+                                <button type="button" onclick="vaciar()">
 									<span class="glyphicon glyphicon-share-alt"></span>
 									<a style="color:rgb(255, 255, 255)"></a>Vaciar carrito</a>
 								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="panel-body" id="articulos">
-				<!--div class="row">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" id="articulos">
+                    <!--div class="row">
 						<div class="col-xs-2"><img class="img-responsive" src="http://placehold.it/100x70">
 						</div>
 						<div class="col-xs-4">
@@ -171,34 +165,35 @@
 							</div>
 						</div>
 					</div>-->
-				</div>
-				<div class="panel-footer" id="total-dinero">
+                </div>
+                <div class="panel-footer" id="total-dinero">
 
-				</div>
+                </div>
 
-					<div class="margen-boton-de-compra">
+                <div class="margen-boton-de-compra">
 
-							<button type="button" class="mi-boton-comprar">
+                    <button type="button" class="mi-boton-comprar">
 									<span class="glyphicon glyphicon-share-alt"></span>
 									<a href="../banco/login-compra.html" style="color: white"> Comprar</a>
 								</button>
-					</div>
+                </div>
 
-			</div>
-		</div>
-	</div>
-</div>
-<script type="text/javascript">
-  carrito();
-  var objeto;
-  function carrito() {
-      const xhr = new XMLHttpRequest();
-      xhr.onload = function () {
-              objeto = JSON.parse(this.responseText);
-              alcarro();
-              for (let i = 0; i < objeto.length; i++) {
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        carrito();
+        var objeto;
 
-                  document.getElementById("articulos").innerHTML += `
+        function carrito() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                objeto = JSON.parse(this.responseText);
+                alcarro();
+                for (let i = 0; i < objeto.length; i++) {
+
+                    document.getElementById("articulos").innerHTML += `
 			<hr>
 					<div class="row">
 						<div class="col-xs-2"><img class="img-responsive" src="../Assets/bd/${objeto[i].Foto}">
@@ -221,8 +216,8 @@
 						</div>
 					</div>
 			`;
-              }
-              document.getElementById("total-dinero").innerHTML += `
+                }
+                document.getElementById("total-dinero").innerHTML += `
 		<div class="row text-center">
 						<div class="col-xs-9">
 							<h4 class="text-right">Total <strong>${objeto[0].Total}</strong></h4>
@@ -234,88 +229,92 @@
 		`;
 
 
-      };
-      var fd = new FormData();
-      fd.append("tipo", "2");
-      xhr.open("POST","/Skate/PHP/sketis/articuloscarro.php",true);
-      xhr.send(fd);
-  }
-
-
-
-    var respuesta;
-    const xhr2 = new XMLHttpRequest();
-    xhr2.onload = function () {
-        respuesta=JSON.parse(this.responseText);
-        if(respuesta.success===true){
-            document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
-        }else{
-            document.getElementById("menu").innerHTML = ``;
-
+            };
+            var fd = new FormData();
+            fd.append("tipo", "2");
+            xhr.open("POST", "/Skate/PHP/sketis/articuloscarro.php", true);
+            xhr.send(fd);
         }
-    };
-    xhr2.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
-    xhr2.withCredentials = true;
-    xhr2.send();
-    function login(){
-        window.location.href = 'login.html';
-    }
-	function cerrar_sesion(){
+
+
+
         var respuesta;
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            respuesta=JSON.parse(this.responseText);
-            if(respuesta.success===true){
-                window.location.href = 'login.html';
+        const xhr2 = new XMLHttpRequest();
+        xhr2.onload = function() {
+            respuesta = JSON.parse(this.responseText);
+            if (respuesta.success === true) {
+                document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
+            } else {
+                document.getElementById("menu").innerHTML = ``;
+
             }
         };
+        xhr2.open("POST", "/Skate/PHP/sketis/verificar_sesion.php", true);
+        xhr2.withCredentials = true;
+        xhr2.send();
 
-        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
-        xhr.withCredentials = true;
-        xhr.send();
-    }
-  function alcarro() {
-      const xhc = new XMLHttpRequest();
-      var respuesta;
-      xhc.onload = function () {
-          respuesta=JSON.parse(this.responseText);
-      };
+        function login() {
+            window.location.href = 'login.html';
+        }
 
-      xhc.open("POST","/Skate/PHP/sketis/carro.php",true);
-      xhc.send();
-  }
-	function vaciar() {
-      const xhp = new XMLHttpRequest();
-      var respuesta;
-      xhp.onload = function () {
-            respuesta=JSON.parse(this.responseText);
-          document.getElementById("articulos").innerHTML =``;
-          document.getElementById("total-dinero").innerHTML = ``;
+        function cerrar_sesion() {
+            var respuesta;
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                respuesta = JSON.parse(this.responseText);
+                if (respuesta.success === true) {
+                    window.location.href = 'login.html';
+                }
+            };
 
-      carrito();
+            xhr.open("POST", "/Skate/PHP/sketis/cerrar_sesion.php", true);
+            xhr.withCredentials = true;
+            xhr.send();
+        }
 
-        };
+        function alcarro() {
+            const xhc = new XMLHttpRequest();
+            var respuesta;
+            xhc.onload = function() {
+                respuesta = JSON.parse(this.responseText);
+            };
 
-      var fp = new FormData();
-      fp.append("reset", "reset");
-      xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
-      xhp.send(fp);
-    }
-    function eliminar(ID,Precio) {
-        const xhp = new XMLHttpRequest();
-        var respuesta;
-        xhp.onload = function () {
-            document.getElementById("articulos").innerHTML =``;
-            document.getElementById("total-dinero").innerHTML = ``;
-            carrito();
-            respuesta=JSON.parse(this.responseText);
-        };
-        var fd = new FormData();
-        fd.append("delete", ID);
-        fd.append("Precio", Precio);
-        xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
-        xhp.send(fd);
-    }
-</script>
+            xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhc.send();
+        }
+
+        function vaciar() {
+            const xhp = new XMLHttpRequest();
+            var respuesta;
+            xhp.onload = function() {
+                document.getElementById("articulos").innerHTML = ``;
+                document.getElementById("total-dinero").innerHTML = ``;
+                carrito();
+                respuesta = JSON.parse(this.responseText);
+            };
+
+            var fp = new FormData();
+            fp.append("reset", "reset");
+            xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhp.send(fp);
+        }
+
+        function eliminar(ID, Precio) {
+            const xhp = new XMLHttpRequest();
+            var respuesta;
+            xhp.onload = function() {
+                document.getElementById("articulos").innerHTML = ``;
+                document.getElementById("total-dinero").innerHTML = ``;
+                carrito();
+                respuesta = JSON.parse(this.responseText);
+            };
+            var fd = new FormData();
+            fd.append("delete", ID);
+            fd.append("Precio", Precio);
+            xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhp.send(fd);
+        }
+    </script>
 </body>
+
 </html>
