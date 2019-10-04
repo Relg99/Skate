@@ -160,7 +160,7 @@
                                     <button type="submit" class="boton-crear btn-sm btn-boton-crear">
                                         <a onclick="tienesaldo()" style="color: white">Ingresar</a>
                                         <div class="popup">
-                                        <span class="popuptext" id="popSeguro">Ha ocurrido un error al validar su pago:(</span>
+                                        <span class="popuptext" id="popSeguro">Ha ocurrido un error al realizar la compra:(</span>
                                         </div>
                                     </button>
                                 </div>
@@ -177,28 +177,35 @@
     </div>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+
 <script type="text/javascript">
     function tienesaldo(){//ayuda*******************************Lo hizo nito *************************************************
         verificaSaldo = new XMLHttpRequest();
-        verificaSaldo.onload=function(){
-            verificaSaldo.open("POST","http://localhost/PHP/sketis/ConsultaDeSaldo.php");
-                var puede = "<?php echo $can ?>";
-                if(puede==1){
+        
+        verificaSaldo.onload=function(){            
+                var puede = this.responseText;
+                if(puede=="1"){
                     const realizaLaCompra = new XMLHttpRequest();
                     realizaLaCompra.onload=function(){
                         realizaLaCompra.open("POST","http://localhost/PHP/sketis/DescontarArticulos.php",true);
-                        //aqui iría lo tuyo PABLO JAIR ->*****************************************
-                    };
-                    window.location.href='../index.html';
+                        
+                        if(sucesfully=="1"){
+                          //aqui iría lo tuyo PABLO JAIR ->*****************************************
+                        var sucesfully = this.responseText;
+                          window.location.href='../index.html';
+                        }else{
+                          var popup = document.getElementById("popSeguro");
+						              popup.classList.toggle("show");
+						              confirm=true;
+                        }
+                    };                    
                 }else{
-
                     var popup = document.getElementById("popSeguro");
-						  popup.classList.toggle("show");
-						  confirm=true;
-                }    
-            
-
+						        popup.classList.toggle("show");
+						        confirm=true;
+                }        
         };
+        verificaSaldo.open("POST","http://localhost/PHP/sketis/ConsultaDeSaldo.php",true);
     }
 </script>
 </body>

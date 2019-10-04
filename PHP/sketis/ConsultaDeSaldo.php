@@ -1,7 +1,7 @@
 <?PHP
 
 include 'conexionBanco.php';
-$costo=666667;
+$costo=20;
 $usuario=1;
 $can=false;
 $consulta = mysqli_query($conexion,'SELECT
@@ -15,6 +15,10 @@ $aux=$consulta->fetch_assoc();
 $saldo=intval($aux['Saldo']);
 if($saldo>=$costo){
     $can=true;
+    echo $can;
+}else{
+    echo $can;
 }
+
 mysqli_close($conexion);
 ?>
