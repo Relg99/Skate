@@ -353,7 +353,18 @@
       fp.append("reset", "reset");
       xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
       xhp.send(fp);
-    }
+	}
+	
+	function areusure() {
+			  	if(confirm==false){
+						var popup = document.getElementById("popSeguro");
+						  popup.classList.toggle("show");
+						  confirm=true;
+				  }else{
+					  window.location.href = '../banco/login-compra.html';
+				  } 
+				}				
+			
 </script>
 </body>
 </html>
