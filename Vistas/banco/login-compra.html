@@ -187,7 +187,7 @@
                 if(puede=="1"){
                     const realizaLaCompra = new XMLHttpRequest();
                     realizaLaCompra.onload=function(){
-                        realizaLaCompra.open("POST","http://localhost/PHP/sketis/DescontarArticulos.php",true);
+                        realizaLaCompra.open("POST","http://localhost/sketis/DescontarArticulos.php",true);
                         
                         if(sucesfully=="1"){
                           //aqui iría lo tuyo PABLO JAIR ->*****************************************
@@ -205,7 +205,7 @@
 						        confirm=true;
                 }        
         };
-        verificaSaldo.open("POST","http://localhost/PHP/sketis/ConsultaDeSaldo.php",true);
+        verificaSaldo.open("POST","http://localhost/sketis/ConsultaDeSaldo.php",true);
     }
 </script>
 </body>
