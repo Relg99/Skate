@@ -57,59 +57,6 @@
 
 		}
 
-		/* Popup container */
-.popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-/* The actual popup (appears on top) */
-.popup .popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.popup .show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-
 		</style>
 		<head>
 			<title>Carrito</title>
@@ -226,37 +173,32 @@
 					</div>-->
 				</div>
 				<div class="panel-footer" id="total-dinero">
-					
+
 				</div>
 
 					<div class="margen-boton-de-compra">
 
-							<button id="btnComprar"  type="button" class="mi-boton-comprar">
+							<button type="button" class="mi-boton-comprar">
 									<span class="glyphicon glyphicon-share-alt"></span>
-									<a  onclick="areusure()" style="color: white"> Comprar</a>
-									
+									<a href="../banco/login-compra.html" style="color: white"> Comprar</a>
 								</button>
-							<div class="popup">
-								<span class="popuptext" id="popSeguro">&#191;Est&aacute;s seguro que deseas realizar la compra&#63;</span>
-							</div>
-					</div>		
+					</div>
 
 			</div>
 		</div>
 	</div>
 </div>
 <script type="text/javascript">
+  carrito();
+  var objeto;
+  function carrito() {
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+              objeto = JSON.parse(this.responseText);
+              alcarro();
+              for (let i = 0; i < objeto.length; i++) {
 
-    var objeto;
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        //alert(this.responseText);
-        console.log(this.responseText);
-        objeto=JSON.parse(this.responseText);
-
-        for(let i=0;i<objeto.length;i++){
-
-            document.getElementById("articulos").innerHTML += `
+                  document.getElementById("articulos").innerHTML += `
 			<hr>
 					<div class="row">
 						<div class="col-xs-2"><img class="img-responsive" src="../Assets/bd/${objeto[i].Foto}">
@@ -272,15 +214,15 @@
 								<input type="number" class="form-control input-sm" value="${objeto[i].Cantidad}">
 							</div>
 							<div class="col-xs-2">
-								<button type="button" class="btn btn-link btn-xs">
+								<button onclick="eliminar(${objeto[i].ID},${objeto[i].Precio})" type="button" class="btn btn-link btn-xs">
 									<span class="glyphicon glyphicon-trash"> </span>
 								</button>
 							</div>
 						</div>
-					</div>	
+					</div>
 			`;
-        }
-		document.getElementById("total-dinero").innerHTML += `
+              }
+              document.getElementById("total-dinero").innerHTML += `
 		<div class="row text-center">
 						<div class="col-xs-9">
 							<h4 class="text-right">Total <strong>${objeto[0].Total}</strong></h4>
@@ -290,13 +232,15 @@
 						</div>
 					</div>
 		`;
-	
-    };
 
-    var fd = new FormData();
-    fd.append("tipo", "2");
-    xhr.open("POST","/Skate/PHP/sketis/articuloscarro.php",true);
-    xhr.send(fd);
+
+      };
+      var fd = new FormData();
+      fd.append("tipo", "2");
+      xhr.open("POST","/Skate/PHP/sketis/articuloscarro.php",true);
+      xhr.send(fd);
+  }
+
 
 
     var respuesta;
@@ -330,41 +274,48 @@
         xhr.withCredentials = true;
         xhr.send();
     }
-    function alcarro(ID, Precio) {
+  function alcarro() {
       const xhc = new XMLHttpRequest();
       var respuesta;
       xhc.onload = function () {
-            respuesta=JSON.parse(this.responseText);
-        };
-      var fd = new FormData();
-      fd.append("Add", ID);
-      fd.append("Precio", Precio);
+          respuesta=JSON.parse(this.responseText);
+      };
+
       xhc.open("POST","/Skate/PHP/sketis/carro.php",true);
-      xhc.send(fd);
-    }
+      xhc.send();
+  }
 	function vaciar() {
       const xhp = new XMLHttpRequest();
       var respuesta;
       xhp.onload = function () {
             respuesta=JSON.parse(this.responseText);
-			window.alert("Carrito vaciado");
+          document.getElementById("articulos").innerHTML =``;
+          document.getElementById("total-dinero").innerHTML = ``;
+
+      carrito();
+
         };
+
       var fp = new FormData();
       fp.append("reset", "reset");
       xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
       xhp.send(fp);
-	}
-	
-	function areusure() {
-			  	if(confirm==false){
-						var popup = document.getElementById("popSeguro");
-						  popup.classList.toggle("show");
-						  confirm=true;
-				  }else{
-					  window.location.href = '../banco/login-compra.html';
-				  } 
-				}				
-			
+    }
+    function eliminar(ID,Precio) {
+        const xhp = new XMLHttpRequest();
+        var respuesta;
+        xhp.onload = function () {
+            document.getElementById("articulos").innerHTML =``;
+            document.getElementById("total-dinero").innerHTML = ``;
+            carrito();
+            respuesta=JSON.parse(this.responseText);
+        };
+        var fd = new FormData();
+        fd.append("delete", ID);
+        fd.append("Precio", Precio);
+        xhp.open("POST","/Skate/PHP/sketis/carro.php",true);
+        xhp.send(fd);
+    }
 </script>
 </body>
 </html>

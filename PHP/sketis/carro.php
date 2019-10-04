@@ -14,6 +14,7 @@ if (isset($_POST['reset']) )
    unset($_SESSION["precio"]);
    unset($_SESSION["total"]);
    unset($_SESSION["articulo"]);
+   $total=0;
  }
 
 if (isset($_POST["Add"]) )
@@ -26,7 +27,7 @@ if (isset($_POST["Add"]) )
    $_SESSION["cantidad"][$i] = $cantidad;
    $total = $_SESSION["total"] + $precio;
    $_SESSION["total"] = $total;
-   
+
 }
 
 if (isset($_POST["delete"]) )
@@ -43,6 +44,7 @@ if (isset($_POST["delete"]) )
     $_SESSION["precio"][$i] = 0;
     unset($_SESSION["articulo"][$i]);
   }
+
 }
 $total = $_SESSION["total"];
   print '{"Total":"'.$total.'"}';
