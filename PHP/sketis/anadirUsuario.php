@@ -16,18 +16,42 @@ $estado = false;
 if ($contraseña != $confirmar){
     echo '
     <html>
-        <head>
-        <title>Skaters - Redireccion</title>
-        <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-        <p style="color:#FFFF";> No ingresaste la misma contraseña en ambos campos, intentalo de nuevo....</p>
+    <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Skaters - Status</title>
+            <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-            function r() { location.href="../../Vistas/skaters/registro.html"} 
-            setTimeout ("r()", 2700);
-            </script>
-        </head>
-        <body style="background-color:#494949;">
-        </body>
-    </html>
+                    function r() { location.href="../../Vistas/skaters/registro.html"} 
+                    setTimeout ("r()", 2700);
+                    </script>
+            <style>
+            body{
+                background-color: #ef7979;
+                }
+            .okimage{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 200px;
+                height: 200px;
+                width: 200px;
+            }
+            .texto{
+                text-align: center;
+                font: oblique bold 120% cursive;
+                font-size: 200%;
+                color: #FFF;
+            }
+            </style>
+    </head>
+    <body>
+        <tr>
+            <td> <img class="okimage" src="../../Vistas/Assets/icons/err_icon.png"/> </td>
+            <td><p class="texto">Error: la contraseña no es igual en ambos campos </br> seras redireccionado automaticamente....</p></td>
+        </tr>
+    </body>
+</html>
     ';
 }
 else{
@@ -47,18 +71,43 @@ else{
             $estado = true;
             echo '
             <html>
-                <head>
-                <title>Skaters - Redireccion</title>
-                <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-                <p style="color:#FFFF";>(error 666). El correo que ingresaste ya ha sido registrado....</p>
-                    <script>
+    <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Skaters - Status</title>
+            <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
+            <script>
                     function r() { location.href="../../Vistas/skaters/registro.html"} 
-                    setTimeout ("r()", 2700);
+                    setTimeout ("r()", 5000);
                     </script>
-                </head>
-                <body style="background-color:#494949;">
-                </body>
-            </html>
+            <style>
+            body{
+                background-color: #ef7979;
+                }
+            .okimage{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 200px;
+                height: 200px;
+                width: 200px;
+            }
+            .texto{
+                text-align: center;
+                font: oblique bold 120% cursive;
+                font-size: 200%;
+                color: #FFF;
+            }
+            </style>
+    </head>
+    <body>
+        <tr>
+            <td> <img class="okimage" src="../../Vistas/Assets/icons/err_icon.png"/> </td>
+            <td><p class="texto">Error: El correo que ingresaste ya existe en el sistema
+             </br> seras redireccionado automaticamente....</p></td>
+        </tr>
+    </body>
+</html>
             ';
             $borrarIncorrectos = mysqli_query($conexion, "delete from usuario where Usuario_ID = '$nUsuario'") or die ("fallo al borrar rep");
         }
@@ -67,18 +116,42 @@ else{
     if ($estado == false){
         echo '
         <html>
-            <head>
-            <title>Skaters - Redireccion</title>
+    <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Skaters - Status</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-            <p style="color:#FFFF";>Te has registrado de manera exitosa! Gracias por formar parte de skaters. </br> Redireccionando...</p>
-                <script>
-                function r() { location.href="../../Vistas/skaters/login.html"} 
-                setTimeout ("r()", 2700);
-                </script>
-            </head>
-            <body style="background-color:#494949;">
-            </body>
-        </html>
+            <script>
+                    function r() { location.href="../../Vistas/skaters/login.html"} 
+                    setTimeout ("r()", 2700);
+                    </script>
+            <style>
+            body{
+                background-color: #00d27b;
+                }
+            .okimage{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 200px;
+                height: 200px;
+                width: 200px;
+            }
+            .texto{
+                text-align: center;
+                font: oblique bold 120% cursive;
+                font-size: 200%;
+                color: #FFF;
+            }
+            </style>
+    </head>
+    <body>
+        <tr>
+            <td> <img class="okimage" src="../../Vistas/Assets/icons/ok_icon.png"/> </td>
+            <td><p class="texto">Te has registrado de manera exitosa! Gracias por formar parte de skaters.</br> seras redireccionado automaticamente....</p></td>
+        </tr>
+    </body>
+</html>
         ';
     }  
 }
