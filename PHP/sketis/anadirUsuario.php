@@ -3,11 +3,7 @@
 /**
  * @ author deadchri5
  */
-$conexion=mysqli_connect("localhost","root","")
-or die("No se puede conectar con el servidor");
-
-mysqli_select_db($conexion, "skaters")
-or die("No se puede conectar a la base de datos.");
+include 'conexion.php';
 
 $nombre=$_POST["nombre"];
 $apellido=$_POST["apellido"];
