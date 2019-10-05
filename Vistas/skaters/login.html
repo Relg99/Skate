@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,107 +12,110 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="login.css">
 </head>
+
 <body>
 
 
-<div class="barnav"><nav>
-    <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-    </a>
-    <ul>
-        <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
+    <div class="barnav">
+        <nav>
+            <a href="index.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
+            </a>
+            <ul>
+                <li>
+                    <div class="drop-not-up">
+                        <button class="drop-not-up-button">
                     <a href="">
                         <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
                         <h3 class="drop-not-up-name">Iniciar sesion</h3>
                     </a>
                 </button>
-            </div>
-        </li>
-        <li class="opcion-carrito">
-            <a href="login.html">
-                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-            </a>
-        </li>
-    </ul>
-</nav>
-</div>
+                    </div>
+                </li>
+                <li class="opcion-carrito">
+                    <a href="login.html">
+                        <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
-                  <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <strong>
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>
                                 Inicio
                             </strong>
-                        </h3>
-                  </div>
-                  <div class="panel-body">
-                        <form  onSubmit="login()" method="post">
-                            <div class="form-group">
-                                    <label for="nombre">Correo</label>
-                                <input type="text" name="correo" id="nombre" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="contraseña">Contraseña</label>
-                                    <input type="password" name="contrasena" id="contraseña" class="form-control" required="required">
-                                </div>
-                                <div class="form-group">
-                                  <div class="boton-crear">
-                                    <div class="boton">
-                                    <button  type="submit" class="boton-crear btn-sm btn-boton-crear">Ingresar</button>
-                                </div>
-                                  </div>
-                                  </div>
-                                  <div class="Creacion">
-                                    <a  href="registro.html" style="color:black">Crear cuenta</a>
-                                </div>
-                        </form>
-                  </div>
+                </h3>
             </div>
-
+            <div class="panel-body">
+                <form onSubmit="login()" method="post">
+                    <div class="form-group">
+                        <label for="nombre">Correo</label>
+                        <input type="text" name="correo" id="nombre" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="password" name="contrasena" id="contraseña" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <div class="boton-crear">
+                            <div class="boton">
+                                <button type="submit" class="boton-crear btn-sm btn-boton-crear">Ingresar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Creacion">
+                        <a href="registro.html" style="color:black">Crear cuenta</a>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-<script type="text/javascript">
 
-//Verificar que no haya sesion activa, si no regresa al index al chile
-var respuesta;
-    const xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            respuesta=JSON.parse(this.responseText);
-            if(respuesta.success===true){
+    </div>
+    </div>
+    <script type="text/javascript">
+        //Verificar que no haya sesion activa, si no regresa al index al chile
+        var respuesta;
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            respuesta = JSON.parse(this.responseText);
+            if (respuesta.success === true) {
                 alert("Ya iniciaste sesión");
                 window.location.href = 'index.html';
             }
-};
-
-xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
-xhr.withCredentials = true;
-xhr.send();
-
-    function login(event){
-        var objeto;
-        const xhr = new XMLHttpRequest();
-             xhr.onload = function () {
-            objeto=JSON.parse(this.responseText);
-        if(objeto.success===false){
-            alert("Contraseña incorrecta");
-        }else{
-            window.location.href = 'index.html';
-
-        }
-
         };
 
-
-        var fd = new FormData();
-        fd.append("correo", document.getElementById("nombre").value);
-        fd.append("contrasena", document.getElementById("contraseña").value);
-
-        xhr.open("POST","http://localhost/sketis/iniciar_sesion.php",true);
+        xhr.open("POST", "/Skate/PHP/sketis/verificar_sesion.php", true);
         xhr.withCredentials = true;
-        xhr.send(fd);
+        xhr.send();
 
-    }
-</script>
+        function login(event) {
+            var objeto;
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                objeto = JSON.parse(this.responseText);
+                if (objeto.success === false) {
+                    alert("Contraseña incorrecta");
+                } else {
+                    window.location.href = 'index.html';
+
+                }
+
+            };
+
+
+            var fd = new FormData();
+            fd.append("correo", document.getElementById("nombre").value);
+            fd.append("contrasena", document.getElementById("contraseña").value);
+
+
+            xhr.open("POST", "/Skate/PHP/sketis/iniciar_sesion.php", true);
+            xhr.withCredentials = true;
+            xhr.send(fd);
+
+        }
+    </script>
 </body>
+
 </html>

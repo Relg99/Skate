@@ -13,7 +13,7 @@ or die("Falló la consulta");
 $aux=$consulta->fetch_assoc();
 $result=intval($aux['Saldo']);
 if($result!=0){//si se cuenta con dinero
-    $result-=$Costo; //resta el saldo
+    $result-=$_POST["total"]; //resta el saldo
     $update= "UPDATE cuenta SET Saldo=$result WHERE PK_pago=$ID_pago";// Se guarda el cambio
     if ($conexion->query($update) === TRUE) {
         echo "Yeah perdonen";

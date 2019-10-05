@@ -83,7 +83,7 @@
 
         }
     };
-    xhr.open("POST","http://localhost/sketis/verificar_sesion.php",true);
+    xhr.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
     xhr.withCredentials = true;
     xhr.send();
 
@@ -95,7 +95,7 @@
             document.getElementById("Apellido").innerHTML = `${respuesta.apellido}`;
         }
     };
-    xhr2.open("POST","http://localhost/sketis/apellido.php",true);
+    xhr2.open("POST","/Skate/PHP/sketis/apellido.php",true);
     xhr2.withCredentials = true;
     xhr2.send();
 
@@ -107,7 +107,7 @@
             document.getElementById("Correo").innerHTML = `${respuesta.correo}`;
         }
     };
-    xhr1.open("POST","http://localhost/sketis/correo.php",true);
+    xhr1.open("POST","/Skate/PHP/sketis/correo.php",true);
     xhr1.withCredentials = true;
     xhr1.send();
 
@@ -127,7 +127,7 @@
             }
         };
 
-        xhr.open("POST","http://localhost/sketis/cerrar_sesion.php",true);
+        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
         xhr.withCredentials = true;
         xhr.send();
     }
