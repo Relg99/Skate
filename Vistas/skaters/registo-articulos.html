@@ -54,10 +54,19 @@
           font-size: 15px;
           padding-top: 10px;
           padding-left: 80%;
-    }
-    .form-group{
-      color: black;
-    }
+        }
+        .form-group{
+         color: black;
+        }
+
+        input:invalid {
+        border: 1px solid red;
+        box-shadow: 0 0 5px 1px red;
+        }
+
+        input:valid {
+        border: 1px solid green;
+        }
 
     </style>
 </head>
@@ -96,39 +105,39 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form action="/Skate/PHP/sketis/registroProductos.php" method="post">
+                        <form action="http://localhost/Skate/PHP/sketis/registroProductos.php" method="post">
                           <div class="form-group">
-                              <label for="confirmar">ID Producto</label>
+                              <label for="confirmar">ID Producto*</label>
                               <input type="number" name="confirmar" id="confirmar" placeholder="ID de producto" class="form-control" required="required">
                           </div>
                             <div class="form-group">
-                                    <label for="nombre">Nombre</label>
+                                    <label for="nombre">Nombre*</label>
                                     <input type="text" name="nombre" placeholder="Nombre del Producto" 
                                     maxlength="50" id="nombre" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="descripcion">Descripcion</label>
+                                    <label for="descripcion">Descripcion*</label>
                                     <input type="text" name="descripcion" maxlength="255"
                                     placeholder="(MAX 255 caracteres)" id="descripcion" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="modelo">Modelo</label>
+                                    <label for="modelo">Modelo*</label>
                                     <input type="text" name="modelo" id="modelo" maxlength="50" 
                                     placeholder="Ingresa el modelo del producto" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="cantidad">Cantidad</label>
+                                    <label for="cantidad">Cantidad*</label>
                                     <input type="number" name="cantidad" id="cantidad" placeholder="Cantidad de productos a agregar" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="precio">Precio</label>
+                                    <label for="precio">Precio*</label>
                                     <input type="number" name="precio" id="precio" placeholder="Precio (en MXN)" class="form-control" required="required">
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="seleccionarM">Seleccionar Marca</label>
-                                <select class="form-control" name ="marca" id="marca">
-                                    <option>-</option>
+                                  <label for="seleccionarM">Seleccionar Marca*</label>
+                                <select class="form-control" name ="marca" id="marca" required>
+                                    <option></option>
                                     <option>Antifashion</option>
                                     <option>Santa Cruz</option>
                                     <option>Vans</option>
@@ -146,9 +155,9 @@
                                   </div>
 
                                   <div class="form-group">
-                                    <label for="seleccionarA">Seleccionar Articulo</label>
-                                  <select class="form-control" name="articulo" id="articulo">
-                                      <option>-</option>>
+                                    <label for="seleccionarA">Seleccionar Articulo*</label>
+                                  <select class="form-control" name="articulo" id="articulo" required>
+                                      <option></option>>
                                       <option>Llantas</option>
                                       <option>Trucks</option>
                                       <option>Tablas</option>

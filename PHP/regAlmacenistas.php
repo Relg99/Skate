@@ -33,6 +33,7 @@ if ($contraseña != $confirmar){
     </html>
     ';
 }
+
 else{
     $cuentaFilas = mysqli_query($conexion, "select Usuario_ID from usuario") or die ("Fallo la consulta uno");
     $nUsuario=mysqli_num_rows($cuentaFilas) + 1;
