@@ -70,7 +70,7 @@ else{
         <head>
         <title>Skaters - Redireccion</title>
         <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-        <p style="color:#FFFF";>El regsitro se ha completado exitosamente! ..Redireccionando a Login..</p>
+        <p style="color:#FFFF";>Redireccionando a Login..</p>
             <script>
             function r() { location.href="../Vistas/skaters/login.html"} 
             setTimeout ("r()", 2700);

@@ -3,7 +3,11 @@
 /**
  * @ author deadchri5
  */
-include 'conexion.php';
+$conexion=mysqli_connect("localhost","root","")
+or die("No se puede conectar con el servidor");
+
+mysqli_select_db($conexion, "skaters")
+or die("No se puede conectar a la base de datos.");
 
 $nombre=$_POST["nombre"];
 $apellido=$_POST["apellido"];
@@ -66,7 +70,7 @@ else{
         <head>
         <title>Skaters - Redireccion</title>
         <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-        <p style="color:#FFFF";>El regsitro se ha completado exitosamente! ..Redireccionando a Login..</p>
+        <p style="color:#FFFF";>Redireccionando...</p>
             <script>
             function r() { location.href="../../Vistas/skaters/login.html"} 
             setTimeout ("r()", 2700);
