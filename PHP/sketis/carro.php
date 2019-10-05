@@ -1,12 +1,21 @@
 <?PHP
 session_start();
 if (!isset($_SESSION["total"]) ) {
+    if(isset($_COOKIE["datos"])){
+      $data = json_decode($_COOKIE["datos"], true);
+      if(isset($datos["cantidad"]))
+      $_SESSION["cantidad"] = $datos["cantidad"];
+      if(isset($datos["precio"]))
+      $_SESSION["precio"] = $datos["precio"];
+      $_SESSION["total"] = $datos["total"];
+      if(isset($datos["articulo"]))
+      $_SESSION["articulo"] = $datos["articulo"];
+      $_SESSION["id"] = $datos["id"];
+    }
+    else{
     $_SESSION["total"] = 0;
     $_SESSION["id"] = 0;
-    for ($i=0; $i<100; $i++) {
-      $_SESSION["cantidad"][$i] = 0;
-      $_SESSION["precio"][$i] = 0;
-    }
+  }
 }
 $i=1;
 if (isset($_POST['reset']) )
@@ -34,6 +43,8 @@ if (isset($_POST["Add"]) )
      }
    }
    $precio = $_POST["Precio"];
+   if(!isset($_SESSION["cantidad"][$i]))
+   $_SESSION["cantidad"][$i]=0;
    $cantidad = $_SESSION["cantidad"][$i] + 1;
    $_SESSION["precio"][$i] = $precio * $cantidad;
    $_SESSION["articulo"][$i] = $id;
@@ -77,6 +88,17 @@ if (isset($_POST["delete"]) )
      }
     }
   }
+  $datos = array();
+  if(isset($_SESSION["cantidad"]))
+  $datos["cantidad"] = $_SESSION["cantidad"];
+  if(isset($_SESSION["precio"]))
+  $datos["precio"] = $_SESSION["precio"];
+  $datos["total"] = $_SESSION["total"];
+  if(isset($_SESSION["articulo"]))
+  $datos["articulo"] = $_SESSION["articulo"];
+  $datos["id"] = $_SESSION["id"];
+  setcookie("datos",json_encode($datos),time()+(24*60*60));
+
   $total = $_SESSION["total"];
   print '{"Total":"'.$total.'"}';
 ?>
