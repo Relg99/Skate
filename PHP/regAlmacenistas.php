@@ -14,6 +14,7 @@ $apellido=$_POST["apellido"];
 $correo=$_POST["correo"];
 $contraseña=$_POST["contraseña"];
 $confirmar=$_POST["confirmar"];
+$estado = false;
 
 if ($contraseña != $confirmar){
     echo '
@@ -46,6 +47,7 @@ else{
     $nUsuario=mysqli_num_rows($cuentaFilas) + 1;
     for ($i = 1; $i <= $nUsuario; $i ++){
         if ($correo == $verifica["Correo"]){
+            $estado = true;
             echo '
     <html>
         <head>
@@ -65,21 +67,23 @@ else{
         }
         $verifica=mysqli_fetch_array($verificaCorreo);
     } 
-    echo '
-    <html>
-        <head>
-        <title>Skaters - Redireccion</title>
-        <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-        <p style="color:#FFFF";>Redireccionando a Login..</p>
-            <script>
-            function r() { location.href="../Vistas/skaters/login.html"} 
-            setTimeout ("r()", 2700);
-            </script>
-        </head>
-        <body style="background-color:#494949;">
-        </body>
-    </html>
-    ';
+    if ($estado == false){
+        echo '
+        <html>
+            <head>
+            <title>Skaters - Redireccion</title>
+            <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
+            <p style="color:#FFFF";>Redireccionando a Login..</p>
+                <script>
+                function r() { location.href="../Vistas/skaters/login.html"} 
+                setTimeout ("r()", 2700);
+                </script>
+            </head>
+            <body style="background-color:#494949;">
+            </body>
+        </html>
+        ';
+    }
 }
 mysqli_close($conexion);
 ?>
