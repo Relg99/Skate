@@ -190,7 +190,6 @@
             const xhr = new XMLHttpRequest();
             xhr.onload = function() {
                 objeto = JSON.parse(this.responseText);
-                alcarro();
                 for (let i = 0; i < objeto.length; i++) {
 
                     document.getElementById("articulos").innerHTML += `
@@ -206,10 +205,17 @@
 								<h6><strong>${objeto[i].Precio}<span class="text-muted">x</span></strong></h6>
 							</div>
 							<div class="col-xs-4">
-								<input type="number" class="form-control input-sm" value="${objeto[i].Cantidad}">
+								<p>${objeto[i].Cantidad}</p>
 							</div>
-							<div class="col-xs-2">
-								<button onclick="eliminar(${objeto[i].ID},${objeto[i].Precio})" type="button" class="btn btn-link btn-xs">
+                            <div class="col-xs-2">
+								<button onclick="alcarro(${objeto[i].ID},${objeto[i].Precio})" type="button" class="btn btn-link btn-xs">
+									<span class="glyphicon glyphicon-plus"> </span>
+								</button>
+								<button onclick="eliminar(${objeto[i].ID},1,${objeto[i].Precio})" type="button" class="btn btn-link btn-xs">
+									<span class="glyphicon glyphicon-minus"> </span>
+								</button>
+                                &emsp;
+                                <button onclick="eliminar(${objeto[i].ID},${objeto[i].Cantidad},${objeto[i].Precio})" type="button" class="btn btn-link btn-xs">
 									<span class="glyphicon glyphicon-trash"> </span>
 								</button>
 							</div>
@@ -272,17 +278,21 @@
             xhr.send();
         }
 
-        function alcarro() {
+        function alcarro(ID, Precio) {
             const xhc = new XMLHttpRequest();
             var respuesta;
             xhc.onload = function() {
                 respuesta = JSON.parse(this.responseText);
+                document.getElementById("articulos").innerHTML = ``;
+                document.getElementById("total-dinero").innerHTML = ``;
+                carrito();
             };
-
+            var fd = new FormData();
+            fd.append("Add", ID);
+            fd.append("Precio", Precio);
             xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
-            xhc.send();
+            xhc.send(fd);
         }
-
         function vaciar() {
             const xhp = new XMLHttpRequest();
             var respuesta;
@@ -299,7 +309,7 @@
             xhp.send(fp);
         }
 
-        function eliminar(ID, Precio) {
+        function eliminar(ID, Cantidad, Precio) {
             const xhp = new XMLHttpRequest();
             var respuesta;
             xhp.onload = function() {
@@ -310,7 +320,8 @@
             };
             var fd = new FormData();
             fd.append("delete", ID);
-            fd.append("Precio", Precio);
+            fd.append("cantidad", Cantidad);
+            fd.append("precio", Precio);
             xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
             xhp.send(fd);
         }

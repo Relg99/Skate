@@ -18,6 +18,7 @@ $actual=-1;
 
 $cuenta=count($_SESSION["articulo"]);
 
+
 $articulos=array_values(array_filter($_SESSION["articulo"]));
 $cantidad=array_values(array_filter($_SESSION["cantidad"]));
 
