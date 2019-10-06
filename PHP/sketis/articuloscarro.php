@@ -1,7 +1,17 @@
 
 <?PHP
-
 include 'conexion.php';
+if(isset($_COOKIE["datos"])){
+  $datos = json_decode($_COOKIE["datos"], true);
+  if(isset($datos["cantidad"]))
+  $_SESSION["cantidad"] = $datos["cantidad"];
+  if(isset($datos["precio"]))
+  $_SESSION["precio"] = $datos["precio"];
+  $_SESSION["total"] = $datos["total"];
+  if(isset($datos["articulo"]))
+  $_SESSION["articulo"] = $datos["articulo"];
+  $_SESSION["id"] = $datos["id"];
+}
 if(isset($_SESSION["articulo"])){
 $consulta = mysqli_query($conexion,'SELECT
                                     producto.Producto_ID,
@@ -17,6 +27,7 @@ $bool=false;
 $actual=-1;
 
 $cuenta=count($_SESSION["articulo"]);
+
 
 $articulos=array_values(array_filter($_SESSION["articulo"]));
 $cantidad=array_values(array_filter($_SESSION["cantidad"]));

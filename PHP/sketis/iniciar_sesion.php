@@ -2,7 +2,7 @@
 include 'conexion.php';
 
 
-				if ($_POST['correo']!="" && $_POST ['contrasena']!=""){
+				if (isset($_POST['correo']) && isset($_POST['contrasena'])){
 
 					$mail=$_POST["correo"];
 					$pass=$_POST["contrasena"];

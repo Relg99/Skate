@@ -73,20 +73,43 @@ values ('$id_producto', '$valFK', '$articuloFK', '$cantidad', '$nombre', '$model
 or die ("Fallo al realizar la consulta.");
 
 echo '
-    <html>
-        <head>
-            <title>Skaters - Redireccion</title>
+<html>
+    <head>
+            <meta charset="utf-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Skaters - ok</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
-            <p style="color:#FFFF";>Se agrego con exito el nuevo producto.... </br>
-            Espere un momento, estas siendo redireccionado....</p>
-                <script>
-                    function r() { location.href="../../Vistas/skaters/index.html"} 
-                    setTimeout ("r()", 3000);
-                </script>
-        </head>
-        <body style="background-color:#494949;">
-        </body>
-    </html>
+            <script>
+                    function r() { location.href="../../Vistas/skaters/registo-articulos.html"} 
+                    setTimeout ("r()", 3200);
+                    </script>
+            <style>
+            body{
+                background-color: #00d27b;
+                }
+            .okimage{
+                display:block;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 200px;
+                height: 200px;
+                width: 200px;
+            }
+            .texto{
+                text-align: center;
+                font: oblique bold 120% cursive;
+                font-size: 200%;
+                color: #FFF;
+            }
+            </style>
+    </head>
+    <body>
+        <tr>
+            <td> <img class="okimage" src="../../Vistas/Assets/icons/ok_icon.png"/> </td>
+            <td><p class="texto">Producto registrado con exito! - seras redireccionado automaticamente....</p></td>
+        </tr>
+    </body>
+</html>
 ';
 
     mysqli_close($conexion);
