@@ -13,6 +13,16 @@ $articulo=$_POST["articulo"];
 $valFK;
 $articuloFK;
 
+$target_path = "../../Vistas/Assets/bd/";
+$target_path = $target_path . basename( $_FILES['imagenGuardada']['name']); 
+
+    if(move_uploaded_file($_FILES['imagenGuardada']['tmp_name'], $target_path)) {
+        $linkImagen = basename( $_FILES['imagenGuardada']['name']);
+    }
+        else{
+            echo "Ha ocurrido un error, trate de nuevo!";
+        }
+
 switch ($marca){
     case "Antifashion":
         $valFK = 1;
@@ -68,8 +78,9 @@ switch ($articulo){
 }
 
 $consulta = mysqli_query($conexion, 
-"insert into producto (Producto_ID, Marca_FK, Articulo_FK, Cantidad, Nombre, Modelo, Descripcion, Precio)
-values ('$id_producto', '$valFK', '$articuloFK', '$cantidad', '$nombre', '$modelo', '$descripcion', '$precio' )" )
+"insert into producto (Producto_ID, Marca_FK, Articulo_FK, Cantidad, Nombre, Foto, Modelo, Descripcion, Precio)
+values ('$id_producto', '$valFK', '$articuloFK', '$cantidad', '$nombre', '$linkImagen', '$modelo', '$descripcion', '$precio')
+")
 or die ("Fallo al realizar la consulta.");
 
 echo '
