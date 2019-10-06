@@ -112,7 +112,8 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form action="/Skate/PHP/sketis/registroProductos.php" method="post">
+                        <form enctype="multipart/form-data" 
+                        action="/Skate/PHP/sketis/registroProductos.php" method="post">
                           <div class="form-group">
                               <label for="confirmar">ID Producto*</label>
                               <input type="number" name="confirmar" id="confirmar" placeholder="ID de producto" class="form-control" required="required">
@@ -172,14 +173,15 @@
                                     </div>
 
                                 <div class="form-group">
-                                     <label for="agregar">Agregar imagen</label>
-                                     <input type="file" id="ImagenProducto">
+                                  
+                                      <input type="file" name="imagenGuardada" type="file" accept="image/png, .jpeg, .jpg, image/gif" />
+                                     
                                 </div>
+
                                 <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
-                                    <button href="registro-articulos.html" class="botonCancelar">Cancelar</button>
-                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Agregar</button>
+                                    <input type="submit" class="boton-crear btn-sm btn-boton-crear"/>
                                 </div>                                                                 
                                   </div>
                                   </div>
