@@ -79,9 +79,8 @@ switch ($articulo){
 
 $consulta = mysqli_query($conexion, 
 "insert into producto (Producto_ID, Marca_FK, Articulo_FK, Cantidad, Nombre, Foto, Modelo, Descripcion, Precio)
-values ('$id_producto', '$valFK', '$articuloFK', '$cantidad', '$nombre', '$linkImagen', '$modelo', '$descripcion', '$precio')
-")
-or die ("Fallo al realizar la consulta.");
+values ('$id_producto', '$valFK', '$articuloFK', '$cantidad', '$nombre', '$linkImagen', '$modelo', '$descripcion', '$precio')")
+or die ("Error en consulta");
 
 echo '
 <html>
