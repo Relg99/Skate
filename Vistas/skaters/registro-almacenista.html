@@ -7,7 +7,7 @@
   <title>Skaters - Registro Almacenista</title>
   <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+  <script type="text/javascript" src="../Assets/js/barnav.js"></script>
   <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
     <style>
@@ -55,30 +55,8 @@
     </style>
 </head>
 <body>
+<div id="insertar-barra"></div>
 
-<div class="barnav"><nav>
-    <a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-    </a>
-    <ul>
-        <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
-                    <a href="">
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-                    </a>
-                </button>
-                <div class="drop-not-up-content">
-                    <a href="#">Cuenta</a>
-                    <a href="#">Almacenistas</a>
-                    <a href="#">Cerrar Sesion</a>
-                </div>
-            </div>
-        </li>
-      
-    </ul>
-</nav>
-</div>
 
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
@@ -90,7 +68,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form action="/Skate/PHP/regAlmacenistas.php" method="post">
+                        <form action="/Skate/PHP/sketis/regAlmacenistas.php" method="post">
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" placeholder="Ingresa tu nombre" input maxlength="50"
@@ -129,7 +107,8 @@
 
         </div>
     </div>
-    <script src="assets/jquery/jquery-3.3.1.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

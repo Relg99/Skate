@@ -2,7 +2,6 @@
 
 include 'conexion.php';
 
-$id_producto = $_POST["confirmar"];
 $nombre = $_POST["nombre"];
 $descripcion = $_POST["descripcion"];
 $modelo = $_POST["modelo"];
@@ -14,7 +13,7 @@ $valFK;
 $articuloFK;
 
 $target_path = "../../Vistas/Assets/bd/";
-$target_path = $target_path . basename( $_FILES['imagenGuardada']['name']); 
+$target_path = $target_path . basename( $_FILES['imagenGuardada']['name']);
 
     if(move_uploaded_file($_FILES['imagenGuardada']['tmp_name'], $target_path)) {
         $linkImagen = basename( $_FILES['imagenGuardada']['name']);
@@ -77,9 +76,9 @@ switch ($articulo){
         break;
 }
 
-$consulta = mysqli_query($conexion, 
-"insert into producto (Producto_ID, Marca_FK, Articulo_FK, Cantidad, Nombre, Foto, Modelo, Descripcion, Precio)
-values ('$id_producto', '$valFK', '$articuloFK', '$cantidad', '$nombre', '$linkImagen', '$modelo', '$descripcion', '$precio')")
+$consulta = mysqli_query($conexion,
+"insert into producto (Marca_FK, Articulo_FK, Cantidad, Nombre, Foto, Modelo, Descripcion, Precio)
+values ('$valFK', '$articuloFK', '$cantidad', '$nombre', '$linkImagen', '$modelo', '$descripcion', '$precio')")
 or die ("Error en consulta");
 
 echo '
@@ -90,7 +89,7 @@ echo '
             <title>Skaters - ok</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-                    function r() { location.href="../../Vistas/skaters/registo-articulos.html"} 
+                    function r() { location.href="../../Vistas/skaters/registo-articulos.html"}
                     setTimeout ("r()", 3200);
                     </script>
             <style>

@@ -14,10 +14,10 @@ include 'conexion.php';
 
 
 						if ($nfilas==1){
-							$_SESSION['Correo']= $mail;
-							$_SESSION['Cuenta']= $Fila['Tipo_FK'];
-               $_SESSION['Nombre']=$Fila['Nombre'];
-							$_SESSION['Apellido']=$Fila['Apellido'];
+							$_SESSION['CorreoPay']= $mail;
+              $_SESSION['NombrePay']=$Fila['Nombre'];
+							$_SESSION['ApellidoPay']=$Fila['Apellido'];
+							$_SESSION['IDPay']=$Fila['PK_usuarios'];
 							echo'{"success":true}';
 						}else{
 							echo'{"success":false}';

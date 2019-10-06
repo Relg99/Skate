@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-<link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
+  <script type="text/javascript" src="../Assets/js/barnav.js"></script>
+  <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Skaters - inicio</title>
 
@@ -10,13 +11,12 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 	<link href='index.css' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
 
 
 </head>
 
 <body>
-
+<div id="insertar-barra"></div>
 
 <!-- CACHE -->
 <div class="cache"></div>
@@ -24,36 +24,7 @@
 
 <!-- Cabeza, botones -->
 
-<div class="barnav">
-	<nav>
-	<a href="index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-	</a>
-	<ul>
-		<li>
-			<div class="drop-not-up">
-				<button class="drop-not-up-button">
-					<a>
-						<img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-            <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
-
-          </a>
-				</button>
-				<div id="menu" class="drop-not-up-content">
-					<a href="cuenta.html">Cuenta</a>
-					<a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
-				</div>
-			</div>
-		</li>
-		<li class="opcion-carrito">
-			<a href="carrito.html">
-				<img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-			</a>
-		</li>
-	</ul>
-</nav>
-</div>
 <!-- Portafolio de WRAPs -->
-
 	<div id="wrapper-container">
 
 		<div class="container object">
@@ -158,76 +129,6 @@
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="../Assets/js/main.min.js"></script>
 
-<script>
-
-    var respuesta;
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        respuesta=JSON.parse(this.responseText);
-        if(respuesta.success===true){
-            document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
-        }else{
-            document.getElementById("menu").innerHTML = ``;
-
-        }
-    };
-    xhr.open("POST","/Skate/PHP/sketis/verificar_sesion.php",true);
-    xhr.withCredentials = true;
-    xhr.send();
-
-    function login(){
-        window.location.href = 'login.html';
-
-    }
-    function cerrar_sesion(){
-        var respuesta;
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function () {
-            respuesta=JSON.parse(this.responseText);
-            if(respuesta.success===true){
-                window.location.href = 'login.html';
-            }
-        };
-
-        xhr.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
-        xhr.withCredentials = true;
-        xhr.send();
-    }
-/* Imagenes de precarga */
-function preloader() {
-	if (document.images) {
-		var img1 = new Image();
-		var img2 = new Image();
-		var img3 = new Image();
-
-
-
-		img1.src = "img/psd-4.jpg";
-		img2.src = "img/font-1.jpg";
-		img3.src = "img/psd-1.jpg";
-		img4.src = "img/psd-2.jpg";
-		img5.src = "img/ai-1.jpg";
-		img6.src = "img/theme-2.jpg";
-		img7.src = "img/psd-3.jpg";
-		img8.src = "img/font-2.jpg";
-		img9.src = "img/font-3.jpg";
-	}
-}
-function addLoadEvent(func) {
-	var oldonload = window.onload;
-	if (typeof window.onload != 'function') {
-		window.onload = func;
-	} else {
-		window.onload = function() {
-			if (oldonload) {
-				oldonload();
-			}
-			func();
-		}
-	}
-}
-addLoadEvent(preloader);
-</script>
 
 </body>
 </html>

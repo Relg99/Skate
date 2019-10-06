@@ -7,7 +7,8 @@
   <link rel="icon" href="../Assets/img/logoBanco.png">
   <title>Registro Banco</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="index-banco.css" rel="stylesheet">
+  <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
+  <link href="index.css" rel="stylesheet">
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
@@ -57,33 +58,9 @@
     </style>
 </head>
 <body>
-<header id="header">
-    <div class="container">
+<div id="insertar-barra"> </div>
 
-        <div id="logo" class="pull-left">
-            <h1><a href="index-banco.html" class="scrollto">Ceti<span>pay</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
-        </div>
-
-        <nav id="nav-menu-container">
-            <ul class="nav-menu">
-                <li class="menu-active"><a href="">I</a></li>
-                <li><a href="index-banco.html">Inicio</a></li>
-                <li><a href="canjear_codigo.html">Depositar</a></li>
-                <li class="menu-has-children">
-                    <img src="" class="dropdown-icon">
-                    <a href="">Pablo León</a>
-                    <ul>
-                        <li><a href="micuenta-banco.html">Cuenta</a></li>
-                        <li><a href="login.html">Cerrar Sesión</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav><!-- #nav-menu-container -->
-    </div>
-</header><!-- #header -->
-    <div class="container">
+<div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
                   <div class="panel-heading">
                         <h3 class="panel-title">
@@ -93,7 +70,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form action="/Skate/PHP/registro_banco.php" method="post">
+                        <form onsubmit="return false" method="post">
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required="required">
@@ -106,9 +83,13 @@
                                     <label for="correo">Correo</label>
                                     <input type="email" name="correo" id="correo" class="form-control" required="required">
                                 </div>
+                          <div class="form-group">
+                            <label for="telefono">Telefono</label>
+                            <input type="number" name="telefono" id="telefono" class="form-control" required="required">
+                          </div>
                                 <div class="form-group">
-                                    <label for="contraseña">Contraseña</label>
-                                    <input type="password" name="contraseña" id="contraseña" class="form-control" required="required">
+                                    <label for="contrasena">Contraseña</label>
+                                    <input type="password" name="contrasena" id="contrasena" class="form-control" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="confirmar">Confirmar contraseña</label>
@@ -117,8 +98,8 @@
                                 <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
-                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">
-                                            <a href="index-banco.html" style="color:white">Registrar</a>
+                                    <button onclick="registroCuenta()" type="submit" class="boton-crear btn-sm btn-boton-crear">
+                                          Registrar
                                     </button>
                                 </div>
                                   </div>
@@ -131,5 +112,41 @@
     </div>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+<script>
+  function registroCuenta(){
+
+          var objeto;
+          const xhr = new XMLHttpRequest();
+          xhr.onload = function() {
+              objeto = JSON.parse(this.responseText);
+
+              if (objeto.success === false) {
+                  alert("Las contraseñas no coinciden");
+              } else {
+                  alert("Has sido registrado");
+                  window.location.href = 'login.html';
+
+              }
+          };
+
+          var fd = new FormData();
+          fd.append("nombre", document.getElementById("nombre").value);
+      fd.append("apellido", document.getElementById("apellido").value);
+      fd.append("correo", document.getElementById("correo").value);
+      fd.append("telefono", document.getElementById("telefono").value);
+
+      fd.append("contrasena", document.getElementById("contrasena").value);
+      fd.append("confirmar", document.getElementById("confirmar").value);
+
+          xhr.open("POST", "/Skate/PHP/cetipay/registro_banco.php", true);
+          xhr.withCredentials = true;
+          xhr.send(fd);
+
+          return false;
+
+  }
+
+
+</script>
 </body>
 </html>

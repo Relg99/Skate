@@ -8,7 +8,8 @@
   <title>Articulos</title>
   <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+  <script type="text/javascript" src="../Assets/js/barnav.js"></script>
+
   <!-- Bootstrap 3 -->
   <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
   <style>
@@ -73,29 +74,8 @@
 
 <body>
 
-  <div class="barnav">
-    <nav>
-      <a href="articulos.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-      </a>
-      <ul>
-        <li>
-          <div class="drop-not-up">
-            <button class="drop-not-up-button">
-              <a href="">
-                <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-              </a>
-            </button>
-            <div class="drop-not-up-content">
-              <a href="cuentaAlmacenista.html">Cuenta</a>
-              <a href="articulos.html">Articulos</a>
-              <a href="login.html">Cerrar Sesion</a>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </div>
+ <div id="insertar-barra"></div>
+
   <div class="head">
     <h3>
       <strong>
@@ -106,10 +86,21 @@
   <div class="container">
     <div class="col-md-8 col-md-offset-2 panel-style">
       <div class="panel-body">
-        <div id="insertar-articulos">
-          <!-- Insertar articulos -->
 
-        </div>
+        <div class="boton-crear">
+          <div  class="boton">
+          </div>
+          <a href="registro-articulos.html">
+            Agregar articulos
+            <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
+          </a>&nbsp;&nbsp;
+          <!--Aqui llega el script-->
+          <div id="insertar-articulos">
+            <!-- Insertar articulos -->
+
+          </div>
+      </div>
+
       </div>
     </div>
   </div>
@@ -142,6 +133,7 @@
   };
   xhr.open("POST", "/Skate/PHP/sketis/articulos_almacen.php", true);
   xhr.send();
+
 </script>
 
 </html>

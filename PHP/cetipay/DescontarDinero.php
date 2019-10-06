@@ -1,5 +1,5 @@
 <?PHP
-include 'conexionBanco.php';
+include 'conexion.php';
 
 $ID_pago=1;//Id del pago
 $Costo=1;//Costo a restar

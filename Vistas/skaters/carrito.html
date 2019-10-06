@@ -1,20 +1,19 @@
 <html>
 <link href="../Assets/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="../Assets/js/bootstrap/js/bootstrap.min.js"></script>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+<script type="text/javascript" src="../Assets/js/barnav.js"></script>
 
 <style>
     .contenerdor {
         width: 100%;
     }
-    
+
     .row_fake {
         margin-top: 50px;
         margin-right: 25%;
         margin-left: 25%;
     }
-    
+
     .mi-boton-comprar {
         color: #fff;
         background-color: #343434;
@@ -36,12 +35,12 @@
         border: 1px solid transparent;
         border-radius: 4px;
     }
-    
+
     .margen-boton-de-compra {
         margin-top: 20px;
         margin-bottom: 20px;
     }
-    
+
     .panel-heading-fake {
         border-color: #cecece;
         padding: 10px 15px;
@@ -60,34 +59,7 @@
 </head>
 
 <body>
-    <div class="barnav">
-        <nav>
-            <a href="index.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-            </a>
-            <ul>
-                <li>
-                    <div class="drop-not-up">
-                        <button class="drop-not-up-button">
-                  <a>
-                    <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                    <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
-
-                  </a>
-                </button>
-                        <div id="menu" class="drop-not-up-content">
-                            <a href="cuenta.html">Cuenta</a>
-                            <a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="opcion-carrito">
-                    <a href="carrito.html">
-                        <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+  <div id="insertar-barra"></div>
 
     <div class="row_fake">
         <div class="contenerdor">
@@ -99,10 +71,12 @@
                                 <h5><span class="glyphicon glyphicon-shopping-cart"></span> Carrito de Compras</h5>
                             </div>
                             <div class="col-xs-6">
+                              <a href="index.html" >
                                 <button type="button" class="mi-boton-comprar">
 									<span class="glyphicon glyphicon-share-alt"></span>
-									<a href="index.html" style="color:rgb(255, 255, 255)">Continue Comprando</a>
+							Continue Comprando
 								</button>
+                              </a>
                             </div>
                             <div class="col-xs-7">
                                 <button type="button" onclick="vaciar()">
@@ -171,10 +145,12 @@
                 </div>
 
                 <div class="margen-boton-de-compra">
-
+    <a href="../../Vistas/cetipay/login-compra.html">
                     <button type="button" class="mi-boton-comprar">
 									<span class="glyphicon glyphicon-share-alt"></span>
-									<a href="../banco/login-compra.html" style="color: white"> Comprar</a>
+								Comprar
+                    </button>
+    </a>
                 </div>
 
             </div>
@@ -188,10 +164,11 @@
         function carrito() {
             const xhr = new XMLHttpRequest();
             xhr.onload = function() {
-                objeto = JSON.parse(this.responseText);
-                for (let i = 0; i < objeto.length; i++) {
+               try {
+                   objeto = JSON.parse(this.responseText);
+                   for (let i = 0; i < objeto.length; i++) {
 
-                    document.getElementById("articulos").innerHTML += `
+                       document.getElementById("articulos").innerHTML += `
 			<hr>
 					<div class="row">
 						<div class="col-xs-2"><img class="img-responsive" src="../Assets/bd/${objeto[i].Foto}">
@@ -221,8 +198,8 @@
 						</div>
 					</div>
 			`;
-                }
-                document.getElementById("total-dinero").innerHTML += `
+                   }
+                   document.getElementById("total-dinero").innerHTML += `
 		<div class="row text-center">
 						<div class="col-xs-9">
 							<h4 class="text-right">Total <strong>${objeto[0].Total}</strong></h4>
@@ -232,7 +209,8 @@
 						</div>
 					</div>
 		`;
-
+               }catch(e){
+                }
 
             };
             var fd = new FormData();
@@ -279,13 +257,12 @@
 
         function alcarro(ID, Precio) {
             const xhc = new XMLHttpRequest();
-            var respuesta;
             xhc.onload = function() {
-                respuesta = JSON.parse(this.responseText);
                 document.getElementById("articulos").innerHTML = ``;
                 document.getElementById("total-dinero").innerHTML = ``;
                 carrito();
             };
+
             var fd = new FormData();
             fd.append("Add", ID);
             fd.append("Precio", Precio);
@@ -294,12 +271,10 @@
         }
         function vaciar() {
             const xhp = new XMLHttpRequest();
-            var respuesta;
             xhp.onload = function() {
                 document.getElementById("articulos").innerHTML = ``;
                 document.getElementById("total-dinero").innerHTML = ``;
                 carrito();
-                respuesta = JSON.parse(this.responseText);
             };
 
             var fp = new FormData();

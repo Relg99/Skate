@@ -2,83 +2,59 @@
 <html lang="en">
 
 <head>
-    <title>Skaters - Llantas</title>
-    <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
-    <link rel="stylesheet" type="text/css" href="articulos.css">
-    <link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
+  <title>Skaters - Llantas</title>
+  <script type="text/javascript" src="../Assets/js/barnav.js"></script>
+  <link rel="shortcut icon" href="../Assets/icons/logo_header.png"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="barnav.css">
+  <link rel="stylesheet" type="text/css" href="articulos.css">
+  <link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <div class="barnav">
-        <nav>
-            <a href="index.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-            </a>
-            <ul>
-                <li>
-                    <div class="drop-not-up">
-                        <button class="drop-not-up-button">
-            <a>
-              <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-              <h3 id="nombre-persona" class="drop-not-up-name" onclick="login()">Iniciar sesion</h3>
+<div id="insertar-barra"></div>
 
-            </a>
-          </button>
-                        <div id="menu" class="drop-not-up-content">
-                            <a href="cuenta.html">Cuenta</a>
-                            <a onclick="cerrar_sesion()" href="login.html">Cerrar Sesion</a>
-                        </div>
-                    </div>
-                </li>
-                <li class="opcion-carrito">
-                    <a href="carrito.html">
-                        <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+<div class="header">
+  <img alt="portada" id="img_portada" src="../Assets/portada_llantas.jpg">
+  <div class="texto_portada">
+    <h1>Llantas</h1>
+  </div>
+</div>
+<div class="navegacion">
+  <span class="item-nav"><a href="tablas.html">Tablas</a></span> / <span class="item-nav"><a
+  href="trucks.html">Trucks</a></span> / <span class="item-nav" id="nav-tablas"><a
+  href="llantas.html">Llantas</a></span>
+</div>
 
-    <div class="header">
-        <img alt="portada" id="img_portada" src="../Assets/portada_llantas.jpg">
-        <div class="texto_portada">
-            <h1>Llantas</h1>
-        </div>
-    </div>
-    <div class="navegacion">
-        <span class="item-nav"><a href="tablas.html">Tablas</a></span> / <span class="item-nav"><a href="trucks.html">Trucks</a></span> / <span class="item-nav" id="nav-tablas"><a href="llantas.html">Llantas</a></span>
-    </div>
+<div class="articulos" id="insertar-articulos">
 
-    <div class="articulos" id="insertar-articulos">
-
-        <!--
-        <div class="articulo">
-            <img class="articulo-img" src="../Assets/test.jpg" alt="Bonita patineta">
-            <div class="articulo-texto">
-                SEAL 8.25 COMPLETE SINGLE COLQUICK VIEW
-            </div>
-            <span >$700</span>
-            <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
-            </div>
-        </div>
+  <!--
+  <div class="articulo">
+      <img class="articulo-img" src="../Assets/test.jpg" alt="Bonita patineta">
+      <div class="articulo-texto">
+          SEAL 8.25 COMPLETE SINGLE COLQUICK VIEW
+      </div>
+      <span >$700</span>
+      <div class="icono-carrito"> <img alt="shopping" src="../Assets/icons/baseline_shopping_cart_black_18dp.png" class="shopping-icon">        <span class="tooltipcarrito">Agregar al carrito</span>
+      </div>
+  </div>
 
 
-    -->
-    </div>
-    <script type="text/javascript">
-        var objeto;
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            //alert(this.responseText);
-            console.log(this.responseText);
-            objeto = JSON.parse(this.responseText);
+-->
+</div>
+<script type="text/javascript">
+    var objeto;
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        //alert(this.responseText);
+        console.log(this.responseText);
+        objeto = JSON.parse(this.responseText);
 
-            for (let i = 0; i < objeto.length; i++) {
+        for (let i = 0; i < objeto.length; i++) {
 
-                document.getElementById("insertar-articulos").innerHTML += `
+            document.getElementById("insertar-articulos").innerHTML += `
 <div class="articulo">
         <img class="articulo-img" src="../Assets/bd/${objeto[i].Foto}" alt="sta chida te lo juro">
         <div class="articulo-texto">
@@ -89,62 +65,26 @@
         </div>
     </div>
 `;
-            }
-        };
+        }
+    };
 
-        var fd = new FormData();
-        fd.append("tipo", "1");
-        xhr.open("POST", "/Skate/PHP/sketis/articulos.php", true);
-        xhr.send(fd);
+    var fd = new FormData();
+    fd.append("tipo", "1");
+    xhr.open("POST", "/Skate/PHP/sketis/articulos.php", true);
+    xhr.send(fd);
 
+    function alcarro(ID, Precio) {
+        const xhc = new XMLHttpRequest();
         var respuesta;
-        const xhr2 = new XMLHttpRequest();
-        xhr2.onload = function() {
+        window.alert("Producto agregado al carrito");
+        xhc.onload = function () {
             respuesta = JSON.parse(this.responseText);
-            if (respuesta.success === true) {
-                document.getElementById("nombre-persona").innerHTML = `${respuesta.nombre}`;
-            } else {
-                document.getElementById("menu").innerHTML = ``;
-
-            }
         };
-
-        xhr2.open("POST", "/Skate/PHP/sketis/verificar_sesion.php", true);
-        xhr2.withCredentials = true;
-        xhr2.send();
-
-        function login() {
-            window.location.href = 'login.html';
-
-        }
-
-        function cerrar_sesion() {
-            var respuesta;
-            const xhr = new XMLHttpRequest();
-            xhr.onload = function() {
-                respuesta = JSON.parse(this.responseText);
-                if (respuesta.success === true) {
-                    window.location.href = 'login.html';
-                }
-            };
-
-            xhr.open("POST", "/Skate/PHP/sketis/cerrar_sesion.php", true);
-            xhr.withCredentials = true;
-            xhr.send();
-        }
-
-        function alcarro(ID, Precio) {
-            const xhc = new XMLHttpRequest();
-            var respuesta;
-            window.alert("Producto agregado al carrito");
-            xhc.onload = function() {
-                respuesta = JSON.parse(this.responseText);
-            };
-            var fd = new FormData();
-            fd.append("Add", ID);
-            fd.append("Precio", Precio);
-            xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
-            xhc.send(fd);
-        }
-    </script>
+        var fd = new FormData();
+        fd.append("Add", ID);
+        fd.append("Precio", Precio);
+        xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
+        xhc.send(fd);
+    }
+</script>
 </body>

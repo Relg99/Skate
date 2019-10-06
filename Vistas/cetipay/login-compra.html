@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Ingresar a CetiPay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+    <link rel="stylesheet" type="text/css" href="../skaters/barnav.css">
 
 
   <!-- Bootstrap 3 -->
@@ -181,14 +181,14 @@
 <script type="text/javascript">
     function tienesaldo(){//ayuda*******************************Lo hizo nito *************************************************
         verificaSaldo = new XMLHttpRequest();
-        
-        verificaSaldo.onload=function(){            
+
+        verificaSaldo.onload=function(){
                 var puede = this.responseText;
                 if(puede=="1"){
                     const realizaLaCompra = new XMLHttpRequest();
                     realizaLaCompra.onload=function(){
                         realizaLaCompra.open("POST","/Skate/PHP/sketis/DescontarArticulos.php",true);
-                        
+
                         if(sucesfully=="1"){
                           //aqui iría lo tuyo PABLO JAIR ->*****************************************
                         var sucesfully = this.responseText;
@@ -198,12 +198,12 @@
 						              popup.classList.toggle("show");
 						              confirm=true;
                         }
-                    };                    
+                    };
                 }else{
                     var popup = document.getElementById("popSeguro");
 						        popup.classList.toggle("show");
 						        confirm=true;
-                }        
+                }
         };
         verificaSaldo.open("POST","/Skate/PHP/sketis/ConsultaDeSaldo.php",true);
     }

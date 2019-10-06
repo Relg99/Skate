@@ -1,6 +1,6 @@
 <?PHP
 
-include 'conexionBanco.php';
+include 'conexion.php';
 $costo=20;
 $usuario=1;
 $can=false;

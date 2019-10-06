@@ -6,7 +6,7 @@
     <title>Skaters - Login</title>
     <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
+  <script type="text/javascript" src="../Assets/js/barnav.js"></script>
 
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
@@ -16,29 +16,7 @@
 <body>
 
 
-    <div class="barnav">
-        <nav>
-            <a href="index.html"> <img src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-            </a>
-            <ul>
-                <li>
-                    <div class="drop-not-up">
-                        <button class="drop-not-up-button">
-                    <a href="">
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Iniciar sesion</h3>
-                    </a>
-                </button>
-                    </div>
-                </li>
-                <li class="opcion-carrito">
-                    <a href="login.html">
-                        <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+<div id="insertar-barra"></div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
             <div class="panel-heading">
@@ -49,7 +27,7 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <form onSubmit="login()" method="POST">
+                <form onSubmit="verificar_credenciales()" method="POST">
                     <div class="form-group">
                         <label for="nombre">Correo</label>
                         <input type="text" name="correo" id="nombre" class="form-control" required="required">
@@ -90,13 +68,13 @@
         xhr.withCredentials = true;
         xhr.send();
 
-        function login(event) {
+        function verificar_credenciales() {
             var objeto;
             const xhr = new XMLHttpRequest();
             xhr.onload = function() {
                 objeto = JSON.parse(this.responseText);
                 if (objeto.success === false) {
-                    alert("uno de los datos es incorrecto");
+                    alert("Verifica tus credenciales");
                 } else {
                     window.location.href = 'index.html';
 

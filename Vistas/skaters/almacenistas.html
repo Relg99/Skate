@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Almacenistas</title>
-    <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
+  <script type="text/javascript" src="../Assets/js/barnav.js"></script>
+  <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../barnav/barnav.css">
     <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
     <style>
@@ -56,30 +56,8 @@
 
     </style>
 </head>
-<body>
-
-<div class="barnav"><nav>
-    <a href="almacenistas.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-    </a>
-    <ul>
-        <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
-                    <a href="">
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-                    </a>
-                </button>
-                <div class="drop-not-up-content">
-                    <a href="cuentaAdmin.html">Cuenta</a>
-                    <a href="almacenistas.html">Almacenistas</a>
-                    <a href="login.html">Cerrar Sesion</a>
-                </div>
-            </div>
-        </li>
-    </ul>
-</nav>
-</div>
+<body id="hideme">
+<div id="insertar-barra"></div>
 <div class="head">
     <h3>
         <strong>
@@ -90,14 +68,12 @@
 <div class="container">
     <div class="col-md-8 col-md-offset-2 panel-style">
         <div class="panel-body">
-            <form action="#" method="post">
 
-                <div  class="form-group">
                     <div class="boton-crear">
                         <div  class="boton">
                         </div>
                         <a href="registro-almacenista.html">
-
+Agregar almacenistas
                             <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
                         </a>&nbsp;&nbsp;
                         <!--Aqui llega el script-->
@@ -108,8 +84,8 @@
 
 
 
-    </form>
-        </div>
+
+
     </div>
             </div>
 
@@ -118,23 +94,22 @@
     const xhr=new XMLHttpRequest();
     xhr.onload=function()
     {
-        console.log(this.responseText);
         objeto=JSON.parse(this.responseText);
 
-        for(let i=0; i<objeto.length;i++)
-        {
+        for(let i=0; i<objeto.length;i++) {
             document.getElementById("insertar-almacenistas").innerHTML +=
                 `
         <a href="#">
         <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
         </a>
                 ${objeto[i].Nombre} ${objeto[i].Apellido}
-         </BR>
-        `;
+         </BR>`;
         }
     };
+
     xhr.open("GET", "/Skate/PHP/sketis/view_almacenistas.php",true);
     xhr.send();
+
 </script>
 </body>
 </html>

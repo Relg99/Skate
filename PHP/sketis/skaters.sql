@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 03, 2019 at 04:15 AM
--- Server version: 10.4.6-MariaDB
+-- Generation Time: Oct 07, 2019 at 01:22 AM
+-- Server version: 10.4.6-MariaDB-log
 -- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -41,26 +41,6 @@ INSERT INTO `articulo` (`Articulo_ID`, `Nombre`) VALUES
 (1, 'Llantas'),
 (2, 'Trucks'),
 (3, 'Tablas');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `carrito`
---
-
-CREATE TABLE `carrito` (
-  `Carrito_ID` int(11) NOT NULL,
-  `Usuario_FK` int(11) NOT NULL,
-  `Producto_FK` int(11) NOT NULL,
-  `Cantidad` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `carrito`
---
-
-INSERT INTO `carrito` (`Carrito_ID`, `Usuario_FK`, `Producto_FK`, `Cantidad`) VALUES
-(1, 2, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -116,7 +96,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`Producto_ID`, `Marca_FK`, `Articulo_FK`, `Cantidad`, `Nombre`, `Foto`, `Modelo`, `Descripcion`, `Precio`) VALUES
-(1, 4, 3, 30, 'Tabla Dexlix Cocodrilo 8.5 inch', 'tabla-dexlixcoco.png', 'T-DEXCOCO85', 'Bonita tabla Dexlix color rosa de 8.5\"', 1000),
+(1, 4, 3, 30, 'Tabla Dexlix Cocodrilo 8.5 inch', 'tabla-dexlixcoco.png', 'T-DEXCOCO85', 'Bonita tabla Dexlix color rosa de 8.5', 1000),
 (4, 7, 3, 30, 'Tabla Dexlix X THC 420 Rojo ', 'tabla-dexlixthc.png', 'THC 420', '8.4 inch', 690),
 (5, 7, 3, 30, 'Tabla Dexlix Alv coco', 'tabla-dexlixalv.png', 'ALV COCO', '8.0,8.12,8.25,8.37,8.5 inch', 570),
 (6, 8, 3, 30, 'Tabla Plan B Sheckler ', 'tabla-planbsheckler.png', 'Sheckler Hands', '8.25 inch', 890),
@@ -175,9 +155,11 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`Usuario_ID`, `Tipo_FK`, `Nombre`, `Apellido`, `Correo`, `Contrasena`) VALUES
-(1, 2, 'Alan', 'Lomeli', 'alomeligcia@gmail.com', 'clave'),
+(1, 2, 'Alan Jesus', 'Lomeli', 'alomeligcia@gmail.com', 'clave'),
 (2, 1, 'Doug Dimmadomme', 'Dueño del Domodimm', 'dougdim@gmail.com', 'clave'),
-(3, 3, 'Jose de Jesus', 'Jimenez Jara', 'josesito@gmail.com', 'clave');
+(3, 3, 'Jose de Jesus', 'Jimenez Jara', 'josesito@gmail.com', 'clave'),
+(4, 3, 'Jose', 'PEpe', 'xaacaca@gmail.com', '123'),
+(5, 3, 'Jose', 'PEpe', 'caca@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -188,14 +170,6 @@ INSERT INTO `usuario` (`Usuario_ID`, `Tipo_FK`, `Nombre`, `Apellido`, `Correo`, 
 --
 ALTER TABLE `articulo`
   ADD PRIMARY KEY (`Articulo_ID`);
-
---
--- Indexes for table `carrito`
---
-ALTER TABLE `carrito`
-  ADD PRIMARY KEY (`Carrito_ID`),
-  ADD KEY `Usuario_FK` (`Usuario_FK`),
-  ADD KEY `Producto_FK` (`Producto_FK`);
 
 --
 -- Indexes for table `marca`
@@ -235,12 +209,6 @@ ALTER TABLE `articulo`
   MODIFY `Articulo_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `carrito`
---
-ALTER TABLE `carrito`
-  MODIFY `Carrito_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `marca`
 --
 ALTER TABLE `marca`
@@ -250,7 +218,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT for table `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `Producto_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `Producto_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `t_usuario`
@@ -262,18 +230,11 @@ ALTER TABLE `t_usuario`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `Usuario_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Usuario_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `carrito`
---
-ALTER TABLE `carrito`
-  ADD CONSTRAINT `carrito_ibfk_1` FOREIGN KEY (`Usuario_FK`) REFERENCES `usuario` (`Usuario_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `carrito_ibfk_2` FOREIGN KEY (`Producto_FK`) REFERENCES `producto` (`Producto_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `producto`

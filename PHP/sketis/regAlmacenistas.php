@@ -1,9 +1,9 @@
 <?php
 /**
- * author Liloth00814
+ * author Liloth00814 wakala
  */
 
-include ('sketis/conexion.php');
+include 'conexion.php';
 
 $nombre=$_POST["nombre"];
 $apellido=$_POST["apellido"];
@@ -19,9 +19,9 @@ if ($contraseña != $confirmar){
             <meta charset="utf-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <title>Skaters - Status</title>
-            <link rel="shortcut icon" href="../Vistas/Assets/icons/logo_header.png" />
+            <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-                    function r() { location.href="../Vistas/skaters/registro-almacenista.html"} 
+                    function r() { location.href="../../Vistas/skaters/registro-almacenista.html"}
                     setTimeout ("r()", 5000);
                     </script>
             <style>
@@ -46,7 +46,7 @@ if ($contraseña != $confirmar){
     </head>
     <body>
         <tr>
-            <td> <img class="okimage" src="../Vistas/Assets/icons/err_icon.png"/> </td>
+            <td> <img class="okimage" src="../../Vistas/Assets/icons/err_icon.png"/> </td>
             <td><p class="texto">Error: la contraseña no es igual en ambos campos </br> seras redireccionado automaticamente....</p></td>
         </tr>
     </body>
@@ -75,9 +75,9 @@ else{
                     <meta charset="utf-8" />
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <title>Skaters - Status</title>
-                    <link rel="shortcut icon" href="../Vistas/Assets/icons/logo_header.png" />
+                    <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
                     <script>
-                            function r() { location.href="../Vistas/skaters/registro-almacenista.html"} 
+                            function r() { location.href="../../Vistas/skaters/registro-almacenista.html"}
                             setTimeout ("r()", 5000);
                             </script>
                     <style>
@@ -102,7 +102,7 @@ else{
             </head>
             <body>
                 <tr>
-                    <td> <img class="okimage" src="../Vistas/Assets/icons/err_icon.png"/> </td>
+                    <td> <img class="okimage" src="../../Vistas/Assets/icons/err_icon.png"/> </td>
                     <td><p class="texto">Error: El correo que ingresaste ya existe en el sistema
                     </br> seras redireccionado automaticamente....</p></td>
                 </tr>
@@ -112,7 +112,7 @@ else{
             $borrarIncorrectos = mysqli_query($conexion, "delete from usuario where Usuario_ID = '$nUsuario'") or die ("fallo al borrar rep");
         }
         $verifica=mysqli_fetch_array($verificaCorreo);
-    } 
+    }
     if ($estado == false){
         echo '
         <html>
@@ -122,7 +122,7 @@ else{
                 <title>Skaters - Status</title>
                 <link rel="shortcut icon" href="../Vistas/Assets/icons/logo_header.png" />
                 <script>
-                        function r() { location.href="../Vistas/skaters/login.html"} 
+                        function r() { location.href="../../Vistas/skaters/registro-almacenista.html"}
                         setTimeout ("r()", 5000);
                         </script>
                 <style>
@@ -147,7 +147,7 @@ else{
         </head>
         <body>
             <tr>
-                <td> <img class="okimage" src="../Vistas/Assets/icons/ok_icon.png"/> </td>
+                <td> <img class="okimage" src="../../Vistas/Assets/icons/ok_icon.png"/> </td>
                 <td><p class="texto">Te has registrado de manera exitosa! Gracias por formar parte de skaters.
                 </br> seras redireccionado automaticamente....</p></td>
             </tr>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Cetipay</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Faviconsd -->
+  <link href="../Assets/img/banco/favicon.png" rel="icon">
+    <link rel="icon" href="../Assets/img/logoBanco.png">
+  <!-- Bootstrap CSS File -->
+  <link href="../Assets/js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../Assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="../Assets/js/animate/animate.min.css" rel="stylesheet">
+  <link href="../Assets/js/ionicons/css/ionicons.min.css" rel="stylesheet">
+  <link href="../Assets/js/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="../Assets/js/magnific-popup/magnific-popup.css" rel="stylesheet">
+  <link href="../Assets/js/ionicons/css/ionicons.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="index.css" rel="stylesheet">
+
+  <!-- =======================================================
+    Theme Name: Reveal
+    Theme URL: https://bootstrapmade.com/reveal-bootstrap-corporate-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body id="body">
+
+<!--==========================
+  Header
+============================-->
+<header id="header">
+  <div class="container">
+
+    <div id="logo" class="pull-left">
+      <h1><a href="index.html" class="scrollto">Ceti<span>pay</span></a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+    </div>
+
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        <li class="menu-active"><a href="#body">I</a></li>
+        <li><a href="#about">Acerca de nosotros</a></li>
+        <li><a href="#services">Servicios</a></li>
+        <li><a href="#clients">Compras</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contacto</a></li>
+        <li class="menu-has-children">
+          <a href="login.html"><div id="nombre-persona">Iniciar sesion</div></a>
+          <ul id="menu-personalizado">
+            <li><a href="cuenta.html">Cuenta</a></li>
+            <li onclick="cerrar_sesion()"><a >Cerrar Sesión</a></li>
+
+
+          </ul>
+        </li>
+      </ul>
+    </nav><!-- #nav-menu-container -->
+  </div>
+</header><!-- #header -->
+
+<!--==========================
+  Intro Section
+============================-->
+<section id="intro">
+
+  <div class="intro-content">
+    <h2>Cuente con <span>su dinero</span><br> siempre a la mano!</h2>
+    <div>
+      <a href="cuenta.html" class="btn-cuenta scrollto">Cuenta</a>
+      <a href="canjear_codigo.html" class="btn-historial scrollto">Deposita</a>
+    </div>
+  </div>
+
+  <div id="intro-carousel" class="owl-carousel" >
+    <div class="item" style="background-image: url('../Assets/img/banco/intro-carousel/1.jpg');"></div>
+    <div class="item" style="background-image: url('../Assets/img/banco/intro-carousel/2.jpg');"></div>
+    <div class="item" style="background-image: url('../Assets/img/banco/intro-carousel/3.jpg');"></div>
+    <div class="item" style="background-image: url('../Assets/img/banco/intro-carousel/4.jpg');"></div>
+    <div class="item" style="background-image: url('../Assets/img/banco/intro-carousel/5.jpg');"></div>
+  </div>
+
+</section><!-- #intro -->
+
+<main id="main">
+
+  <!--==========================
+    About Section
+  ============================-->
+  <section id="about" class="wow fadeInUp">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 about-img">
+          <img src="../Assets/img/banco/about-img.jpg" alt="">
+        </div>
+
+        <div class="col-lg-6 content">
+          <h2>Acerca de nosotros</h2>
+          <h3>Pues la neta no se que escribir aqui bandamax pero si pusieramos algun choro mareador se veria
+            bien fresh si o no?</h3>
+
+          <ul>
+            <li><i class="ion-android-checkmark-circle"></i> Demen dinero.</li>
+            <li><i class="ion-android-checkmark-circle"></i> Saca pa los don perros.</li>
+            <li><i class="ion-android-checkmark-circle"></i> No me han dado mi beca :c.</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- #about -->
+
+  <!--==========================
+    Services Section
+  ============================-->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <h2>Servicios</h2>
+        <p>Le ofrecemos nuestro servicio de gran calidad patentado por la UNAM</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft">
+            <div class="icon"><i class="fa fa-bar-chart"></i></div>
+            <h4 class="title"><a href="">Analisis</a></h4>
+            <p class="description">Le proporcionamos toda la informacion para que tenga un buen manejo de su dinero.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInRight">
+            <div class="icon"><i class="fa fa-ban"></i></div>
+            <h4 class="title"><a href="">Seguridad</a></h4>
+            <p class="description">Nos aseguramos de que nadie acceda a su cuenta personal.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInLeft" data-wow-delay="0.2s">
+            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+            <h4 class="title"><a href="">Compra</a></h4>
+            <p class="description">Utilice su dinero para realizar sus compras cuando quieras.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="box wow fadeInRight" data-wow-delay="0.2s">
+            <div class="icon"><i class="fa fa-map"></i></div>
+            <h4 class="title"><a href="">Alcance</a></h4>
+            <p class="description">En donde sea que se encuentre, cetipay estará para usted</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #services -->
+
+  <!--==========================
+    Clients Section
+  ============================-->
+  <section id="clients" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Compras</h2>
+        <p>Compre productos de sus marcas favoritas</p>
+      </div>
+
+      <div class="owl-carousel clients-carousel">
+        <img src="../Assets/img/banco/clients/client-1.png" alt="">
+        <img src="../Assets/img/banco/clients/client-2.png" alt="">
+        <img src="../Assets/img/banco/clients/client-3.png" alt="">
+        <img src="../Assets/img/banco/clients/client-4.png" alt="">
+        <img src="../Assets/img/banco/clients/client-5.png" alt="">
+        <img src="../Assets/img/banco/clients/client-6.png" alt="">
+        <img src="../Assets/img/banco/clients/client-7.png" alt="">
+        <img src="../Assets/img/banco/clients/client-8.png" alt="">
+      </div>
+
+    </div>
+  </section><!-- #clients -->
+
+  <!--==========================
+    Our Portfolio Section
+  ============================-->
+  <section id="history" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Historial</h2>
+        <p>Consulte todos los movimientos que ha realizado en esta sección (Proximamente)</p>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row no-gutters">
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/1.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/1.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 1</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/2.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/2.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 2</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/3.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/3.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 3</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/4.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/4.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 4</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/5.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/5.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 5</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/6.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/6.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 7</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/7.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/7.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Dia 8</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4">
+          <div class="portfolio-item wow fadeInUp">
+            <a href="../Assets/img/banco/portfolio/8.jpg" class="portfolio-popup">
+              <img src="../Assets/img/banco/portfolio/8.jpg" alt="">
+              <div class="portfolio-overlay">
+                <div class="portfolio-info"><h2 class="wow fadeInUp">Portfolio Item 8</h2></div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #portfolio -->
+
+  <!--==========================
+    Testimonials Section
+  ============================-->
+  <section id="faq" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Preguntas mas recientes</h2>
+        <p>Consulte las dudas de los usuarios</p>
+      </div>
+      <div class="owl-carousel testimonials-carousel">
+
+        <div class="testimonial-item">
+          <p>
+            <img src="../Assets/img/banco/quote-sign-left.png" class="quote-sign-left" alt="">
+            ¿Como puedo consultar mi saldo?
+            <img src="../Assets/img/banco/quote-sign-right.png" class="quote-sign-right" alt="">
+          </p>
+          <img src="../Assets/img/banco/testimonial-1.jpg" class="testimonial-img" alt="">
+          <h3>Andrea Flores</h3>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <img src="../Assets/img/banco/quote-sign-left.png" class="quote-sign-left" alt="">
+            ¿Cuanto dinero tengo?
+            <img src="../Assets/img/banco/quote-sign-right.png" class="quote-sign-right" alt="">
+          </p>
+          <img src="../Assets/img/banco/testimonial-2.jpg" class="testimonial-img" alt="">
+          <h3>Juan Gabriel</h3>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <img src="../Assets/img/banco/quote-sign-left.png" class="quote-sign-left" alt="">
+            ¿Como borro mi pregunta?
+            <img src="../Assets/img/banco/quote-sign-right.png" class="quote-sign-right" alt="">
+          </p>
+          <img src="../Assets/img/banco/testimonial-3.jpg" class="testimonial-img" alt="">
+          <h3>El chochos</h3>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <img src="../Assets/img/banco/quote-sign-left.png" class="quote-sign-left" alt="">
+            ¿Papá en donde estas?
+            <img src="../Assets/img/banco/quote-sign-right.png" class="quote-sign-right" alt="">
+          </p>
+          <img src="../Assets/img/banco/testimonial-4.jpg" class="testimonial-img" alt="">
+          <h3>Pepe Hernandez</h3>
+        </div>
+
+        <div class="testimonial-item">
+          <p>
+            <img src="../Assets/img/banco/quote-sign-left.png" class="quote-sign-left" alt="">
+            Ya no me digan el kks.
+            <img src="../Assets/img/banco/quote-sign-right.png" class="quote-sign-right" alt="">
+          </p>
+          <img src="../Assets/img/banco/testimonial-5.jpg" class="testimonial-img" alt="">
+          <h3>El cacas</h3>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- #testimonials -->
+
+
+  <!--==========================
+    Contact Section
+  ============================-->
+  <section id="contact" class="wow fadeInUp">
+    <div class="container">
+      <div class="section-header">
+        <h2>Contacto</h2>
+        <p>El personal de Cetipay se encuentra disponible para atenderle de lunes a viernes de 3 a 7pm</p>
+      </div>
+
+      <div class="row contact-info">
+
+        <div class="col-md-4">
+          <div class="contact-address">
+            <i class="ion-ios-location-outline"></i>
+            <h3>Direccion</h3>
+            <address>Calle Nueva Escocia 1885, Providencia 5a Secc., 44638 Guadalajara, Jal.</address>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-phone">
+            <i class="ion-ios-telephone-outline"></i>
+            <h3>Telefono</h3>
+            <p><a href="tel:+420">+669</a></p>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="contact-email">
+            <i class="ion-ios-email-outline"></i>
+            <h3>Email</h3>
+            <p><a href="mailto:dametudinero@estafas.com">dametudinero@estafas.com</a></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.1971793569865!2d-103.3881627463292!3d20.70221617198766!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428ae4e98d5453d%3A0xc4fdd3929a2ecbd1!2sCETI%20Plantel%20Colomos!5e0!3m2!1ses!2smx!4v1569914792300!5m2!1ses!2smx" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>      </div>
+  </section><!-- #contact -->
+
+</main>
+
+<!--==========================
+  Footer
+============================-->
+<footer id="footer">
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong>Reveal</strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Reveal
+      -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </div>
+</footer><!-- #footer -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="../Assets/js/jquery-3.3.1.min.js"></script>
+<script src="../Assets/js/jquery-migrate.min.js"></script>
+<script src="../Assets/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../Assets/js/easing/easing.min.js"></script>
+<script src="../Assets/js/superfish/hoverIntent.js"></script>
+<script src="../Assets/js/superfish/superfish.min.js"></script>
+<script src="../Assets/js/wow/wow.min.js"></script>
+<script src="../Assets/js/owlcarousel/owl.carousel.min.js"></script>
+<script src="../Assets/js/magnific-popup/magnific-popup.min.js"></script>
+<script src="../Assets/js/sticky/sticky.js"></script>
+
+<!-- Contact Form JavaScript File -->
+<script src="../Assets/js/contactform.js"></script>
+
+<!-- Template Main Javascript File -->
+<script src="../Assets/js/banco-script.js"></script>
+<script>
+
+    const peticionVerificarSesion = new XMLHttpRequest();
+    peticionVerificarSesion.open("POST","/Skate/PHP/cetipay/verificar_sesion.php");
+    peticionVerificarSesion.withCredentials = true;
+    peticionVerificarSesion.send();
+
+    peticionVerificarSesion.onload = function () {
+        respuestaVerificarSesion=JSON.parse(this.responseText);
+        if (respuestaVerificarSesion.success === true) {
+            document.getElementById("nombre-persona").innerHTML = `${respuestaVerificarSesion.nombre}`;
+            document.getElementById("menu-personalizado").innerHTML = `
+            <li><a href="canjear_codigo.html">Deposita</a></li>
+
+<li><a href="cuenta.html">Cuenta</a></li>
+
+                        <li  onclick="cerrar_sesion()"><a  >Cerrar Sesión</a></li>`;
+
+
+
+        } else {
+
+            document.getElementById("menu-personalizado").innerHTML = ``;
+
+        }
+
+    };
+    function cerrar_sesion(){
+        tipoCuenta=0;
+        var respuestaCerrarSesion;
+        const peticionCerrarSesion = new XMLHttpRequest();
+        peticionCerrarSesion.onload = function () {
+            respuestaCerrarSesion=JSON.parse(this.responseText);
+            if(respuestaCerrarSesion.success===true){
+                window.location.href = 'login.html';
+            }
+        };
+
+        peticionCerrarSesion.open("POST","/Skate/PHP/cetipay/cerrar_sesion.php",true);
+        peticionCerrarSesion.withCredentials = true;
+        peticionCerrarSesion.send();
+    }
+</script>
+</body>
+<script>
+
+
+</script>
+</html>
