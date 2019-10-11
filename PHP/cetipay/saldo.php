@@ -6,7 +6,7 @@ $can=false;
 $consulta = mysqli_query($conexion,'SELECT
                                     Saldo
                                     FROM
-                                    Cuenta
+                                    cuenta
                                     WHERE FK_user='.$_SESSION['IDPay'])
 or die("Fallo la consulta");
 

@@ -25,7 +25,7 @@ if($result!=0){//si aun hay productos
         $succesfully=true;
     }
     else{
-        echo "fuck";
+        echo "ERROR";
     }
 }
 }

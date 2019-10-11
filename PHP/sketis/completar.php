@@ -1,5 +1,5 @@
 <?php
-    $server="localhost:8080";
+    $server="localhost";
     require 'descontararticulos.php';
     $_SESSION["reset"] = 0;
     require 'carro.php';
