@@ -1,4 +1,3 @@
-
 <?PHP
 include 'conexion.php';
 if(isset($_COOKIE["datos"])){
@@ -12,6 +11,7 @@ if(isset($_COOKIE["datos"])){
   $_SESSION["articulo"] = $datos["articulo"];
   $_SESSION["id"] = $datos["id"];
 }
+$_SESSION["envio"] = array();
 if(isset($_SESSION["articulo"])){
 $consulta = mysqli_query($conexion,'SELECT
                                     producto.Producto_ID,
@@ -49,6 +49,10 @@ print "[";
                               print '"Total":"'.$_SESSION["total"].'",';
                               print '"Precio":"'.$Fila["Precio"].'"';
                               print "}";
+
+                              $_SESSION["envio"][$k]["Cantidad"]=$cantidad[$k];
+                              $_SESSION["envio"][$k]["Nombre"]=$Fila["Nombre"];
+                              $_SESSION["envio"][$k]["Total"]=$_SESSION["total"];
                               if($k!=$cuenta-1){
                               print ",";
                               }
@@ -69,10 +73,3 @@ mysqli_close($conexion);
 
 }
 ?>
-
-
-
-
-
-
-

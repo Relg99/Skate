@@ -108,33 +108,6 @@
 </head>
 <body>
 
-<div class="barnav"><nav>
-    <a href="../skaters/index.html">	<img  src="../Assets/icons/logo.png" alt="Logo" class="logo-barnav">
-    </a>
-    <ul>
-        <li>
-            <div class="drop-not-up">
-                <button class="drop-not-up-button">
-                    <a>
-                        <img src="../Assets/icons/baseline_account_circle_white_18dp.png" class="drop-not-up-icon">
-                        <h3 class="drop-not-up-name">Ricardo Enrique </h3>
-                    </a>
-                </button>
-                <div class="drop-not-up-content">
-                    <a href="../skaters/cuenta.html">Cuenta</a>
-                    <a href="../skaters/login.html">Cerrar Sesion</a>
-                </div>
-            </div>
-        </li>
-        <li class="opcion-carrito">
-            <a href="../skaters/carrito.html">
-                <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
-            </a>
-        </li>
-    </ul>
-</nav>
-</div>
-
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
                   <div class="panel-heading">
@@ -158,7 +131,7 @@
                                   <div class="boton-crear">
                                     <div class="boton">
                                     <button type="submit" class="boton-crear btn-sm btn-boton-crear">
-                                        <a onclick="tienesaldo()" style="color: white">Ingresar</a>
+                                        <a onclick="ingresar()" style="color: white">Ingresar</a>
                                         <div class="popup">
                                         <span class="popuptext" id="popSeguro">Ha ocurrido un error al realizar la compra:(</span>
                                         </div>
@@ -167,7 +140,7 @@
                                   </div>
                                   </div>
                                   <div class="Creacion">
-                                    <a  href="registro-banco.html" style="color:black">Crear cuenta</a>
+                                    <a  href="registro.html" style="color:black">Crear cuenta</a>
                                 </div>
                         </form>
                   </div>
@@ -179,33 +152,38 @@
 <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
 
 <script type="text/javascript">
-    function tienesaldo(){//ayuda*******************************Lo hizo nito *************************************************
-        verificaSaldo = new XMLHttpRequest();
 
-        verificaSaldo.onload=function(){
-                var puede = this.responseText;
-                if(puede=="1"){
-                    const realizaLaCompra = new XMLHttpRequest();
-                    realizaLaCompra.onload=function(){
-                        realizaLaCompra.open("POST","/Skate/PHP/sketis/DescontarArticulos.php",true);
-
-                        if(sucesfully=="1"){
-                          //aqui iría lo tuyo PABLO JAIR ->*****************************************
-                        var sucesfully = this.responseText;
-                          window.location.href='../index.html';
-                        }else{
-                          var popup = document.getElementById("popSeguro");
-						              popup.classList.toggle("show");
-						              confirm=true;
-                        }
-                    };
-                }else{
-                    var popup = document.getElementById("popSeguro");
-						        popup.classList.toggle("show");
-						        confirm=true;
-                }
+    var respuesta;
+        const xhr = new XMLHttpRequest();
+        xhr.onload = function() {
+            respuesta = JSON.parse(this.responseText);
+            if (respuesta.success === true) {
+                alert("Ya iniciaste sesión");
+                window.location.href = '/Skate/Vistas/cetipay/resumen.html';
+            }
         };
-        verificaSaldo.open("POST","/Skate/PHP/sketis/ConsultaDeSaldo.php",true);
+
+        xhr.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php", true);
+        xhr.withCredentials = true;
+        xhr.send();
+
+    function ingresar(){
+      var objeto;
+      const xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        objeto = JSON.parse(this.responseText);
+        if (objeto.success === false) {
+          alert("Verifica tus credenciales");
+        } else {
+          window.location.href = '/Skate/Vistas/cetipay/resumen.html';
+        }
+      };
+      var fd = new FormData();
+      fd.append("correo", document.getElementById("nombre").value);
+      fd.append("contrasena", document.getElementById("contraseña").value);
+      xhr.open("POST", "/Skate/PHP/cetipay/iniciar_sesion.php", true);
+      xhr.withCredentials = true;
+      xhr.send(fd);
     }
 </script>
 </body>

@@ -15,7 +15,7 @@ include 'conexion.php';
 
 						if ($nfilas==1){
 							$_SESSION['CorreoPay']= $mail;
-              $_SESSION['NombrePay']=$Fila['Nombre'];
+              				$_SESSION['NombrePay']=$Fila['Nombre'];
 							$_SESSION['ApellidoPay']=$Fila['Apellido'];
 							$_SESSION['IDPay']=$Fila['PK_usuarios'];
 							echo'{"success":true}';

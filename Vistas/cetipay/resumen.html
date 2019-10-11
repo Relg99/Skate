@@ -1,0 +1,169 @@
+<html>
+<link href="../Assets/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="../Assets/js/jquery-3.3.1.min.js"></script>
+
+<style>
+    .contenerdor {
+        width: 100%;
+    }
+
+    .row_fake {
+        margin-top: 50px;
+        margin-right: 25%;
+        margin-left: 25%;
+    }
+
+    .mi-boton-comprar {
+        color: #fff;
+        background-color: #343434;
+        line-height: 1.5;
+        display: block;
+        width: 70%;
+        margin-right: 15%;
+        margin-left: 15%;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        touch-action: manipulation;
+        cursor: pointer;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .margen-boton-de-compra {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .panel-heading-fake {
+        border-color: #cecece;
+        padding: 10px 15px;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+        color: inherit;
+    }
+</style>
+
+<head>
+    <title>Cetipay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="../Assets/Lato-font/Lato.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <div id="insertar-barra"></div>
+
+    <div class="row_fake">
+        <div class="contenerdor">
+            <div class="panel panel-info">
+                <div class="panel-heading-fake">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-xs-7">
+							    <h4 class="product-name"><strong>Resumen de compra</strong></h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body" id="articulos">
+
+                </div>
+                <div class="panel-footer" id="total-dinero">
+
+                </div>
+
+                <div class="margen-boton-de-compra">
+                    <button type="button" class="mi-boton-comprar" onclick="comprar()">
+									<span class="glyphicon glyphicon-share-alt"></span>
+								Comprar
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        var saldo;  
+        obtenerSaldo();
+        resumen();
+        if(jQuery.isEmptyObject(objeto)){
+            window.location.href = '/Skate/PHP/cetipay/cancelar.php';
+            window.alert("Ha ocurrido un error");
+        }
+
+        function resumen() {
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+               try {
+                   objeto = JSON.parse(this.responseText);
+                   for (let i = 0; i < objeto.length; i++) {
+
+                       document.getElementById("articulos").innerHTML += `
+
+                    <h4><small>${objeto[i].Cantidad} x ${objeto[i].Nombre}</small></h4>
+                    
+			`;
+                   }
+                   restante = saldo - objeto[0].Total;
+                   document.getElementById("total-dinero").innerHTML += `
+		<div class="row text-center">
+						<div class="col-xs-9">
+                            <h4 class="text-left">Total <strong>${objeto[0].Total}</strong></h4>
+                            <h4 class="text-left">Saldo <strong>${saldo}</strong></h4>
+                            <h4 class="text-left">Nuevo saldo <strong>${restante}</strong></h4>
+						</div>
+						<div class="col-xs-3">
+							</button>
+						</div>
+					</div>
+		`;
+               }catch(e){
+                    window.alert(e);
+               }
+
+            };
+            var fd = new FormData();
+            xhr.open("POST", "/Skate/PHP/cetipay/datoscompra.php", true);
+            xhr.send();
+        }
+        function obtenerSaldo(){
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+               try {
+                   saldo = JSON.parse(this.responseText);
+
+               }catch(e){
+                }
+
+            };
+            var fd = new FormData();
+            xhr.open("POST", "/Skate/PHP/cetipay/saldo.php", true);
+            xhr.send();
+        }
+        function comprar(){
+            try {
+                if(saldo>=objeto[0].Total){
+                    window.location.href = '/Skate/PHP/cetipay/realizarcompra.php';
+                    window.alert("Compra Realizada");
+                }
+                else{
+                    window.location.href = '/Skate/PHP/cetipay/cancelar.php';
+                    window.alert("Saldo insuficiente");
+                }
+            }
+            catch(e){
+                window.alert(e);
+            }
+        }
+    </script>
+</body>
+
+</html>

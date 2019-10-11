@@ -25,13 +25,17 @@ if($result!=0){//si aun hay productos
         $succesfully=true;
         echo $update;
         echo "YEEEAH";
-    } 
+    }
+    else{
+        echo "fuck";
+    }
 }
 }
 unset($_SESSION["cantidad"]);
 unset($_SESSION["precio"]);
 unset($_SESSION["total"]);
 unset($_SESSION["articulo"]);
+unset($_COOKIE["datos"]);
 $_SESSION["id"]=0;
 $total=0;
 }

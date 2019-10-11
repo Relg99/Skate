@@ -145,12 +145,10 @@
                 </div>
 
                 <div class="margen-boton-de-compra">
-    <a href="../../Vistas/cetipay/login-compra.html">
-                    <button type="button" class="mi-boton-comprar">
+                    <button type="button" class="mi-boton-comprar" onclick="comprar()">
 									<span class="glyphicon glyphicon-share-alt"></span>
 								Comprar
                     </button>
-    </a>
                 </div>
 
             </div>
@@ -299,6 +297,23 @@
             xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
             xhp.send(fd);
         }
+
+        function comprar() {
+            const peticionVerificarSesion = new XMLHttpRequest();
+            const xhp = new XMLHttpRequest();
+            peticionVerificarSesion.open("POST","/Skate/PHP/sketis/verificar_sesion.php");
+            peticionVerificarSesion.withCredentials = true;
+            peticionVerificarSesion.send();
+            peticionVerificarSesion.onload = function () {
+                respuestaVerificarSesion=JSON.parse(this.responseText);
+                if (respuestaVerificarSesion.success === true) {
+                    window.location.href = '/Skate/PHP/sketis/enviartotal.php';
+                } 
+                else {
+                    window.location.href = 'login.html';
+                }
+        }
+    };
     </script>
 </body>
 
