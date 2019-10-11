@@ -23,21 +23,12 @@ if($result!=0){//si aun hay productos
     $update= "UPDATE producto SET Cantidad=$result WHERE Producto_ID=$ID_articulo";//Variable que guarda mi update
     if ($conexion->query($update) === TRUE) {//si el update se ha realizado correctamente
         $succesfully=true;
-        echo $update;
-        echo "YEEEAH";
     }
     else{
         echo "fuck";
     }
 }
 }
-unset($_SESSION["cantidad"]);
-unset($_SESSION["precio"]);
-unset($_SESSION["total"]);
-unset($_SESSION["articulo"]);
-unset($_COOKIE["datos"]);
-$_SESSION["id"]=0;
-$total=0;
 }
 mysqli_close($conexion);
 ?>

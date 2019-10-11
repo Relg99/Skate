@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION["total"]) ) {
     if(isset($_COOKIE["datos"])){
-      $data = json_decode($_COOKIE["datos"], true);
+      $datos = json_decode($_COOKIE["datos"], true);
       if(isset($datos["cantidad"]))
       $_SESSION["cantidad"] = $datos["cantidad"];
       if(isset($datos["precio"]))
@@ -18,14 +18,16 @@ if (!isset($_SESSION["total"]) ) {
   }
 }
 $i=1;
-if (isset($_POST['reset']) )
+if (isset($_POST['reset']) || isset($_SESSION["reset"]))
  {
    unset($_SESSION["cantidad"]);
    unset($_SESSION["precio"]);
    unset($_SESSION["total"]);
    unset($_SESSION["articulo"]);
+   unset($_SESSION["reset"]);
    $_SESSION["id"]=0;
    $total=0;
+   unset($_COOKIE["datos"]);
  }
 
 if (isset($_POST["Add"]) )
