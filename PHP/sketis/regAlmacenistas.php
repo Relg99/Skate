@@ -12,8 +12,28 @@ $contraseña=$_POST["contraseña"];
 $confirmar=$_POST["confirmar"];
 $estado = false;
 
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+for ($i=0; $i<strlen($nombre); $i++)
+{
+  if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosIN.js"> </script>';
+    return false;
+  }
+}
+ for ($i=0; $i<strlen($apellido); $i++)
+  {
+    if(strpos($valoresPermitidos,substr($apellido,$i,1))===false)
+    {
+        echo '<script src = "../../Vistas/Assets/js/datosIA.js"> </script>';
+      return false;
+    }
+  }
+
 if ($contraseña != $confirmar){
     echo '
+
     <html>
     <head>
             <meta charset="utf-8" />

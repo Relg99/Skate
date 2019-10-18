@@ -12,6 +12,17 @@ $articulo=$_POST["articulo"];
 $valFK;
 $articuloFK;
 
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+for ($i=0; $i<strlen($nombre); $i++)
+{
+  if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosIN.js"> </script>';
+    return false;
+  }
+}
+
 $target_path = "../../Vistas/Assets/bd/";
 $target_path = $target_path . basename( $_FILES['imagenGuardada']['name']);
 

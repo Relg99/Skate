@@ -13,6 +13,25 @@ $contraseña=$_POST["contraseña"];
 $confirmar=$_POST["confirmar"];
 $estado = false;
 
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+for ($i=0; $i<strlen($nombre); $i++)
+{
+  if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosIN.js"> </script>';
+    return false;
+  }
+}
+ for ($i=0; $i<strlen($apellido); $i++)
+  {
+    if(strpos($valoresPermitidos,substr($apellido,$i,1))===false)
+    {
+        echo '<script src = "../../Vistas/Assets/js/datosIA.js"> </script>';
+      return false;
+    }
+  }
+
 if ($contraseña != $confirmar){
     echo '
     <html>
@@ -49,7 +68,7 @@ else{
             <title>Skaters - Status</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-                    function r() { location.href="../../Vistas/skaters/registro.html"} 
+                    function r() { location.href="../../Vistas/skaters/registro.html"}
                     setTimeout ("r()", 3500);
                     </script>
             <style>
@@ -95,7 +114,7 @@ else{
             <title>Skaters - Status</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-                    function r() { location.href="../../Vistas/skaters/login.html"} 
+                    function r() { location.href="../../Vistas/skaters/login.html"}
                     setTimeout ("r()", 2700);
                     </script>
             <style>
