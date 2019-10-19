@@ -100,7 +100,7 @@ echo '
             <title>Skaters - ok</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-                    function r() { location.href="../../Vistas/skaters/registo-articulos.html"}
+                    function r() { location.href="../../Vistas/skaters/registro-articulos.html"}
                     setTimeout ("r()", 3200);
                     </script>
             <style>
