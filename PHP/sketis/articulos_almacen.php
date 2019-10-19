@@ -5,7 +5,7 @@ include 'conexion.php';
 
 //Lista articulos almacen
 
-$consulta = mysqli_query($conexion,'select articulo.Nombre as tipo, producto.Nombre as nombre, 
+$consulta = mysqli_query($conexion,'select producto.Producto_ID as id, articulo.Nombre as tipo, producto.Nombre as nombre, 
 producto.Modelo as modelo, producto.Descripcion as descripcion, producto.Foto as foto, producto.Cantidad AS cantidad
  FROM articulo INNER JOIN producto 
 ON producto.Articulo_FK = articulo.Articulo_ID;')

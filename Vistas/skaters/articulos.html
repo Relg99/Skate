@@ -137,7 +137,7 @@
 
     for (let i = 0; i < objeto.length; i++) {
       document.getElementById("insertar-articulos").innerHTML +=
-        `
+        `<form action="/Skate/PHP/sketis/borrar_articulo.php" method="POST">
         <div class="container-info">
             <div class="foto-producto">
                 <img class="foto-producto" src="../Assets/bd/${objeto[i].foto}">
@@ -148,14 +148,16 @@
                 <h3>Modelo:         ${objeto[i].modelo}</h2>
                 <h3>Descripcion:    ${objeto[i].descripcion}</h2>
                 <h3>Cantidad:       ${objeto[i].cantidad}</h2>
-                <a href="#">
+                <button type="submit">
       <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
-      </a>
+      </button>
+      <input type="hidden" name="number" value="${i}"></input>
       <br>
        <hr>
             </div>
 
         </div>
+        </form>
 
 
       `;
