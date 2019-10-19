@@ -6,7 +6,8 @@ include 'conexion.php';
 //Lista articulos almacen
 
 $consulta = mysqli_query($conexion,'select articulo.Nombre as tipo, producto.Nombre as nombre, 
-producto.Modelo as modelo, producto.Descripcion as descripcion FROM articulo INNER JOIN producto 
+producto.Modelo as modelo, producto.Descripcion as descripcion, producto.Foto as foto, producto.Cantidad AS cantidad
+ FROM articulo INNER JOIN producto 
 ON producto.Articulo_FK = articulo.Articulo_ID;')
 or die("Fallo la consulta");
 
@@ -19,7 +20,9 @@ $Fila=mysqli_fetch_array($consulta);
         echo '"tipo":"'.$Fila["tipo"].'",';
         echo '"nombre":"'.$Fila["nombre"].'",';
         echo '"modelo":"'.$Fila["modelo"].'",';
-        echo '"descripcion":"'.$Fila["descripcion"].'"';
+        echo '"descripcion":"'.$Fila["descripcion"].'",';
+        echo '"foto":"'.$Fila["foto"].'",';
+        echo '"cantidad":"'.$Fila["cantidad"].'"';
         if($i==$nfilas-1){
         echo "}";
         }else{

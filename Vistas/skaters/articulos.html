@@ -69,12 +69,31 @@
     .articulo {
       background-color: #333;
     }
+
+    div.container-info {
+      width: 80%;
+      margin: auto;
+    }
+
+    div.foto-producto {
+      width: 25%;
+      float: left;
+    }
+
+    img.foto-producto {
+      width: 100%;
+    }
+
+    div.info-producto {
+      width: 74%;
+      float: left;
+    }
   </style>
 </head>
 
 <body>
 
- <div id="insertar-barra"></div>
+  <div id="insertar-barra"></div>
 
   <div class="head">
     <h3>
@@ -88,7 +107,7 @@
       <div class="panel-body">
 
         <div class="boton-crear">
-          <div  class="boton">
+          <div class="boton">
           </div>
           <a href="registro-articulos.html">
             Agregar articulos
@@ -99,7 +118,7 @@
             <!-- Insertar articulos -->
 
           </div>
-      </div>
+        </div>
 
       </div>
     </div>
@@ -119,15 +138,26 @@
     for (let i = 0; i < objeto.length; i++) {
       document.getElementById("insertar-articulos").innerHTML +=
         `
-              <p>${objeto[i].tipo}</p>
-              <p>${objeto[i].nombre}</p>
-              <p>${objeto[i].modelo}</p>
-              <p>${objeto[i].descripcion}</p>
-
-      <a href="#">
+        <div class="container-info">
+            <div class="foto-producto">
+                <img class="foto-producto" src="../Assets/bd/${objeto[i].foto}">
+            </div>
+            <div class="info-producto">
+                <h3>Tipo:           ${objeto[i].tipo}</h2>
+                <h3>Nombre:         ${objeto[i].nombre}</h2>
+                <h3>Modelo:         ${objeto[i].modelo}</h2>
+                <h3>Descripcion:    ${objeto[i].descripcion}</h2>
+                <h3>Cantidad:       ${objeto[i].cantidad}</h2>
+                <a href="#">
       <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
       </a>
-       </BR>
+      <br>
+       <hr>
+            </div>
+
+        </div>
+
+
       `;
     }
   };
