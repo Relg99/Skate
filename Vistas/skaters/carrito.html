@@ -301,6 +301,7 @@
         function comprar() {
             const peticionVerificarSesion = new XMLHttpRequest();
             const xhp = new XMLHttpRequest();
+            if(objeto !== undefined){
             peticionVerificarSesion.open("POST","/Skate/PHP/sketis/verificar_sesion.php");
             peticionVerificarSesion.withCredentials = true;
             peticionVerificarSesion.send();
@@ -312,7 +313,11 @@
                 else {
                     window.location.href = 'login.html';
                 }
-        }
+            }
+            }
+            else{
+                window.alert("Carrito Vacio");
+            }
     };
     </script>
 </body>

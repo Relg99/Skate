@@ -87,6 +87,7 @@ if (isset($_POST["delete"]) )
      unset($_SESSION["precio"][$cuenta]);
      unset($_SESSION["cantidad"][$cuenta]);
      unset($_SESSION["articulo"][$cuenta]);
+     unset($_SESSION["total"]);
      }
     }
   }

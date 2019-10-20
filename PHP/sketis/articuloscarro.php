@@ -33,12 +33,11 @@ $articulos=array_values(array_filter($_SESSION["articulo"]));
 $cantidad=array_values(array_filter($_SESSION["cantidad"]));
 
 $nfilas=mysqli_num_rows($consulta);
-$Fila=mysqli_fetch_array($consulta);
 if($cuenta!=0){
 print "[";
     for ($k=0;$k<$cuenta;$k++){
     mysqli_data_seek($consulta, 0);
-        for ($i=0;$i<$nfilas;$i++){
+        while($Fila = mysqli_fetch_array($consulta)){
         if($Fila["Producto_ID"]==$articulos[$k]){
            print '{';
                               print '"ID":"'.$Fila["Producto_ID"].'",';
@@ -58,9 +57,6 @@ print "[";
                               }
           break;
         }
-        $Fila=mysqli_fetch_array($consulta);
-
-
 }
 }
 print "]";
