@@ -56,7 +56,7 @@
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contacto</a></li>
         <li class="menu-has-children">
-          <a href="login.html"><div id="nombre-persona">Iniciar sesion</div></a>
+          <div id="nombre-persona"><a href="login.html"><div>Iniciar sesion</div></a></div>
           <ul id="menu-personalizado">
             <li><a href="cuenta.html">Cuenta</a></li>
             <li onclick="cerrar_sesion()"><a >Cerrar Sesión</a></li>
@@ -461,7 +461,7 @@
     peticionVerificarSesion.onload = function () {
         respuestaVerificarSesion=JSON.parse(this.responseText);
         if (respuestaVerificarSesion.success === true) {
-            document.getElementById("nombre-persona").innerHTML = `${respuestaVerificarSesion.nombre}`;
+            document.getElementById("nombre-persona").innerHTML = `<a><div>${respuestaVerificarSesion.nombre}</div></a>`;
             document.getElementById("menu-personalizado").innerHTML = `
             <li><a href="canjear_codigo.html">Deposita</a></li>
 

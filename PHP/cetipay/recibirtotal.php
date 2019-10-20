@@ -1,5 +1,5 @@
 <?php
-    $server="localhost:8080";
+    $server="localhost";
     session_start();
     $json = $_REQUEST['data'];
     $datos = json_decode($json, true);
