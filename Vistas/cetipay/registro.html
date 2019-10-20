@@ -70,7 +70,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form onsubmit="return false" method="post">
+                      <form action="/Skate/PHP/cetipay/registro_banco.php" method="POST">
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required="required">
@@ -98,8 +98,7 @@
                                 <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
-                                    <button onclick="registroCuenta()" type="submit" class="boton-crear btn-sm btn-boton-crear">
-                                          Registrar
+                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Crear cuenta
                                     </button>
                                 </div>
                                   </div>
@@ -112,41 +111,5 @@
     </div>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
-<script>
-  function registroCuenta(){
-
-          var objeto;
-          const xhr = new XMLHttpRequest();
-          xhr.onload = function() {
-              objeto = JSON.parse(this.responseText);
-
-              if (objeto.success === false) {
-                  alert("Las contraseñas no coinciden");
-              } else {
-                  alert("Has sido registrado");
-                  window.location.href = 'login.html';
-
-              }
-          };
-
-          var fd = new FormData();
-          fd.append("nombre", document.getElementById("nombre").value);
-      fd.append("apellido", document.getElementById("apellido").value);
-      fd.append("correo", document.getElementById("correo").value);
-      fd.append("telefono", document.getElementById("telefono").value);
-
-      fd.append("contrasena", document.getElementById("contrasena").value);
-      fd.append("confirmar", document.getElementById("confirmar").value);
-
-          xhr.open("POST", "/Skate/PHP/cetipay/registro_banco.php", true);
-          xhr.withCredentials = true;
-          xhr.send(fd);
-
-          return false;
-
-  }
-
-
-</script>
 </body>
 </html>
