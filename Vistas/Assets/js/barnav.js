@@ -94,36 +94,32 @@ function cerrar_sesion(){
           window.location.href = '404.html';
         }
       }
-
-      else if (window.location.pathname === "/Skate/Vistas/skaters/index.html")
-      {
+      
+      else if (window.location.pathname === "/Skate/Vistas/skaters/index.html"){
         if (tipoCuenta === 3)
         {
-          window.location = 'index-almacenista.html';
+          window.location.href = 'articulos.html';
         }
       }
 
-      else if (window.location.pathname === "/Skate/Vistas/skaters/tablas.html")
-      {
+      else if (window.location.pathname === "/Skate/Vistas/skaters/tablas.html"){
         if (tipoCuenta === 3)
         {
-          window.location = 'tablas-almacenista.html';
+          window.location.href = '404.html';
         }
       }
 
-      else if (window.location.pathname === "/Skate/Vistas/skaters/trucks.html")
-      {
+      else if (window.location.pathname === "/Skate/Vistas/skaters/llantas.html"){
         if (tipoCuenta === 3)
         {
-          window.location = 'trucks-almacenista.html';
+          window.location.href = '404.html';
         }
       }
 
-      else if (window.location.pathname === "/Skate/Vistas/skaters/llantas.html")
-      {
+      else if (window.location.pathname === "/Skate/Vistas/skaters/trucks.html"){
         if (tipoCuenta === 3)
         {
-          window.location = 'llantas-almacenista.html';
+          window.location.href = '404.html';
         }
       }
 
