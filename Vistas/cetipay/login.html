@@ -89,6 +89,7 @@
 
     </div>
 </div>
+
     <script src="../Assets/js/jquery-3.3.1.min.js"></script>
     <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
 <script>
@@ -113,10 +114,14 @@
         xhr.onload = function() {
             objeto = JSON.parse(this.responseText);
             if (objeto.success === false) {
-                alert("Verifica tus credenciales");
+                if(objeto.mensaje==="ACTIVA"){
+                    alert("Se ha encontrado una sesion activa");
+
+                }else {
+                    alert("Verifica tus credenciales");
+                }
             } else {
                 window.location.href = 'index.html';
-                tipoCuenta=respuestaVerificarSesion.tipo;
 
             }
         };

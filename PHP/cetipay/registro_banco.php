@@ -52,8 +52,8 @@ else{
                 </script>';
         }
         else { //Si no se encontro correo igual, permite el registro.
-            $consulta = mysqli_query($conexion, "insert into usuario (Nombre, Apellido, Telefono, Correo, Contrasena)
-            values ('$nombre', '$apellido', '$telefono', '$correo', '$contraseña')")
+            $consulta = mysqli_query($conexion, "insert into usuario (Nombre, Apellido, Telefono, Correo, Contrasena,Ultima_Conexion)
+            values ('$nombre', '$apellido', '$telefono', '$correo', '$contraseña',0)")
             or die("Fallo la consulta </br>");
             echo'<script type="text/javascript">
                 alert("Has sido registrado");

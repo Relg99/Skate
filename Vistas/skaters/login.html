@@ -75,7 +75,12 @@
             xhr.onload = function() {
                 objeto = JSON.parse(this.responseText);
                 if (objeto.success === false) {
-                    alert("Verifica tus credenciales");
+                    if(objeto.mensaje==="ACTIVA"){
+                        alert("Se ha encontrado una sesion activa");
+
+                    }else {
+                        alert("Verifica tus credenciales");
+                    }
                 } else {
                     window.location.href = 'index.html';
 

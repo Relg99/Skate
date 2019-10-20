@@ -16,7 +16,8 @@ peticionVerificarSesion.onload = function () {
   respuestaVerificarSesion=JSON.parse(this.responseText);
   if (respuestaVerificarSesion.success === true) {
     iniciosesion=true;
-    document.getElementById("nombre-persona").innerHTML = `${respuestaVerificarSesion.nombre}`;
+    document.getElementById("nombre-persona").innerHTML = `<a><div>${respuestaVerificarSesion.nombre}</div></a>
+`;
     document.getElementById("menu-personalizado").innerHTML = `<li><a href="cuenta.html">Cuenta</a></li>
                         <li onclick="cerrar_sesion()"><a >Cerrar Sesión</a></li>`;
 

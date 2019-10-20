@@ -14,11 +14,16 @@ include 'conexion.php';
 
 
 						if ($nfilas==1){
+						  if( ( ((time()-$Fila["Ultima_Conexion"]) / 60 % 60) <5) ||((time()-$Fila["Ultima_Conexion"]) / 60 % 60)==0){
+                   							echo'{"success":false,"mensaje":"ACTIVA"}';
+                   }else{
+              $_SESSION['Ultima_ConexionPay']=time();
 							$_SESSION['CorreoPay']= $mail;
-              				$_SESSION['NombrePay']=$Fila['Nombre'];
+              $_SESSION['NombrePay']=$Fila['Nombre'];
 							$_SESSION['ApellidoPay']=$Fila['Apellido'];
 							$_SESSION['IDPay']=$Fila['PK_usuarios'];
 							echo'{"success":true}';
+							}
 						}else{
 							echo'{"success":false}';
 						}

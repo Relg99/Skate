@@ -91,7 +91,7 @@
     </div>
     </div>
     <script type="text/javascript">
-        var saldo;  
+        var saldo;
         obtenerSaldo();
         resumen();
         if(jQuery.isEmptyObject(objeto)){
@@ -109,7 +109,7 @@
                        document.getElementById("articulos").innerHTML += `
 
                     <h4><small>${objeto[i].Cantidad} x ${objeto[i].Nombre}</small></h4>
-                    
+
 			`;
                    }
                    restante = saldo - objeto[0].Total;

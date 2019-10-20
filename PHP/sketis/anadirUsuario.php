@@ -102,8 +102,8 @@ else{
             ';
         }
         else { //Si no se encontro correo igual, permite el registro.
-            $consulta = mysqli_query($conexion, "insert into usuario (Tipo_FK, Nombre, Apellido, Correo, Contrasena)
-            values ('1', '$nombre', '$apellido', '$correo', '$contraseña')")
+            $consulta = mysqli_query($conexion, "insert into usuario (Tipo_FK, Nombre, Apellido, Correo, Contrasena,Ultima_Conexion)
+            values ('1', '$nombre', '$apellido', '$correo', '$contraseña',0)")
             or die("Fallo la consulta </br>");
 
             echo '

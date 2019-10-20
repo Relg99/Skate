@@ -50,8 +50,9 @@ peticionVerificarSesion.onload = function () {
 };
 
 function login(){
-  window.location.href = 'login.html';
-
+  if(!(tipoCuenta === 1||tipoCuenta === 2||tipoCuenta === 3)) {
+    window.location.href = 'login.html';
+  }
 }
 
 function cerrar_sesion(){
