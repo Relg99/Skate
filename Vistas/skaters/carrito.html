@@ -208,6 +208,7 @@
 					</div>
 		`;
                }catch(e){
+                   objeto={};
                 }
 
             };
@@ -301,7 +302,7 @@
         function comprar() {
             const peticionVerificarSesion = new XMLHttpRequest();
             const xhp = new XMLHttpRequest();
-            if(objeto !== undefined){
+            if(!isEmpty(objeto)){
             peticionVerificarSesion.open("POST","/Skate/PHP/sketis/verificar_sesion.php");
             peticionVerificarSesion.withCredentials = true;
             peticionVerificarSesion.send();
@@ -318,6 +319,14 @@
             else{
                 window.alert("Carrito Vacio");
             }
+    }
+
+    function isEmpty(obj) {
+        for(var key in obj) {
+            if(obj.hasOwnProperty(key))
+                return false;
+        }
+        return true;
     };
     </script>
 </body>

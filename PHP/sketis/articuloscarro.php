@@ -60,10 +60,7 @@ print "[";
 }
 }
 print "]";
-}else{
-   print '{"Total":'.$_SESSION["total"].'}';
-
- }
+}
 mysqli_close($conexion);
 }else{
 
