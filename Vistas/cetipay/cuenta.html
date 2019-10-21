@@ -1,100 +1,91 @@
 <!-- Developer name: Juanpa16100279 -->
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="../Assets/img/logoBanco.png">
-    <title>Mi Cuenta</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../Assets/img/logoBanco.png">
+  <title>Mi Cuenta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="index.css" rel="stylesheet">
-    <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
+  <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
 
-    <!-- Bootstrap 3 -->
+  <!-- Bootstrap 3 -->
     <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
 
     <style>
-        body {
+        body{
             background-color: #FFF;
         }
-        
-        .panel-style {
+
+        .panel-style{
             padding-top: 60px;
         }
-        
-        .panel-title {
-            text-align: center;
+        .panel-title{
+          text-align: center;
         }
-        
         .btn-boton-crear,
         .btn-boton-crear:hover,
-        .btn-boton-crear:active {
-            background-color: #3883C2;
-            color: white;
-            border-radius: 10%
+        .btn-boton-crear:active{
+          background-color:#3883C2;
+          color: white;
+          border-radius: 10%
         }
-        
-        .boton {
-            text-align: right;
+        .boton{
+          text-align: right;
         }
-        
-        .panel-heading {
-            background: #3883C2;
+        .panel-heading{
+            background:  #3883C2;
             color: white;
         }
-        
-        .panel-body {
-            text-align: left;
-            border: #3883C2 3px solid;
+        .panel-body{
+          text-align: left;
+          border: #3883C2 3px solid ;
         }
-        
-        .imagen {
-            text-align: center;
-            padding-top: 10px;
-            padding-right: 16px;
-            height: 100px;
+        .imagen{
+          text-align: center;
+          padding-top: 10px;
+          padding-right: 16px;
+          height: 100px;
         }
-        
-        .logo-navbar {
+        .logo-navbar{
             height: 100px;
             width: 125px;
         }
-        
-        .form-group {
-            color: black;
+        .form-group{
+          color: black;
         }
     </style>
 </head>
-
 <body>
-    <div id="insertar-barra"> </div>
+<div id="insertar-barra"> </div>
 
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    <strong>
+                  <div class="panel-heading">
+                        <h3 class="panel-title">
+                            <strong>
                                 Mi Cuenta
                             </strong>
-                </h3>
-            </div>
-            <div class="panel-body">
-                <form action="#" method="get">
-                    <div id="info-container">
+                        </h3>
+                  </div>
+                  <div class="panel-body">
+                        <form action="#" method="get">
+                            <div id="info-container">
 
-                    </div>
-                </form>
+                            </div>
+                        </form>
+                  </div>
             </div>
+
         </div>
-
-    </div>
     <script type="text/javascript">
         var objeto;
-        const xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            objeto = JSON.parse(this.responseText);
-            document.getElementById("info-container").innerHTML =
+        const xhr=new XMLHttpRequest();
+        xhr.onload=function()
+        {
+            objeto=JSON.parse(this.responseText);
+                document.getElementById("info-container").innerHTML =
                 `
 
                     <div class="form-group">
@@ -136,38 +127,10 @@
         `;
 
         };
-        xhr.open("GET", "/Skate/PHP/cetipay/mi_cuenta_banco.php", true);
+        xhr.open("GET", "/Skate/PHP/cetipay/mi_cuenta_banco.php",true);
         xhr.send();
     </script>
-    <script>
-        const peticionVerificarSesion = new XMLHttpRequest();
-        peticionVerificarSesion.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php");
-        peticionVerificarSesion.withCredentials = true;
-        peticionVerificarSesion.send();
-
-        peticionVerificarSesion.onload = function() {
-            respuestaVerificarSesion = JSON.parse(this.responseText);
-            if (respuestaVerificarSesion.success === true) {
-                document.getElementById("nombre-persona").innerHTML = `${respuestaVerificarSesion.nombre}`;
-                document.getElementById("menu-personalizado").innerHTML = `
-            <li><a href="canjear_codigo.html">Deposita</a></li>
-
-<li><a href="cuenta.html">Cuenta</a></li>
-
-                        <li  onclick="cerrar_sesion()"><a  >Cerrar Sesión</a></li>`;
-
-
-
-            } else {
-
-                window.alert("fack");
-
-            }
-
-        };
-    </script>
-    <script src="../Assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+<script src="../Assets/js/jquery-3.3.1.min.js"></script>
+<script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
 </body>
-
 </html>
