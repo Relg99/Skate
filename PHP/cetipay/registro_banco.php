@@ -30,8 +30,9 @@ for ($i=0; $i<strlen($nombre); $i++)
   }
 
 if ($contraseña != $confirmar){
-    echo'<script">
+    echo'<script>
     alert("Las contraseñas no coinciden");
+    window.history.back();
     </script>';
 }
 else{
