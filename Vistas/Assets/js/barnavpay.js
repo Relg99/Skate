@@ -12,12 +12,22 @@ peticionBarnav.onload = function() {
     peticionVerificarSesion.send();
 };
 
+<<<<<<< HEAD
 peticionVerificarSesion.onload = function() {
     respuestaVerificarSesion = JSON.parse(this.responseText);
     if (respuestaVerificarSesion.success === true) {
         iniciosesion = true;
         document.getElementById("nombre-persona").innerHTML = `${respuestaVerificarSesion.nombre}`;
         document.getElementById("menu-personalizado").innerHTML = `<li><a href="cuenta.html">Cuenta</a></li>
+=======
+peticionVerificarSesion.onload = function () {
+  respuestaVerificarSesion=JSON.parse(this.responseText);
+  if (respuestaVerificarSesion.success === true) {
+    iniciosesion=true;
+    document.getElementById("nombre-persona").innerHTML = `<a><div>${respuestaVerificarSesion.nombre}</div></a>
+`;
+    document.getElementById("menu-personalizado").innerHTML = `<li><a href="cuenta.html">Cuenta</a></li>
+>>>>>>> cb47ae77f76e7bd3834ee232bc8b5ca17cbdc3b4
                         <li onclick="cerrar_sesion()"><a >Cerrar Sesión</a></li>`;
 
 

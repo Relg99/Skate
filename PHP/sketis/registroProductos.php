@@ -12,6 +12,17 @@ $articulo=$_POST["articulo"];
 $valFK;
 $articuloFK;
 
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+for ($i=0; $i<strlen($nombre); $i++)
+{
+  if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosIN.js"> </script>';
+    return false;
+  }
+}
+
 $target_path = "../../Vistas/Assets/bd/";
 $target_path = $target_path . basename( $_FILES['imagenGuardada']['name']);
 
@@ -89,7 +100,7 @@ echo '
             <title>Skaters - ok</title>
             <link rel="shortcut icon" href="../../Vistas/Assets/icons/logo_header.png" />
             <script>
-                    function r() { location.href="../../Vistas/skaters/registo-articulos.html"}
+                    function r() { location.href="../../Vistas/skaters/registro-articulos.html"}
                     setTimeout ("r()", 3200);
                     </script>
             <style>

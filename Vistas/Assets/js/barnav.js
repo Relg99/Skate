@@ -20,15 +20,22 @@ peticionVerificarSesion.onload = function () {
     if (respuestaVerificarSesion.tipo === 2) {
       document.getElementById("menu-personalizado").innerHTML = `
                   <a href="almacenistas.html">Almacenistas</a>
-                                    <a href="articulos.html">Articulos</a>`;
+                                    <a href="articulos.html">Articulos</a>`;                           
       tipoCuenta = 2;
+      document.getElementById("carro-opcion").innerHTML=`
+                  <a href="carrito.html">
+                  <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                  </a>`;                         
 
     } else if (respuestaVerificarSesion.tipo === 3) {
       document.getElementById("menu-personalizado").innerHTML = `
                   <a href="articulos.html">Articulos</a>`;
       tipoCuenta = 3;
     }else if (respuestaVerificarSesion.tipo === 1) {
-
+      document.getElementById("carro-opcion").innerHTML=`
+                  <a href="carrito.html">
+                  <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                  </a>`; 
       tipoCuenta = 1;
     }
     verificarUbicacion();
@@ -43,8 +50,9 @@ peticionVerificarSesion.onload = function () {
 };
 
 function login(){
-  window.location.href = 'login.html';
-
+  if(!(tipoCuenta === 1||tipoCuenta === 2||tipoCuenta === 3)) {
+    window.location.href = 'login.html';
+  }
 }
 
 function cerrar_sesion(){
@@ -85,11 +93,37 @@ function cerrar_sesion(){
       else if (window.location.pathname === "/Skate/Vistas/skaters/cuenta.html") {
         if (tipoCuenta === 0||tipoCuenta === undefined) {
           window.location.href = '404.html';
-
         }
-
-
       }
+      
+      else if (window.location.pathname === "/Skate/Vistas/skaters/index.html"){
+        if (tipoCuenta === 3)
+        {
+          window.location.href = 'articulos.html';
+        }
+      }
+
+      else if (window.location.pathname === "/Skate/Vistas/skaters/tablas.html"){
+        if (tipoCuenta === 3)
+        {
+          window.location.href = '404.html';
+        }
+      }
+
+      else if (window.location.pathname === "/Skate/Vistas/skaters/llantas.html"){
+        if (tipoCuenta === 3)
+        {
+          window.location.href = '404.html';
+        }
+      }
+
+      else if (window.location.pathname === "/Skate/Vistas/skaters/trucks.html"){
+        if (tipoCuenta === 3)
+        {
+          window.location.href = '404.html';
+        }
+      }
+
     }
 
 

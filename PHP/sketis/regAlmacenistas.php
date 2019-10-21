@@ -12,8 +12,28 @@ $contraseña=$_POST["contraseña"];
 $confirmar=$_POST["confirmar"];
 $estado = false;
 
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+
+for ($i=0; $i<strlen($nombre); $i++)
+{
+  if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosIN.js"> </script>';
+    return false;
+  }
+}
+ for ($i=0; $i<strlen($apellido); $i++)
+  {
+    if(strpos($valoresPermitidos,substr($apellido,$i,1))===false)
+    {
+        echo '<script src = "../../Vistas/Assets/js/datosIA.js"> </script>';
+      return false;
+    }
+  }
+
 if ($contraseña != $confirmar){
     echo '
+
     <html>
     <head>
             <meta charset="utf-8" />
@@ -110,8 +130,8 @@ else{
       ';
   }
   else { //Si no se encontro correo igual, permite el registro.
-      $consulta = mysqli_query($conexion, "insert into usuario (Tipo_FK, Nombre, Apellido, Correo, Contrasena)
-      values ('3', '$nombre', '$apellido', '$correo', '$contraseña')")
+      $consulta = mysqli_query($conexion, "insert into usuario (Tipo_FK, Nombre, Apellido, Correo, Contrasena,Ultima_Conexion)
+      values ('3', '$nombre', '$apellido', '$correo', '$contraseña',0)")
       or die("Fallo la consulta </br>");
         echo '
         <html>
