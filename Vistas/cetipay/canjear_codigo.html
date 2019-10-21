@@ -1,103 +1,114 @@
 <!-- Developer name: Jairon Landa (jaironlanda.com) -->
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Canjear código</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="index.css" rel="stylesheet">
-  <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
 
-  <link rel="icon" href="../Assets/img/logoBanco.png">
-  <!-- Bootstrap 3 -->
-  <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Canjear código</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="index.css" rel="stylesheet">
+    <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
+
+    <link rel="icon" href="../Assets/img/logoBanco.png">
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
     <style>
-        body{
+        body {
             background-color: #FFF;
         }
-        .panel-style{
+        
+        .panel-style {
             padding-top: 60px;
         }
-        .panel-title{
-          text-align: center;
+        
+        .panel-title {
+            text-align: center;
         }
+        
         .btn-boton-crear,
         .btn-boton-crear:hover,
-        .btn-boton-crear:active{
-          background-color:#3883C2;
-          color: white;
-          border-radius: 10%
+        .btn-boton-crear:active {
+            background-color: #3883C2;
+            color: white;
+            border-radius: 10%
         }
-        .boton{
-          text-align: right;
+        
+        .boton {
+            text-align: right;
         }
-        .panel-heading{
-            background:  #3883C2;
+        
+        .panel-heading {
+            background: #3883C2;
             color: white;
         }
-        .panel-body{
-          text-align: left;
-          border: #3883C2 3px solid ;
+        
+        .panel-body {
+            text-align: left;
+            border: #3883C2 3px solid;
         }
-        .form-group{
-          color: black;
+        
+        .form-group {
+            color: black;
         }
     </style>
 </head>
+
 <body>
 
-<div id="insertar-barra"> </div>
+    <div id="insertar-barra"> </div>
 
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
-                  <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <strong>
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>
                                Canjear código
                             </strong>
-                        </h3>
-                  </div>
-                  <div class="panel-body">
-                        <form onSubmit="canjearCodigo()" method="POST">
-                            <div class="form-group">
-                                    <label  center="true">Ingresar codigo</label>
-									<br>
-                                <input min="1" max="99999" type="number" name="codigo" id="codigo" class="form-control" required="required" center="true">
-                                </div>
-                                <div class="form-group">
-                                  <div class="boton-crear">
-                                    <div class="boton">
-                                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Canjear</button>
-                                </div>
-                                  </div>
-                                  </div>
-
-                        </form>
-                  </div>
+                </h3>
             </div>
+            <div class="panel-body">
+                <form onSubmit="canjearCodigo()" method="POST">
+                    <div class="form-group">
+                        <label center="true">Ingresar codigo</label>
+                        <br>
+                        <input min="1" max="99999" type="number" name="codigo" id="codigo" class="form-control" required="required" center="true">
+                    </div>
+                    <div class="form-group">
+                        <div class="boton-crear">
+                            <div class="boton">
+                                <button type="submit" class="boton-crear btn-sm btn-boton-crear">Canjear</button>
+                            </div>
+                        </div>
+                    </div>
 
+                </form>
+            </div>
         </div>
-    </div>
-<script src="../Assets/js/jquery-3.3.1.min.js"></script>
-<script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
-<script>
-    var fd = new FormData();
-    const xhr = new XMLHttpRequest();
-    var objeto;
-  function canjearCodigo(){
-    alert("Código canjeado con éxito");
-      fd.append("codigo", document.getElementById("codigo").value);
-      xhr.open("POST", "/Skate/PHP/cetipay/canjear_codigo.php");
-      xhr.withCredentials = true;
-      xhr.send(fd);
-  }
 
-  xhr.onload = function() {
-      objeto = JSON.parse(this.responseText);
-      if (objeto.success === true) {
-      }
-  };
-</script>
+    </div>
+    </div>
+    <script src="../Assets/js/jquery-3.3.1.min.js"></script>
+    <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+    <script>
+        var fd = new FormData();
+        const xhr = new XMLHttpRequest();
+        var objeto;
+
+        function canjearCodigo() {
+            alert("Código canjeado con éxito");
+            fd.append("codigo", document.getElementById("codigo").value);
+            xhr.open("POST", "/Skate/PHP/cetipay/canjear_codigo.php");
+            xhr.withCredentials = true;
+            xhr.send(fd);
+        }
+
+        /*xhr.onload = function() {
+            objeto = JSON.parse(this.responseText);
+            if (objeto.success === true) {
+            }
+        };*/
+    </script>
 </body>
+
 </html>

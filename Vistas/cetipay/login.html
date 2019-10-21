@@ -1,136 +1,145 @@
 <!-- Developer name: Jairon Landa (jaironlanda.com) -->
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="icon" href="../Assets/img/logoBanco.png">
-  <title>Login Banco</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../Assets/img/logoBanco.png">
+    <title>Login Banco</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="index.css" rel="stylesheet">
-  <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
+    <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
 
-  <!-- Bootstrap 3 -->
-  <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
-  <style>
-  body{
-      background-color: #FFF;
-  }
-
-  .panel-style{
-      padding-top: 60px;
-  }
-  .panel-title{
-    text-align: center;
-  }
-  .btn-boton-crear,
-  .btn-boton-crear:hover,
-  .btn-boton-crear:active{
-    background-color:#3883C2;
-    color: white;
-    border-radius: 10%
-  }
-  .boton{
-    text-align: right;
-  }
-  .panel-heading{
-      background:  #3883C2;
-      color: white;
-  }
-  .panel-body{
-    text-align: left;
-    border: #3883C2 3px solid ;
-  }
-
-  .Creacion{
-    text-align: right;
-    font-size: 15px;
-    padding-top:  10px;
-  }
-  .form-group{
-    color: black;
-  }
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" type="text/css" media="screen" href="../Assets/js/bootstrap/css/bootstrap.css" />
+    <style>
+        body {
+            background-color: #FFF;
+        }
+        
+        .panel-style {
+            padding-top: 60px;
+        }
+        
+        .panel-title {
+            text-align: center;
+        }
+        
+        .btn-boton-crear,
+        .btn-boton-crear:hover,
+        .btn-boton-crear:active {
+            background-color: #3883C2;
+            color: white;
+            border-radius: 10%
+        }
+        
+        .boton {
+            text-align: right;
+        }
+        
+        .panel-heading {
+            background: #3883C2;
+            color: white;
+        }
+        
+        .panel-body {
+            text-align: left;
+            border: #3883C2 3px solid;
+        }
+        
+        .Creacion {
+            text-align: right;
+            font-size: 15px;
+            padding-top: 10px;
+        }
+        
+        .form-group {
+            color: black;
+        }
     </style>
 </head>
+
 <body>
-<div id="insertar-barra"> </div>
+    <div id="insertar-barra"> </div>
     <div class="container">
         <div class="col-md-8 col-md-offset-2 panel-style">
-                  <div class="panel-heading">
-                        <h3 class="panel-title">
-                            <strong>
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>
                                 Inicio
                             </strong>
-                        </h3>
-                  </div>
-          <div class="panel-body">
-            <form onSubmit="verificar_credenciales()" method="POST">
-              <div class="form-group">
-                <label for="nombre">Correo</label>
-                <input type="text" name="correo" id="nombre" class="form-control" required="required">
-              </div>
-              <div class="form-group">
-                <label for="contraseña">Contraseña</label>
-                <input type="password" name="contrasena" id="contraseña" class="form-control" required="required">
-              </div>
-              <div class="form-group">
-                <div class="boton-crear">
-                  <div class="boton">
-                    <button type="submit" class="boton-crear btn-sm btn-boton-crear">Ingresar</button>
-                  </div>
-                </div>
-              </div>
-              <div class="Creacion">
-                <a href="registro.html" style="color:black">Crear cuenta</a>
-              </div>
-            </form>
-          </div>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form onSubmit="verificar_credenciales()" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Correo</label>
+                        <input type="text" name="correo" id="nombre" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="contraseña">Contraseña</label>
+                        <input type="password" name="contrasena" id="contraseña" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <div class="boton-crear">
+                            <div class="boton">
+                                <button type="submit" class="boton-crear btn-sm btn-boton-crear">Ingresar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Creacion">
+                        <a href="registro.html" style="color:black">Crear cuenta</a>
+                    </div>
+                </form>
+            </div>
         </div>
 
     </div>
-</div>
+    </div>
     <script src="../Assets/js/jquery-3.3.1.min.js"></script>
     <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
-<script>
-    //Verificar que no haya sesion activa, si no regresa al index al chile
-    var respuesta;
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        respuesta = JSON.parse(this.responseText);
-        if (respuesta.success === true) {
-            alert("Ya iniciaste sesión");
-            window.location.href = 'index.html';
-        }
-    };
-
-    xhr.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php", true);
-    xhr.withCredentials = true;
-    xhr.send();
-
-    function verificar_credenciales() {
-        var objeto;
+    <script>
+        //Verificar que no haya sesion activa, si no regresa al index al chile
+        var respuesta;
         const xhr = new XMLHttpRequest();
         xhr.onload = function() {
-            objeto = JSON.parse(this.responseText);
-            if (objeto.success === false) {
-                alert("Verifica tus credenciales");
-            } else {
+            respuesta = JSON.parse(this.responseText);
+            if (respuesta.success === true) {
+                alert("Ya iniciaste sesión");
                 window.location.href = 'index.html';
-                tipoCuenta=respuestaVerificarSesion.tipo;
-
             }
         };
 
-        var fd = new FormData();
-        fd.append("correo", document.getElementById("nombre").value);
-        fd.append("contrasena", document.getElementById("contraseña").value);
-
-
-        xhr.open("POST", "/Skate/PHP/cetipay/iniciar_sesion.php", true);
+        xhr.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php", true);
         xhr.withCredentials = true;
-        xhr.send(fd);
+        xhr.send();
 
-    }
-</script>
+        function verificar_credenciales() {
+            var objeto;
+            const xhr = new XMLHttpRequest();
+            xhr.onload = function() {
+                objeto = JSON.parse(this.responseText);
+                if (objeto.success === false) {
+                    alert("Verifica tus credenciales");
+                } else {
+                    window.location.href = 'index.html';
+                    tipoCuenta = respuestaVerificarSesion.tipo;
+
+                }
+            };
+
+            var fd = new FormData();
+            fd.append("correo", document.getElementById("nombre").value);
+            fd.append("contrasena", document.getElementById("contraseña").value);
+
+
+            xhr.open("POST", "/Skate/PHP/cetipay/iniciar_sesion.php", true);
+            xhr.withCredentials = true;
+            xhr.send(fd);
+
+        }
+    </script>
 </body>
+
 </html>

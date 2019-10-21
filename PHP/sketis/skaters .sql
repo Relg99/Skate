@@ -259,7 +259,7 @@ ALTER TABLE `producto`
 --
 -- Constraints for table `usuario`
 --
-ALTER TABLE `usuario`
+ALTER TABLE 'usuario
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`Tipo_FK`) REFERENCES `t_usuario` (`Usuario_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
