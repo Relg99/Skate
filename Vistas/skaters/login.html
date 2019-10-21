@@ -27,7 +27,7 @@
                 </h3>
             </div>
             <div class="panel-body">
-                <form onSubmit="verificar_credenciales()" method="POST">
+                <form onSubmit="verificar_credenciales(event)" method="POST">
                     <div class="form-group">
                         <label for="nombre">Correo</label>
                         <input type="text" name="correo" id="nombre" class="form-control" required="required">
@@ -69,7 +69,8 @@
         xhr.withCredentials = true;
         xhr.send();
 
-        function verificar_credenciales() {
+        function verificar_credenciales(evento) {
+            evento.preventDefault();
             var objeto;
             const xhr = new XMLHttpRequest();
             xhr.onload = function() {

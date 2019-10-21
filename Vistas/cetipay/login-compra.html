@@ -130,7 +130,7 @@
                                 <div class="form-group">
                                   <div class="boton-crear">
                                     <div class="boton">
-                                    <button onclick="ingresar()" type="submit" class="boton-crear btn-sm btn-boton-crear">
+                                    <button onclick="ingresar(event)" type="submit" class="boton-crear btn-sm btn-boton-crear">
                                        Ingresar
                                         <div class="popup">
                                         <span class="popuptext" id="popSeguro">Ha ocurrido un error al realizar la compra:(</span>
@@ -168,7 +168,8 @@
 
 
 
-    function ingresar(){
+    function ingresar(evento){
+        evento.preventDefault();
       var objeto;
       const xhr = new XMLHttpRequest();
       xhr.onload = function() {
