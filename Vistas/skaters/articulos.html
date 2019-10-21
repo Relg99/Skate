@@ -137,7 +137,7 @@
 
     for (let i = 0; i < objeto.length; i++) {
       document.getElementById("insertar-articulos").innerHTML +=
-        `<form action="/Skate/PHP/sketis/borrar_articulo.php" method="POST">
+        `<form OnSubmit="borrar(${i})" method="POST">
         <div class="container-info">
             <div class="foto-producto">
                 <img class="foto-producto" src="../Assets/bd/${objeto[i].foto}">
@@ -166,6 +166,21 @@
   xhr.open("POST", "/Skate/PHP/sketis/articulos_almacen.php", true);
   xhr.send();
 
+  function borrar(i){
+    var objet;
+  const xhrd = new XMLHttpRequest();
+  xhrd.onload = function () {
+    console.log(this.responseText);
+    objet = JSON.parse(this.responseText);
+  }
+  
+  var fd = new FormData();
+  fd.append("number", i);
+
+
+  xhr.open("POST", "/Skate/PHP/sketis/borrar_articulo.php", true);
+  xhr.send(fd);
+  }
 </script>
 
 </html>
