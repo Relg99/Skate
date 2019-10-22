@@ -88,10 +88,13 @@ else{
             $consulta = mysqli_query($conexion, "insert into usuario (Nombre, Apellido, Telefono, Correo, Contrasena,Ultima_Conexion)
             values ('$nombre', '$apellido', '$telefono', '$correo', '$contraseña',0)")
             or die("Fallo la consulta </br>");
+			$consulta = mysqli_query($conexion, 'insert into cuenta (Saldo, FK_user) values(0,LAST_INSERT_ID())')
+        or die("Fallo la consulta");
             echo'<script type="text/javascript">
                 alert("Has sido registrado");
                 window.location.href="/Skate/Vistas/cetipay/index.html";
                 </script>';
+				
         }
 
     }
