@@ -12,8 +12,41 @@ $articulo=$_POST["articulo"];
 $valFK;
 $articuloFK;
 
-$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
+$espacio=" ";
+$validarEspacioN=substr($nombre,0,1);
+  if($validarEspacioN===$espacio)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosEN.js"> </script>';
+    return false;
+  }
+$validarEspacioD=substr($descripcion,0,1);
+  if($validarEspacioD===$espacio)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosED.js"> </script>';
+    return false;
+  }
+  $validarEspacioM=substr($modelo,0,1);
+    if($validarEspacioM===$espacio)
+    {
+      echo '<script src = "../../Vistas/Assets/js/datosEM.js"> </script>';
+      return false;
+    }
+  if (strlen($nombre)<3)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMN.js"> </script>';
+    return false;
+  }
+  if (strlen($descripcion)<3)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMD.js"> </script>';
+    return false;
+  }
+  if (strlen($modelo)<3)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMM.js"> </script>';
+    return false;
+  }
 for ($i=0; $i<strlen($nombre); $i++)
 {
   if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)

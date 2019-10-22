@@ -59,11 +59,11 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form onSubmit="canjearCodigo()" method="POST">
+                        <form onSubmit="canjearCodigo(event)" method="POST">
                             <div class="form-group">
                                     <label  center="true">Ingresar codigo</label>
 									<br>
-                                <input min="1" max="99999" type="number" name="codigo" id="codigo" class="form-control" required="required" center="true">
+                                <input type="text" name="codigo" id="codigo" class="form-control" required="required" center="true">
                                 </div>
                                 <div class="form-group">
                                   <div class="boton-crear">
@@ -85,9 +85,9 @@
     var fd = new FormData();
     const xhr = new XMLHttpRequest();
     var objeto;
-  function canjearCodigo(){
-    alert("Código canjeado con éxito");
-      fd.append("codigo", document.getElementById("codigo").value);
+  function canjearCodigo(evento){
+    evento.preventDefault();
+    fd.append("codigo", document.getElementById("codigo").value);
       xhr.open("POST", "/Skate/PHP/cetipay/canjear_codigo.php");
       xhr.withCredentials = true;
       xhr.send(fd);
@@ -96,6 +96,9 @@
   xhr.onload = function() {
       objeto = JSON.parse(this.responseText);
       if (objeto.success === true) {
+        alert("Código canjeado con exito.");
+      }else{
+        alert("Código invalido.");
       }
   };
 </script>

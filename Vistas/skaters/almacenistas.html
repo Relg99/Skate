@@ -99,7 +99,7 @@
         for(let i=0; i<objeto.length;i++) {
             document.getElementById("insertar-almacenistas").innerHTML +=
                 `
-                <form action="/Skate/PHP/sketis/borrar_almacenista.php" method="POST">
+                <form OnSubmit="borrar()" method="POST">
         <button type="submit">
         <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
         </button>
@@ -113,7 +113,21 @@
 
     xhr.open("GET", "/Skate/PHP/sketis/view_almacenistas.php",true);
     xhr.send();
+    
+//Redirección al borrar 
+function borrar(i){
+var odj;
+const xhra = new XMLHttpRequest();
+xhra.onload=function(){
+    console.log(this.responseText);
+    obj = JSON.parse(this.responseText);
+}
+var fa = new FormData();
+fa.append("number", i);
 
+xhr.open("GET", "/Skate/PHP/sketis/view_almacenistas.php",true);
+xhr.send();
+}
 </script>
 </body>
 </html>
