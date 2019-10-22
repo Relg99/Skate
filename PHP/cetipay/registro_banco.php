@@ -10,8 +10,40 @@ $confirmar=$_POST["confirmar"];
 $estado = false;
 
 
-$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-
+$valoresPermitidos="abcdefghijklmnñopqrstuvwxyzABCDEFGHIJKLMNÑOPQRSTUVWXYZ ";
+$espacio=" ";
+$validarEspacioN=substr($nombre,0,1);
+  if($validarEspacioN===$espacio)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosEN.js"> </script>';
+    return false;
+  }
+$validarEspacioA=substr($apellido,0,1);
+  if($validarEspacioA===$espacio)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosEA.js"> </script>';
+    return false;
+  }
+  if (strlen($nombre)<3)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMN.js"> </script>';
+    return false;
+  }
+  if (strlen($apellido)<3)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMA.js"> </script>';
+    return false;
+  }
+  if (strlen($telefono)<10)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMT.js"> </script>';
+    return false;
+  }
+  if (strlen($contraseña)<3)
+  {
+    echo '<script src = "../../Vistas/Assets/js/datosMCon.js"> </script>';
+    return false;
+  }
 for ($i=0; $i<strlen($nombre); $i++)
 {
   if(strpos($valoresPermitidos,substr($nombre,$i,1))===false)
