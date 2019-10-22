@@ -43,6 +43,10 @@ peticionVerificarSesion.onload = function () {
   } else {
 
     document.getElementById("menu").innerHTML = ``;
+    document.getElementById("carro-opcion").innerHTML=`
+                  <a href="carrito.html">
+                  <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
+                  </a>`; 
     verificarUbicacion();
 
   }
