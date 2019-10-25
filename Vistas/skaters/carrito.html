@@ -264,9 +264,9 @@
             };
 
             var fd = new FormData();
-            fd.append("id", ID);
-            fd.append("precio", Precio);
-            xhc.open("POST", "/Skate/PHP/sketis/carro_añadir.php", true);
+            fd.append("Add", ID);
+            fd.append("Precio", Precio);
+            xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
             xhc.send(fd);
         }
         function vaciar() {
@@ -278,7 +278,8 @@
             };
 
             var fp = new FormData();
-            xhp.open("POST", "/Skate/PHP/sketis/carro_reset.php", true);
+            fp.append("reset", "reset");
+            xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
             xhp.send(fp);
         }
 
@@ -292,10 +293,10 @@
                 respuesta = JSON.parse(this.responseText);
             };
             var fd = new FormData();
-            fd.append("id", ID);
+            fd.append("delete", ID);
             fd.append("cantidad", Cantidad);
             fd.append("precio", Precio);
-            xhp.open("POST", "/Skate/PHP/sketis/carro_eliminar.php", true);
+            xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
             xhp.send(fd);
         }
 

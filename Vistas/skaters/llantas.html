@@ -81,9 +81,9 @@
                 respuesta = JSON.parse(this.responseText);
             };
             var fd = new FormData();
-            fd.append("id", ID);
+            fd.append("Add", ID);
             fd.append("Precio", Precio);
-            xhc.open("POST", "/Skate/PHP/sketis/carro_añadir.php", true);
+            xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
             xhc.send(fd);
         }
     </script>
