@@ -17,6 +17,7 @@ $Fila=mysqli_fetch_array($consulta);
     echo '[';
     for ($i=0;$i<$nfilas;$i++){
         echo '{';
+        echo '"id":"'.$Fila["id"].'",';
         echo '"tipo":"'.$Fila["tipo"].'",';
         echo '"nombre":"'.$Fila["nombre"].'",';
         echo '"modelo":"'.$Fila["modelo"].'",';

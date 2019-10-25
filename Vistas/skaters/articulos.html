@@ -1,4 +1,3 @@
-<!-- Developer name: Jairon Landa (jaironlanda.com) -->
 <!DOCTYPE html>
 <html>
 
@@ -8,6 +7,7 @@
   <title>Articulos</title>
   <link rel="shortcut icon" href="../Assets/icons/logo_header.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="../Assets/js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="../Assets/js/barnav.js"></script>
 
   <!-- Bootstrap 3 -->
@@ -88,6 +88,16 @@
       width: 74%;
       float: left;
     }
+    .tamaño{
+      width: 25%; 
+      text-align: left;
+    }
+    .btn{
+      background:none;
+      text-align: left;
+      width: 35%;
+
+    }
   </style>
 </head>
 
@@ -107,8 +117,6 @@
       <div class="panel-body">
 
         <div class="boton-crear">
-          <div class="boton">
-          </div>
           <a href="registro-articulos.html">
             Agregar articulos
             <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
@@ -137,31 +145,42 @@
 
     for (let i = 0; i < objeto.length; i++) {
       document.getElementById("insertar-articulos").innerHTML +=
-        `<form OnSubmit="borrar(${i})" method="POST">
+        `
         <div class="container-info">
             <div class="foto-producto">
                 <img class="foto-producto" src="../Assets/bd/${objeto[i].foto}">
             </div>
             <div class="info-producto">
+                <label>             ${objeto[i].id} </label>
                 <h3>Tipo:           ${objeto[i].tipo}</h2>
                 <h3>Nombre:         ${objeto[i].nombre}</h2>
                 <h3>Modelo:         ${objeto[i].modelo}</h2>
                 <h3>Descripcion:    ${objeto[i].descripcion}</h2>
                 <h3>Cantidad:       ${objeto[i].cantidad}</h2>
-                <button type="submit">
-      <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
-      </button>
-      <input type="hidden" name="number" value="${i}"></input>
+
+          <form OnSubmit="borrar(${i})" method="POST">
+         
+                <button type="submit" class=btn>
+                      <img class=tamaño src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">Borrar
+                </button>
+          </form>
+
+          <form OnSubmit="edit(${i})" action="vistaEditarProducto.php" method = "POST">
+            <input type="hidden" name="number" id = "number" value="${i}"></input>
+            
+              <button type = "submit" class=btn> <img class=tamaño src="../Assets/icons/icono_editar.png" class = "mas-icon" id = "editar">Editar
+              </button>
+              </form>
+          </form>
+      
+      <input type="hidden" name="number" id = "number" value="${i}"></input>
       <br>
        <hr>
             </div>
-
         </div>
-        </form>
-
-
       `;
     }
+    
   };
   xhr.open("POST", "/Skate/PHP/sketis/articulos_almacen.php", true);
   xhr.send();
@@ -181,6 +200,17 @@
   xhr.open("POST", "/Skate/PHP/sketis/borrar_articulo.php", true);
   xhr.send(fd);
   }
-</script>
 
+  function edit(i){
+    var miId = objeto[i].nombre;
+    alert('Seleccionaste el producto : ' + miId);
+    var fd = new FormData();
+    fd.append("number", i);
+
+
+  xhr.open("POST", "/Skate/Vistas/skaters/vistaEditarProducto.php", true);
+  xhr.send(fd);
+  }
+
+</script>
 </html>
