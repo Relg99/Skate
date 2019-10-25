@@ -92,8 +92,13 @@
     </div>
     <script type="text/javascript">
         var saldo;
-        obtenerSaldo();
+        window.onload = function(){setTimeout(function(){ 
+            obtenerSaldo();
         resumen();
+            alert("Listo!"); 
+            }, 1000);
+        };
+
         if(jQuery.isEmptyObject(objeto)){
             window.location.href = '/Skate/PHP/cetipay/cancelar.php';
             window.alert("Ha ocurrido un error");
@@ -139,7 +144,6 @@
             xhr.onload = function() {
                try {
                    saldo = JSON.parse(this.responseText);
-
                }catch(e){
                 }
 
