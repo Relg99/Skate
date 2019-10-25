@@ -150,9 +150,9 @@
         }
         function comprar(){
             try {
+
                 if(saldo>=objeto[0].Total){
                     window.location.href = '/Skate/PHP/cetipay/realizarcompra.php';
-                    window.alert("Compra Realizada");
                 }
                 else{
                     window.location.href = '/Skate/PHP/cetipay/cancelar.php';
