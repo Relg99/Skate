@@ -1,4 +1,7 @@
 <?PHP
+/*
+NO LO VEAN USA FUNCIONES QUE NECESITAN 100000IQ PARA ENTENDER
+
 session_start();
 if (!isset($_SESSION["total"]) ) {
     if(isset($_COOKIE["datos"])){
@@ -104,5 +107,5 @@ if (isset($_POST["delete"]) )
   setcookie("datos",json_encode($datos),time()+(24*60*60));
 
   $total = $_SESSION["total"];
-  print '{"Total":"'.$total.'"}';
+  print '{"Total":"'.$total.'"}';*/
 ?>
