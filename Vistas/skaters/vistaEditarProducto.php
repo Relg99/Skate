@@ -129,12 +129,12 @@ where Producto_ID = '.$idProducto.';
 
                             <div class = 'form-group'>
                             <label for='id'>ID del producto: </label>
-                            <label for='txt_id' style='color:#FF0000';>".$idProducto."</label>
+                            <input for='txt_id' name='id' style='color:#FF0000'; value = ".$idProducto.">
                             </div>
                             <div class='form-group'>
                                     <label for='nombre'>Nombre*</label>
                                     </br>
-                                    <label style='color:#A6A6A6';>".$nombre."</label>
+                                    <label  style='color:#A6A6A6';>".$nombre."</label>
                                 </div>
                                 <div class='form-group'>
                                     <label for='descripcion'>Descripcion*</label>
