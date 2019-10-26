@@ -70,7 +70,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                      <form action="/Skate/PHP/cetipay/registro_banco.php" method="POST">
+                      <form id="registro-usuario" action="/Skate/PHP/cetipay/registro_banco.php" method="POST">
                             <div class="form-group">
                                     <label for="nombre">Nombre</label>
                                     <input type="text" name="nombre" id="nombre" class="form-control" required="required">
@@ -114,5 +114,10 @@
     </div>
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
 <script src="../Assets/js/bootstrap/js/bootstrap.js"></script>
+<script type="text/javascript">
+
+    document.getElementById("registro-usuario").action=backendCetiPay+"registro_banco.php";
+
+</script>
 </body>
 </html>

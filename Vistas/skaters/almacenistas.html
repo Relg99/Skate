@@ -99,11 +99,11 @@
         for(let i=0; i<objeto.length;i++) {
             document.getElementById("insertar-almacenistas").innerHTML +=
                 `
-                <form OnSubmit="borrar()" method="POST">
+                <form OnSubmit="borrar(${objeto[i].Numero_de_Empleado})" method="POST">
         <button type="submit">
         <img src="../Assets/icons/icono_basura.png" class="mas-icon" id="basura">
         </button>
-        <input type="hidden" name="number" value="${i}"></input>
+        <input type="hidden"></input>
                 ${objeto[i].Nombre} ${objeto[i].Apellido}
          </BR>
          </form>
@@ -111,22 +111,21 @@
         }
     };
 
-    xhr.open("GET", "/Skate/PHP/sketis/view_almacenistas.php",true);
+    xhr.open("GET", backendSketis+"view_almacenistas.php",true);
     xhr.send();
     
 //Redirección al borrar 
-function borrar(i){
-var odj;
+function borrar(numero_empleado){
+
 const xhra = new XMLHttpRequest();
 xhra.onload=function(){
-    console.log(this.responseText);
     obj = JSON.parse(this.responseText);
-}
+};
 var fa = new FormData();
-fa.append("number", i);
+fa.append("number", numero_empleado);
 
-xhr.open("GET", "/Skate/PHP/sketis/view_almacenistas.php",true);
-xhr.send();
+xhr.open("POST", backendSketis+"borrar_almacenista.php",true);
+xhr.send(fa);
 }
 </script>
 </body>

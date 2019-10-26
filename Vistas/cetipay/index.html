@@ -445,6 +445,7 @@
 <script src="../Assets/js/owlcarousel/owl.carousel.min.js"></script>
 <script src="../Assets/js/magnific-popup/magnific-popup.min.js"></script>
 <script src="../Assets/js/sticky/sticky.js"></script>
+<script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
 
 <!-- Contact Form JavaScript File -->
 <script src="../Assets/js/contactform.js"></script>
@@ -453,13 +454,13 @@
 <script src="../Assets/js/banco-script.js"></script>
 <script>
 
-    const peticionVerificarSesion = new XMLHttpRequest();
-    peticionVerificarSesion.open("POST","/Skate/PHP/cetipay/verificar_sesion.php");
-    peticionVerificarSesion.withCredentials = true;
-    peticionVerificarSesion.send();
+    const peticionVerificarSesion1 = new XMLHttpRequest();
+    peticionVerificarSesion1.open("POST",backendCetiPay+"verificar_sesion.php");
+    peticionVerificarSesion1.withCredentials = true;
+    peticionVerificarSesion1.send();
 
-    peticionVerificarSesion.onload = function () {
-        respuestaVerificarSesion=JSON.parse(this.responseText);
+    peticionVerificarSesion1.onload = function () {
+        var respuestaVerificarSesion=JSON.parse(this.responseText);
         if (respuestaVerificarSesion.success === true) {
             document.getElementById("nombre-persona").innerHTML = `<a><div>${respuestaVerificarSesion.nombre}</div></a>`;
             document.getElementById("menu-personalizado").innerHTML = `
@@ -489,7 +490,7 @@
             }
         };
 
-        peticionCerrarSesion.open("POST","/Skate/PHP/cetipay/cerrar_sesion.php",true);
+        peticionCerrarSesion.open("POST",backendCetiPay+"cerrar_sesion.php",true);
         peticionCerrarSesion.withCredentials = true;
         peticionCerrarSesion.send();
     }

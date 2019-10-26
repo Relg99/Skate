@@ -215,7 +215,7 @@
             };
             var fd = new FormData();
             fd.append("tipo", "2");
-            xhr.open("POST", "/Skate/PHP/sketis/articuloscarro.php", true);
+            xhr.open("POST", backendSketis+"articuloscarro.php", true);
             xhr.send(fd);
         }
 
@@ -232,7 +232,7 @@
 
             }
         };
-        xhr2.open("POST", "/Skate/PHP/sketis/verificar_sesion.php", true);
+        xhr2.open("POST", backendSketis+"verificar_sesion.php", true);
         xhr2.withCredentials = true;
         xhr2.send();
 
@@ -250,7 +250,7 @@
                 }
             };
 
-            xhr.open("POST", "/Skate/PHP/sketis/cerrar_sesion.php", true);
+            xhr.open("POST", backendSketis+"cerrar_sesion.php", true);
             xhr.withCredentials = true;
             xhr.send();
         }
@@ -266,7 +266,7 @@
             var fd = new FormData();
             fd.append("Add", ID);
             fd.append("Precio", Precio);
-            xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhc.open("POST", backendSketis+"carro.php", true);
             xhc.send(fd);
         }
         function vaciar() {
@@ -279,7 +279,7 @@
 
             var fp = new FormData();
             fp.append("reset", "reset");
-            xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhp.open("POST", backendSketis+"carro.php", true);
             xhp.send(fp);
         }
 
@@ -296,22 +296,29 @@
             fd.append("delete", ID);
             fd.append("cantidad", Cantidad);
             fd.append("precio", Precio);
-            xhp.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhp.open("POST", backendSketis+"carro.php", true);
             xhp.send(fd);
+        }
+        function popupClosing() {
+
+            window.location.href = "index.html" ;
         }
 
         function comprar() {
             const peticionVerificarSesion = new XMLHttpRequest();
             const xhp = new XMLHttpRequest();
             if(!isEmpty(objeto)){
-            peticionVerificarSesion.open("POST","/Skate/PHP/sketis/verificar_sesion.php");
+            peticionVerificarSesion.open("POST",backendSketis+"verificar_sesion.php");
             peticionVerificarSesion.withCredentials = true;
             peticionVerificarSesion.send();
             peticionVerificarSesion.onload = function () {
                 respuestaVerificarSesion=JSON.parse(this.responseText);
                 if (respuestaVerificarSesion.success === true) {
-                    window.location.href = '/Skate/PHP/sketis/enviartotal.php';
-                } 
+
+
+         window.open(backendSketis+'enviartotal.php','popUpWindow','height=500,width=400,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=no');
+
+                }
                 else {
                     window.location.href = 'login.html';
                 }
@@ -328,7 +335,7 @@
                 return false;
         }
         return true;
-    };
+    }
     </script>
 </body>
 

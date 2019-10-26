@@ -1,6 +1,7 @@
 <html>
 <link href="../Assets/js/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="../Assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
 
 <style>
     .contenerdor {
@@ -58,7 +59,7 @@
 </head>
 
 <body>
-  <div id="insertar-barra"></div>
+
 
     <div class="row_fake">
         <div class="contenerdor">
@@ -92,15 +93,14 @@
     </div>
     <script type="text/javascript">
         var saldo;
-        window.onload = function(){setTimeout(function(){ 
-            obtenerSaldo();
-        resumen();
-            alert("Listo!"); 
+        obtenerSaldo();
+        window.onload = function(){setTimeout(function(){
+            resumen();
             }, 1000);
         };
 
         if(jQuery.isEmptyObject(objeto)){
-            window.location.href = '/Skate/PHP/cetipay/cancelar.php';
+            window.location.href = backendCetiPay+'cancelar.php';
             window.alert("Ha ocurrido un error");
         }
 
@@ -136,7 +136,7 @@
 
             };
             var fd = new FormData();
-            xhr.open("POST", "/Skate/PHP/cetipay/datoscompra.php", true);
+            xhr.open("POST", backendCetiPay+"datoscompra.php", true);
             xhr.send();
         }
         function obtenerSaldo(){
@@ -149,17 +149,17 @@
 
             };
             var fd = new FormData();
-            xhr.open("POST", "/Skate/PHP/cetipay/saldo.php", true);
+            xhr.open("POST", backendCetiPay+"saldo.php", true);
             xhr.send();
         }
         function comprar(){
             try {
-//ssss
+
                 if(saldo>=objeto[0].Total){
-                    window.location.href = '/Skate/PHP/cetipay/realizarcompra.php';
+                    window.location.href = backendCetiPay+'realizarcompra.php';
                 }
                 else{
-                    window.location.href = '/Skate/PHP/cetipay/cancelar.php';
+                    window.location.href = backendCetiPay+'cancelar.php';
                     window.alert("Saldo insuficiente");
                 }
             }

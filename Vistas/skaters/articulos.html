@@ -182,7 +182,7 @@
     }
     
   };
-  xhr.open("POST", "/Skate/PHP/sketis/articulos_almacen.php", true);
+  xhr.open("POST",backendSketis+ "articulos_almacen.php", true);
   xhr.send();
 
   function borrar(i){
@@ -197,7 +197,7 @@
   fd.append("number", i);
 
 
-  xhr.open("POST", "/Skate/PHP/sketis/borrar_articulo.php", true);
+  xhr.open("POST", backendSketis+"borrar_articulo.php", true);
   xhr.send(fd);
   }
 
@@ -208,7 +208,7 @@
     fd.append("number", i);
 
 
-  xhr.open("POST", "/Skate/Vistas/skaters/vistaEditarProducto.php", true);
+  xhr.open("POST", backendSketis+"vistaEditarProducto.php", true);
   xhr.send(fd);
   }
 

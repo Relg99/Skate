@@ -78,8 +78,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form enctype="multipart/form-data"
-                        action="/Skate/PHP/sketis/registroProductos.php" method="post">
+                        <form id="edit-articulos" enctype="multipart/form-data" action="registroProductos.php" method="post">
                             <div class="form-group">
                                     <label for="nombre">Nombre*</label>
                                     <input type="text" name="nombre" placeholder="Nombre del Producto"
@@ -157,7 +156,7 @@
         </footer>
 </body>
 <script>
-
+    document.getElementById("edit-articulos").action=backendSketis+"registroProductos.php";
 </script>
 
 </body>

@@ -104,7 +104,7 @@
         }
     };
 
-    xhr.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php", true);
+    xhr.open("POST", backendCetiPay+"verificar_sesion.php", true);
     xhr.withCredentials = true;
     xhr.send();
 
@@ -132,7 +132,7 @@
         fd.append("contrasena", document.getElementById("contraseña").value);
 
 
-        xhr.open("POST", "/Skate/PHP/cetipay/iniciar_sesion.php", true);
+        xhr.open("POST", backendCetiPay+"iniciar_sesion.php", true);
         xhr.withCredentials = true;
         xhr.send(fd);
 

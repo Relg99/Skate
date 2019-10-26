@@ -1,17 +1,18 @@
-﻿const peticionBarnav = new XMLHttpRequest();
+﻿var backendCetiPay="/Skate/PHP/cetipay/";
+const peticionBarnav = new XMLHttpRequest();
 var respuestaVerificarSesion;
 const peticionVerificarSesion = new XMLHttpRequest();
 var iniciosesion;
 peticionBarnav.open("POST", "/Skate/Vistas/cetipay/barnav.html");
 peticionBarnav.send();
-
-peticionBarnav.onload = function() {
-    document.getElementById("insertar-barra").innerHTML = `${this.responseText}`;
-    peticionVerificarSesion.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php");
-    peticionVerificarSesion.withCredentials = true;
-    peticionVerificarSesion.send();
-};
-
+if (window.location.pathname !== "/Skate/Vistas/cetipay/index.html") {
+    peticionBarnav.onload = function () {
+        document.getElementById("insertar-barra").innerHTML = `${this.responseText}`;
+        peticionVerificarSesion.open("POST", backendCetiPay + "verificar_sesion.php");
+        peticionVerificarSesion.withCredentials = true;
+        peticionVerificarSesion.send();
+    };
+}
 peticionVerificarSesion.onload = function() {
     respuestaVerificarSesion = JSON.parse(this.responseText);
     if (respuestaVerificarSesion.success === true) {
@@ -48,7 +49,7 @@ function cerrar_sesion() {
         }
     };
 
-    peticionCerrarSesion.open("POST", "/Skate/PHP/cetipay/cerrar_sesion.php", true);
+    peticionCerrarSesion.open("POST", backendCetiPay+"cerrar_sesion.php", true);
     peticionCerrarSesion.withCredentials = true;
     peticionCerrarSesion.send();
 
@@ -60,7 +61,7 @@ function verificarUbicacion() {
         window.location.pathname === "/Skate/Vistas/cetipay/cuenta.html"
     ) {
         if (iniciosesion != true) {
-            window.location.assign("http://localhost/Skate/Vistas/cetipay/login.html");
+            window.location.href ="login.html";
         }
     }
 }

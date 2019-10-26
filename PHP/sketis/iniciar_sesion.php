@@ -11,29 +11,34 @@ $tiempo=time();
 
           $nfilas=mysqli_num_rows($consulta);
           $Fila=mysqli_fetch_array($consulta);
-						if ($nfilas==1){
-						                       //Checar cuando fue la ultima interaccion con esa cuenta
-							if( ( (($tiempo-$Fila["Ultima_Conexion"]) / 60 % 60) <5) ||(($tiempo-$Fila["Ultima_Conexion"]) / 60 % 60)===0){
-       							echo'{"success":false,"mensaje":"ACTIVA"}';
-       							       }else{
-							$_SESSION['Correo']= $mail;
-							$_SESSION['Cuenta']= $Fila['Tipo_FK'];
-							$_SESSION['Nombre']=$Fila['Nombre'];
-							$_SESSION['Apellido']=$Fila['Apellido'];
-							$consulta = mysqli_query($conexion,'UPDATE usuario set Ultima_Conexion='.$tiempo.' where Correo="'.$_SESSION['Correo'].'"')
-									  or die("Fallo la consulta3");
-					
-		  
-							
-						
-							echo'{"success":true}';
-							}
+						if ($nfilas==1){        //Si hubo coincidencia de contraseña y correo
+						         if($Fila["Ultima_Conexion"]==="0"){ //Se sabe qur no  hay sesion activa
+						          $_SESSION['Correo']= $mail;
+                                  $_SESSION['Cuenta']= $Fila['Tipo_FK'];
+                                  $_SESSION['Nombre']=$Fila['Nombre'];
+                                  $_SESSION['Apellido']=$Fila['Apellido'];
+                                  $consulta = mysqli_query($conexion,'UPDATE usuario set Ultima_Conexion='.$tiempo.' where Correo="'.$_SESSION['Correo'].'"')
+                                   or die("Fallo la consulta3");
 
+						                 echo'{"success":true}';
+						         }else{ //Checar cuando fue la ultima interaccion con esa cuenta
+                                        if( ((($tiempo-$Fila["Ultima_Conexion"]) / 60 % 60) <5)){
+                                            echo'{"success":false,"mensaje":"ACTIVA","ultimo":'.(($tiempo-$Fila["Ultima_Conexion"]) / 60 % 60).'}';
+                                                   }else{
+                                               $_SESSION['Correo']= $mail;
+                                               $_SESSION['Cuenta']= $Fila['Tipo_FK'];
+                                               $_SESSION['Nombre']=$Fila['Nombre'];
+                                               $_SESSION['Apellido']=$Fila['Apellido'];
+                                               $consulta = mysqli_query($conexion,'UPDATE usuario set Ultima_Conexion='.$tiempo.' where Correo="'.$_SESSION['Correo'].'"')
+                                                or die("Fallo la consulta3");
+                                        echo'{"success":true}';
+                                        }
+}
 						}else{
 							echo'{"success":false}';
 						}
 
-				}else{
+				}else{ //Si hubo coincidencia de contraseña y correo
 					echo "Por favor, llena todos los campos.";
 				}
 

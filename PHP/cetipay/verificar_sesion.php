@@ -18,8 +18,7 @@ print '{"success":false}';
 }else{
 	
 print '{"success":true,"nombre":"'.$_SESSION['NombrePay'].'","ID":"'.$_SESSION['IDPay'].'"}';
- $update = mysqli_query($conexion,'update usuario set Ultima_Conexion='.$tiempo.'
-  	where Correo="'.$_SESSION['CorreoPay'].'"') or die("Fallo la consulta");
+ $update = mysqli_query($conexion,'update usuario set Ultima_Conexion='.$tiempo.' where Correo="'.$_SESSION['CorreoPay'].'"') or die("Fallo la consulta");
 }
 
 }else{

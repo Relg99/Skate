@@ -88,7 +88,7 @@
   function canjearCodigo(evento){
     evento.preventDefault();
     fd.append("codigo", document.getElementById("codigo").value);
-      xhr.open("POST", "/Skate/PHP/cetipay/canjear_codigo.php");
+      xhr.open("POST", backendCetiPay+"canjear_codigo.php");
       xhr.withCredentials = true;
       xhr.send(fd);
   }

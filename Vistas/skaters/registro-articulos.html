@@ -78,7 +78,7 @@
                         </h3>
                   </div>
                   <div class="panel-body">
-                        <form enctype="multipart/form-data"
+                        <form id="registro-articulos" enctype="multipart/form-data"
                         action="/Skate/PHP/sketis/registroProductos.php" method="post">
                             <div class="form-group">
                                     <label for="nombre">Nombre*</label>
@@ -156,9 +156,10 @@
           <p>© Skaters 2019 - Proyecto hecho por <a href="https://www.ceti.mx" target="_blank">CETI</a></p>
         </footer>
 </body>
-<script>
+<script type="text/javascript">
+
+    document.getElementById("registro-articulos").action=backendSketis+"registroProductos.php";
 
 </script>
-
 </body>
 </html>

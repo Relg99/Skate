@@ -70,7 +70,7 @@
 
         var fd = new FormData();
         fd.append("tipo", "1");
-        xhr.open("POST", "/Skate/PHP/sketis/articulos.php", true);
+        xhr.open("POST", backendSketis+"articulos.php", true);
         xhr.send(fd);
 
         function alcarro(ID, Precio) {
@@ -83,7 +83,7 @@
             var fd = new FormData();
             fd.append("Add", ID);
             fd.append("Precio", Precio);
-            xhc.open("POST", "/Skate/PHP/sketis/carro.php", true);
+            xhc.open("POST", backendSketis+"carro.php", true);
             xhc.send(fd);
         }
     </script>

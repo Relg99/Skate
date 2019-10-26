@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Ingresar a CetiPay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../skaters/barnav.css">
+    <script type="text/javascript" src="../Assets/js/barnavpay.js"></script>
 
 
   <!-- Bootstrap 3 -->
@@ -155,13 +155,12 @@
 
     var respuesta;
         const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/Skate/PHP/cetipay/verificar_sesion.php", true);
+    xhr.open("POST", backendCetiPay+"verificar_sesion.php", true);
     xhr.withCredentials = true;
     xhr.send();
         xhr.onload = function() {
             respuesta = JSON.parse(this.responseText);
             if (respuesta.success === true) {
-                alert("Ya iniciaste sesión");
                 window.location.href = '/Skate/Vistas/cetipay/resumen.html';
             }
         };
@@ -183,7 +182,7 @@
       var fd = new FormData();
       fd.append("correo", document.getElementById("nombre").value);
       fd.append("contrasena", document.getElementById("contraseña").value);
-      xhr.open("POST", "/Skate/PHP/cetipay/iniciar_sesion.php", true);
+      xhr.open("POST", backendCetiPay+"iniciar_sesion.php", true);
       xhr.withCredentials = true;
       xhr.send(fd);
     }

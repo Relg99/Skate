@@ -65,7 +65,7 @@
             }
         };
 
-        xhr.open("POST", "/Skate/PHP/sketis/verificar_sesion.php", true);
+        xhr.open("POST", backendSketis+"verificar_sesion.php", true);
         xhr.withCredentials = true;
         xhr.send();
 
@@ -93,7 +93,7 @@
             fd.append("contrasena", document.getElementById("contraseña").value);
 
 
-            xhr.open("POST", "/Skate/PHP/sketis/iniciar_sesion.php", true);
+            xhr.open("POST", backendSketis+"iniciar_sesion.php", true);
             xhr.withCredentials = true;
             xhr.send(fd);
 

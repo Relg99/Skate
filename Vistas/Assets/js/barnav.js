@@ -1,3 +1,5 @@
+var backendSketis="/Skate/PHP/sketis/";
+
 const peticionBarnav = new XMLHttpRequest();
 var respuestaVerificarSesion;
 const peticionVerificarSesion = new XMLHttpRequest();
@@ -7,7 +9,7 @@ peticionBarnav.send();
 
 peticionBarnav.onload = function () {
   document.getElementById("insertar-barra").innerHTML = `${this.responseText}`;
-  peticionVerificarSesion.open("POST","/Skate/PHP/sketis/verificar_sesion.php");
+  peticionVerificarSesion.open("POST",backendSketis+"verificar_sesion.php");
   peticionVerificarSesion.withCredentials = true;
   peticionVerificarSesion.send();
 };
@@ -70,7 +72,7 @@ function cerrar_sesion(){
     }
   };
 
-  peticionCerrarSesion.open("POST","/Skate/PHP/sketis/cerrar_sesion.php",true);
+  peticionCerrarSesion.open("POST",backendSketis+"cerrar_sesion.php",true);
   peticionCerrarSesion.withCredentials = true;
   peticionCerrarSesion.send();
 }
