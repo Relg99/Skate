@@ -33,7 +33,12 @@ peticionVerificarSesion.onload = function () {
       document.getElementById("menu-personalizado").innerHTML = `
                   <a href="articulos.html">Articulos</a>`;
       tipoCuenta = 3;
-    }else if (respuestaVerificarSesion.tipo === 1) {
+
+    }else if (respuestaVerificarSesion.tipo === 1)
+     {
+      document.getElementById("menu-personalizado").innerHTML = `
+      <a href="historial.html">Historial</a>`;
+
       document.getElementById("carro-opcion").innerHTML=`
                   <a href="carrito.html">
                   <img src="../Assets/icons/baseline_shopping_cart_white_18dp.png" class="shopping-icon">
