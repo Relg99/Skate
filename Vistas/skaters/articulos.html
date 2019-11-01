@@ -151,9 +151,10 @@
                 <img class="foto-producto" src="../Assets/bd/${objeto[i].foto}">
             </div>
             <div class="info-producto">
-                <label>             ${objeto[i].id} </label>
                 <h3>Tipo:           ${objeto[i].tipo}</h2>
                 <h3>Nombre:         ${objeto[i].nombre}</h2>
+                <h3>Precio:         ${objeto[i].precio}</h2>
+                <h3>Marca:         ${objeto[i].marca}</h2>
                 <h3>Modelo:         ${objeto[i].modelo}</h2>
                 <h3>Descripcion:    ${objeto[i].descripcion}</h2>
                 <h3>Cantidad:       ${objeto[i].cantidad}</h2>
@@ -165,7 +166,7 @@
                 </button>
           </form>
 
-          <form OnSubmit="edit(${i})" action="vistaEditarProducto.php" method = "POST">
+          <form OnSubmit="edit(${i})" action="vistaEditarProducto.html" method = "POST">
             <input type="hidden" name="number" id = "number" value="${i}"></input>
             
               <button type = "submit" class=btn> <img class=tamaño src="../Assets/icons/icono_editar.png" class = "mas-icon" id = "editar">Editar
@@ -202,14 +203,23 @@
   }
 
   function edit(i){
-    var miId = objeto[i].nombre;
-    //alert('Seleccionaste el producto : ' + miId);
-    var fd = new FormData();
-    fd.append("number", i);
+    var nameOfProduct = objeto[i].nombre;
+    var descOfProduct = objeto[i].descripcion;
+    var modelOfProduct = objeto[i].modelo;
+    var howManyProduct = objeto[i].cantidad;
+    var price = objeto[i].precio;
+    var marca = objeto[i].marca;
+    var type = objeto[i].tipo;
 
+  localStorage.setItem("nombre", nameOfProduct);
+  localStorage.setItem("descripcion", descOfProduct);
+  localStorage.setItem("modelo", modelOfProduct);
+  localStorage.setItem("cantidad", howManyProduct);
+  localStorage.setItem("precio", price);
+  localStorage.setItem("marca", marca);
+  localStorage.setItem("tipo", type);
 
-  xhr.open("POST", backendSketis+"vistaEditarProducto.php", true);
-  xhr.send(fd);
+  xhr.open("POST", backendSketis+"obtenerProductos.php", true);
   }
 
 </script>
