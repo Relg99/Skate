@@ -108,7 +108,7 @@
   <div class="head">
     <h3>
       <strong>
-        Articulos
+        Historial de Compras
       </strong>
     </h3>
   </div>
@@ -116,17 +116,7 @@
     <div class="col-md-8 col-md-offset-2 panel-style">
       <div class="panel-body">
 
-        <div class="boton-crear">
-          <a href="registro-articulos.html">
-            Agregar articulos
-            <img src="../Assets/icons/icono_mas.png" class="mas-icon" id="agregar">
-          </a>&nbsp;&nbsp;
-          <!--Aqui llega el script-->
-          <div id="insertar-articulos">
-            <!-- Insertar articulos -->
-
-          </div>
-        </div>
+        
 
       </div>
     </div>
@@ -151,10 +141,9 @@
                 <img class="foto-producto" src="../Assets/bd/${objeto[i].foto}">
             </div>
             <div class="info-producto">
+                <label>             ${objeto[i].id} </label>
                 <h3>Tipo:           ${objeto[i].tipo}</h2>
                 <h3>Nombre:         ${objeto[i].nombre}</h2>
-                <h3>Precio:         ${objeto[i].precio}</h2>
-                <h3>Marca:         ${objeto[i].marca}</h2>
                 <h3>Modelo:         ${objeto[i].modelo}</h2>
                 <h3>Descripcion:    ${objeto[i].descripcion}</h2>
                 <h3>Cantidad:       ${objeto[i].cantidad}</h2>
@@ -166,7 +155,7 @@
                 </button>
           </form>
 
-          <form OnSubmit="edit(${i})" action="vistaEditarProducto.html" method = "POST">
+          <form OnSubmit="edit(${i})" action="vistaEditarProducto.php" method = "POST">
             <input type="hidden" name="number" id = "number" value="${i}"></input>
             
               <button type = "submit" class=btn> <img class=tamaño src="../Assets/icons/icono_editar.png" class = "mas-icon" id = "editar">Editar
@@ -203,23 +192,14 @@
   }
 
   function edit(i){
-    var nameOfProduct = objeto[i].nombre;
-    var descOfProduct = objeto[i].descripcion;
-    var modelOfProduct = objeto[i].modelo;
-    var howManyProduct = objeto[i].cantidad;
-    var price = objeto[i].precio;
-    var marca = objeto[i].marca;
-    var type = objeto[i].tipo;
+    var miId = objeto[i].nombre;
+    //alert('Seleccionaste el producto : ' + miId);
+    var fd = new FormData();
+    fd.append("number", i);
 
-  localStorage.setItem("nombre", nameOfProduct);
-  localStorage.setItem("descripcion", descOfProduct);
-  localStorage.setItem("modelo", modelOfProduct);
-  localStorage.setItem("cantidad", howManyProduct);
-  localStorage.setItem("precio", price);
-  localStorage.setItem("marca", marca);
-  localStorage.setItem("tipo", type);
 
-  xhr.open("POST", backendSketis+"obtenerProductos.php", true);
+  xhr.open("POST", backendSketis+"vistaEditarProducto.php", true);
+  xhr.send(fd);
   }
 
 </script>

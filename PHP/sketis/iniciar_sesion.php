@@ -17,6 +17,7 @@ $tiempo=time();
                                   $_SESSION['Cuenta']= $Fila['Tipo_FK'];
                                   $_SESSION['Nombre']=$Fila['Nombre'];
                                   $_SESSION['Apellido']=$Fila['Apellido'];
+                                  $_SESSION['ID']=$Fila['Usuario_ID'];//lo cambie yoo***
                                   $consulta = mysqli_query($conexion,'UPDATE usuario set Ultima_Conexion='.$tiempo.' where Correo="'.$_SESSION['Correo'].'"')
                                    or die("Fallo la consulta3");
 
@@ -29,6 +30,7 @@ $tiempo=time();
                                                $_SESSION['Cuenta']= $Fila['Tipo_FK'];
                                                $_SESSION['Nombre']=$Fila['Nombre'];
                                                $_SESSION['Apellido']=$Fila['Apellido'];
+                                               $_SESSION['ID']=$Fila['Usuario_ID'];//lo cambie yoo***
                                                $consulta = mysqli_query($conexion,'UPDATE usuario set Ultima_Conexion='.$tiempo.' where Correo="'.$_SESSION['Correo'].'"')
                                                 or die("Fallo la consulta3");
                                         echo'{"success":true}';

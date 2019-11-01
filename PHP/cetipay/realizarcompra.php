@@ -4,6 +4,7 @@ $result=$_SESSION["saldo"];
 $vatx=67;
 if($result!=0){//si se cuenta con dinero
     $result-=$_SESSION["total"]; //resta el saldo
+    $_SESSION["saldo"]=$result;
     $valor=mysqli_query($conexion,'SELECT Saldo from Cuenta WHERE FK_user='.$vatx);
     $Fila=mysqli_fetch_array($valor);
     $res=$_SESSION["total"]+$Fila["Saldo"];
