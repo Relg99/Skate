@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2019 a las 19:02:59
--- Versión del servidor: 10.1.9-MariaDB
--- Versión de PHP: 5.6.15
+-- Tiempo de generación: 01-11-2019 a las 16:15:32
+-- Versión del servidor: 10.1.38-MariaDB
+-- Versión de PHP: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -48,12 +50,21 @@ INSERT INTO `articulo` (`Articulo_ID`, `Nombre`) VALUES
 
 CREATE TABLE `historial` (
   `PK_historial` int(11) NOT NULL,
-  `Nombre` varchar(50) DEFAULT NULL,
   `Cantidad` int(11) DEFAULT NULL,
   `Precio` int(11) DEFAULT NULL,
   `Fecha` datetime DEFAULT NULL,
-  `FK_usuario` int(11) DEFAULT NULL
+  `FK_usuario` int(11) DEFAULT NULL,
+  `FK_prod` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`PK_historial`, `Cantidad`, `Precio`, `Fecha`, `FK_usuario`, `FK_prod`) VALUES
+(1, 3, 100, '2019-10-08 08:15:09', 1, 1),
+(2, 6, 200, '2019-11-08 00:00:00', 1, 4),
+(3, 12, 400, '2019-12-08 08:15:09', 2, 15);
 
 -- --------------------------------------------------------
 
@@ -203,7 +214,8 @@ ALTER TABLE `articulo`
 --
 ALTER TABLE `historial`
   ADD PRIMARY KEY (`PK_historial`),
-  ADD KEY `FK_usuario` (`FK_usuario`);
+  ADD KEY `FK_usuario` (`FK_usuario`),
+  ADD KEY `FK_prod` (`FK_prod`);
 
 --
 -- Indices de la tabla `marca`
@@ -241,31 +253,37 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `articulo`
   MODIFY `Articulo_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `PK_historial` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PK_historial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
   MODIFY `Marca_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
   MODIFY `Producto_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+
 --
 -- AUTO_INCREMENT de la tabla `t_usuario`
 --
 ALTER TABLE `t_usuario`
   MODIFY `Usuario_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `Usuario_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- Restricciones para tablas volcadas
 --
@@ -274,7 +292,8 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `historial`
 --
 ALTER TABLE `historial`
-  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`FK_usuario`) REFERENCES `usuario` (`Usuario_ID`);
+  ADD CONSTRAINT `historial_ibfk_1` FOREIGN KEY (`FK_usuario`) REFERENCES `usuario` (`Usuario_ID`),
+  ADD CONSTRAINT `historial_ibfk_2` FOREIGN KEY (`FK_prod`) REFERENCES `producto` (`Producto_ID`);
 
 --
 -- Filtros para la tabla `producto`
@@ -288,6 +307,7 @@ ALTER TABLE `producto`
 --
 ALTER TABLE `usuario`
   ADD CONSTRAINT `usuario_ibfk_1` FOREIGN KEY (`Tipo_FK`) REFERENCES `t_usuario` (`Usuario_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
