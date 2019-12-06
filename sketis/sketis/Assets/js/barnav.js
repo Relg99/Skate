@@ -21,7 +21,8 @@ peticionVerificarSesion.onload = function () {
     if (respuestaVerificarSesion.tipo === 2) {
       document.getElementById("menu-personalizado").innerHTML = `
                   <a href="almacenistas.html">Almacenistas</a>
-                                    <a href="articulos.html">Articulos</a>`;                           
+                                    <a href="articulos.html">Articulos</a>
+                    <a href="consultaLog.html">Log</a>`;
       tipoCuenta = 2;
       document.getElementById("carro-opcion").innerHTML=`
                   <a href="carrito.html">
